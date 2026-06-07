@@ -192,7 +192,7 @@ export default function EntourageSection() {
             {/* ===== PARENTS OF GROOM + PARENTS OF BRIDE (2-col) ===== */}
             <div
               {...fadeUp(0.3)}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 sm:mb-6"
             >
               {/* Parents of Groom */}
               <div className="text-center sm:text-left">
@@ -224,7 +224,7 @@ export default function EntourageSection() {
             {/* ===== OFFICIATING MINISTER (center, below parents) ===== */}
             <div
               {...fadeUp(0.35)}
-              className="text-center mb-7"
+              className="text-center mb-5 sm:mb-7"
             >
               <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
                 Officiating Minister
@@ -234,10 +234,10 @@ export default function EntourageSection() {
               </p>
             </div>
 
-            {/* Gold rule */}
+            {/* Gold rule - desktop only */}
             <div
               {...fadeUp(0.35)}
-              className="flex items-center justify-center gap-2 mb-7"
+              className="hidden sm:flex items-center justify-center gap-2 mb-7"
             >
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
@@ -245,7 +245,7 @@ export default function EntourageSection() {
             {/* ===== PRINCIPAL SPONSORS (2-col) ===== */}
             <div
               {...fadeUp(0.4)}
-              className="text-center mb-7"
+              className="text-center mb-5 sm:mb-7"
             >
               <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-2xl sm:text-3xl md:text-4xl mb-4 leading-snug">
                 Principal Sponsors
@@ -267,15 +267,15 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* Gold rule */}
-            <div className="flex items-center justify-center gap-2 mb-7">
+            {/* Gold rule - desktop only */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mb-7">
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
 
             {/* ===== SECONDARY SPONSORS (3-col) ===== */}
             <div
               {...fadeUp(0.45)}
-              className="text-center mb-7"
+              className="text-center mb-5 sm:mb-7"
             >
               <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-2xl sm:text-3xl md:text-4xl mb-4 leading-snug">
                 Secondary Sponsors
@@ -296,15 +296,15 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* Gold rule */}
-            <div className="flex items-center justify-center gap-2 mb-7">
+            {/* Gold rule - desktop only */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mb-7">
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
 
             {/* ===== BEST MAN / MAID OF HONOR (2-col) ===== */}
             <div
               {...fadeUp(0.5)}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-7 max-w-lg mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 sm:mb-7 max-w-lg mx-auto"
             >
               <div className="text-center">
                 <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
@@ -324,15 +324,15 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* Gold rule */}
-            <div className="flex items-center justify-center gap-2 mb-7">
+            {/* Gold rule - desktop only */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mb-7">
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
 
             {/* ===== CANDLE / VEIL / CORD SPONSORS (3-col) ===== */}
             <div
               {...fadeUp(0.55)}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5 sm:mb-7"
             >
               <div className="text-center">
                 <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
@@ -360,15 +360,15 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* Gold rule */}
-            <div className="flex items-center justify-center gap-2 mb-7">
+            {/* Gold rule - desktop only */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mb-7">
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
 
             {/* ===== RING BEARERS / COIN BEARERS / BIBLE BEARERS (3-col) ===== */}
             <div
               {...fadeUp(0.6)}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5 sm:mb-7"
             >
               <div className="text-center">
                 <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
@@ -405,8 +405,8 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* Gold rule */}
-            <div className="flex items-center justify-center gap-2 mb-7">
+            {/* Gold rule - desktop only */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mb-7">
               <span className="block h-px w-full bg-[#caa687]/20" />
             </div>
 
