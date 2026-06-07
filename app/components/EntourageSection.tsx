@@ -143,7 +143,7 @@ function FloralSprayTop() {
 
 export default function EntourageSection() {
   return (
-    <section id="entourage" className="py-16 md:py-20 bg-[#faf6f0] flex items-center justify-center">
+    <section id="entourage" className="py-16 md:py-20 bg-gradient-to-b from-floral-cream to-floral-bg flex items-center justify-center">
       {/* Bond paper frame */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -251,7 +251,7 @@ export default function EntourageSection() {
               <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-4">
                 Principal Sponsors
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 max-w-xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 max-w-xl mx-auto">
                 {[
                   'Sponsor Name 1',
                   'Sponsor Name 2',
@@ -260,7 +260,7 @@ export default function EntourageSection() {
                 ].map((name, i) => (
                   <p
                     key={i}
-                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
+                    className="font-['Dancing_Script',cursive] text-[#253d5b] text-lg sm:text-xl font-medium"
                   >
                     {name}
                   </p>
@@ -289,7 +289,7 @@ export default function EntourageSection() {
                 ].map((name, i) => (
                   <p
                     key={i}
-                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
+                    className="font-['Dancing_Script',cursive] text-[#253d5b] text-lg sm:text-xl font-medium"
                   >
                     {name}
                   </p>
