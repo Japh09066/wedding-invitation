@@ -96,9 +96,9 @@ export default function EnvelopeLanding({
                 </motion.div>
               </div>
 
-              {/* Invitation card inside */}
+              {/* Invitation card inside — pushed down to avoid overlapping the flap */}
               <motion.div
-                className="absolute inset-0 flex items-center justify-center p-4 sm:p-6"
+                className="absolute inset-0 flex items-center justify-center px-4 pb-4 pt-10 sm:px-6 sm:pb-6 sm:pt-14"
                 animate={
                   isOpened
                     ? { y: -8, scale: 1.03, opacity: 1 }
@@ -153,13 +153,6 @@ export default function EnvelopeLanding({
             </div>
           </div>
 
-          {/* Floral decorative corners */}
-          <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-32 sm:h-48 opacity-30 pointer-events-none">
-            <FloralCorner />
-          </div>
-          <div className="absolute bottom-0 right-0 w-32 sm:w-48 h-32 sm:h-48 opacity-30 scale-x-[-1] pointer-events-none">
-            <FloralCorner />
-          </div>
         </motion.div>
       )}
     </AnimatePresence>
@@ -178,50 +171,50 @@ function InvitationCard({
 
   return (
     <motion.div
-      className="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-[#f5efe6] p-4 sm:p-6 text-center w-full max-w-[260px] sm:max-w-[280px]"
+      className="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-[#f5efe6] p-3 sm:p-6 text-center w-full max-w-[240px] sm:max-w-[280px]"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >
       {/* Top ornament */}
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span className="block h-px w-6 sm:w-8 bg-[#d4a373]/50" />
-        <span className="text-[#d4a373] text-base sm:text-lg">✦</span>
-        <span className="block h-px w-6 sm:w-8 bg-[#d4a373]/50" />
+      <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
+        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
+        <span className="text-[#d4a373] text-xs sm:text-lg">✦</span>
+        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
       </div>
 
-      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-sm sm:text-lg mb-2">
+      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-xs sm:text-lg mb-1 sm:mb-2">
         Together with their families
       </p>
 
-      <div className="flex justify-center items-center gap-1 sm:gap-2 mb-2 flex-wrap">
-        <span className="font-serif text-xl sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
+      <div className="flex justify-center items-center gap-1 mb-1 sm:mb-2 flex-wrap">
+        <span className="font-serif text-base sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
           {name1}
         </span>
-        <span className="font-['Dancing_Script',cursive] text-[#d4a373] text-xl sm:text-2xl">&amp;</span>
-        <span className="font-serif text-xl sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
+        <span className="font-['Dancing_Script',cursive] text-[#d4a373] text-base sm:text-2xl">&amp;</span>
+        <span className="font-serif text-base sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
           {name2}
         </span>
       </div>
 
-      <div className="w-12 sm:w-16 h-px bg-[#c9a88e]/30 mx-auto my-2 sm:my-3" />
+      <div className="w-10 sm:w-16 h-px bg-[#c9a88e]/30 mx-auto my-1 sm:my-3" />
 
-      <p className="font-serif text-[#c9a88e] text-xs sm:text-sm uppercase tracking-[0.3em] mb-1">
+      <p className="font-serif text-[#c9a88e] text-[10px] sm:text-sm uppercase tracking-[0.3em] mb-0.5 sm:mb-1">
         Save the Date
       </p>
-      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-2xl sm:text-3xl mb-2">
+      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-lg sm:text-3xl mb-1 sm:mb-2">
         {weddingDate}
       </p>
 
-      <p className="font-serif text-[#5a4a3a] text-xs sm:text-sm italic">
+      <p className="font-serif text-[#5a4a3a] text-[10px] sm:text-sm italic">
         We are getting married
       </p>
 
       {/* Bottom ornament */}
-      <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-        <span className="block h-px w-6 sm:w-8 bg-[#d4a373]/50" />
-        <span className="text-[#d4a373] text-base sm:text-lg">✦</span>
-        <span className="block h-px w-6 sm:w-8 bg-[#d4a373]/50" />
+      <div className="flex items-center justify-center gap-2 mt-2 sm:mt-4">
+        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
+        <span className="text-[#d4a373] text-xs sm:text-lg">✦</span>
+        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
       </div>
     </motion.div>
   );
@@ -296,22 +289,4 @@ function mountedPetals(
   ));
 }
 
-/* ─── Floral Corner Decoration ─── */
-function FloralCorner() {
-  return (
-    <svg viewBox="0 0 200 200" className="w-full h-full">
-      <path d="M0,200 Q40,150 60,100 Q80,60 100,40" fill="none" stroke="#a3c4b5" strokeWidth="2" opacity="0.6" />
-      <path d="M60,200 Q90,160 100,120 Q110,80 130,60" fill="none" stroke="#a3c4b5" strokeWidth="1.5" opacity="0.5" />
-      <ellipse cx="55" cy="140" rx="12" ry="4" transform="rotate(-40 55 140)" fill="#a3c4b5" opacity="0.5" />
-      <ellipse cx="80" cy="110" rx="10" ry="3" transform="rotate(30 80 110)" fill="#a3c4b5" opacity="0.4" />
-      <circle cx="60" cy="100" r="10" fill="#f2d5d5" opacity="0.6" />
-      <circle cx="60" cy="100" r="5" fill="#ecc8c8" opacity="0.4" />
-      <circle cx="100" cy="40" r="8" fill="#f2d5d5" opacity="0.5" />
-      <circle cx="100" cy="40" r="4" fill="#ecc8c8" opacity="0.3" />
-      <circle cx="130" cy="60" r="6" fill="#d4a373" opacity="0.4" />
-      <circle cx="140" cy="30" r="5" fill="#f2d5d5" opacity="0.3" />
-      <circle cx="35" cy="170" r="4" fill="#f2d5d5" opacity="0.4" />
-      <circle cx="35" cy="170" r="2" fill="#ecc8c8" opacity="0.3" />
-    </svg>
-  );
-}
+
