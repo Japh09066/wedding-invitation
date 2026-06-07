@@ -158,9 +158,8 @@ export default function EntourageSection() {
         <FloralCornerBL />
         <FloralCornerBR />
 
-        {/* Outer frame */}
-        <div className="border border-[#caa687]/25 p-2 sm:p-3">
-          <div className="border border-[#caa687]/15 p-6 sm:p-8 md:p-10 bg-white shadow-sm relative">
+        {/* Content container — no frame, flush with site bg */}
+        <div className="p-4 sm:p-6 md:p-8 relative">
             {/* ===== TITLE ===== */}
             <div className="text-center mb-8 md:mb-10">
               <p
@@ -248,10 +247,10 @@ export default function EntourageSection() {
               {...fadeUp(0.4)}
               className="text-center mb-7"
             >
-              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-4">
+              <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-2xl sm:text-3xl md:text-4xl mb-4 leading-snug">
                 Principal Sponsors
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 max-w-xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2 max-w-xl mx-auto">
                 {[
                   'Sponsor Name 1',
                   'Sponsor Name 2',
@@ -260,7 +259,7 @@ export default function EntourageSection() {
                 ].map((name, i) => (
                   <p
                     key={i}
-                    className="font-['Dancing_Script',cursive] text-[#253d5b] text-lg sm:text-xl font-medium"
+                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
                   >
                     {name}
                   </p>
@@ -278,7 +277,7 @@ export default function EntourageSection() {
               {...fadeUp(0.45)}
               className="text-center mb-7"
             >
-              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-4">
+              <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-2xl sm:text-3xl md:text-4xl mb-4 leading-snug">
                 Secondary Sponsors
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
@@ -289,7 +288,7 @@ export default function EntourageSection() {
                 ].map((name, i) => (
                   <p
                     key={i}
-                    className="font-['Dancing_Script',cursive] text-[#253d5b] text-lg sm:text-xl font-medium"
+                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
                   >
                     {name}
                   </p>
@@ -426,7 +425,6 @@ export default function EntourageSection() {
                 Flower Girl Name
               </p>
             </div>
-          </div>
         </div>
       </motion.div>
     </section>
