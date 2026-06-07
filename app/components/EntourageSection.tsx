@@ -2,181 +2,139 @@
 
 import { motion } from 'framer-motion';
 
-interface EntourageMember {
-  name: string;
-  role: string;
-}
-
 interface EntourageGroup {
   title: string;
-  subtitle?: string;
-  members: EntourageMember[];
+  names: string[];
 }
 
 const entourageData: EntourageGroup[] = [
   {
     title: 'Principal Sponsors',
-    members: [
-      { name: 'John Francis Ontog', role: '& Francheska Alysa Ontog' },
-      { name: 'Clifford Bulandi', role: '& Trixia Bulanadi' },
-      { name: 'Derrick Bulanadi', role: '& Kiana Bulanadi' },
+    names: [
+      'John Francis Ontog & Francheska Alysa Ontog',
+      'Clifford Bulandi & Trixia Bulanadi',
+      'Derrick Bulanadi & Kiana Bulanadi',
     ],
   },
   {
     title: 'Best Man',
-    members: [
-      { name: 'JM Bulanadi', role: 'Best Man' },
-    ],
+    names: ['JM Bulanadi'],
   },
   {
     title: 'Bridesmaids & Groomsmen',
-    members: [
-      { name: 'Amara Panganiban', role: 'Bridesmaid' },
-      { name: 'Keith Zairus Nolasco', role: 'Groomsman' },
-    ],
+    names: ['Amara Panganiban', 'Keith Zairus Nolasco'],
   },
   {
     title: 'Flower Maidens',
-    members: [
-      { name: 'Calliah Grace Aguilar', role: 'Flower Maiden' },
-      { name: 'Gia Wynna Faith Aroyo', role: 'Flower Maiden' },
-      { name: 'Haven Kyoko Cuales', role: 'Flower Maiden' },
+    names: [
+      'Calliah Grace Aguilar',
+      'Gia Wynna Faith Aroyo',
+      'Haven Kyoko Cuales',
     ],
   },
   {
     title: 'Ring Bearers',
-    members: [
-      { name: 'Jacob Zakeo Delos Santos', role: 'Ring Bearer' },
-      { name: 'Aki Cabanesas', role: 'Ring Bearer' },
-    ],
+    names: ['Jacob Zakeo Delos Santos', 'Aki Cabanesas'],
   },
   {
     title: 'Bible Bearers',
-    members: [
-      { name: 'Bible Bearers', role: '' },
-    ],
+    names: ['Bible Bearers'],
   },
   {
     title: 'Coin Bearers',
-    members: [
-      { name: 'Coin Bearers', role: '' },
-    ],
+    names: ['Coin Bearers'],
   },
   {
     title: 'Cord Sponsors',
-    members: [
-      { name: 'Cord Sponsors', role: '' },
-    ],
+    names: ['Cord Sponsors'],
   },
   {
     title: 'Candle Sponsors',
-    members: [
-      { name: 'Candle Sponsors', role: '' },
-    ],
+    names: ['Candle Sponsors'],
   },
 ];
 
-function FloralDivider() {
-  return (
-    <div className="flex items-center justify-center gap-3 my-10">
-      <span className="block h-px w-12 bg-[#caa687]/30" />
-      <svg width="20" height="20" viewBox="0 0 64 64" fill="none" className="text-[#caa687]">
-        <circle cx="32" cy="32" r="6" fill="currentColor" opacity="0.6" />
-        <circle cx="46" cy="32" r="4" fill="currentColor" opacity="0.35" />
-        <circle cx="18" cy="32" r="4" fill="currentColor" opacity="0.35" />
-      </svg>
-      <span className="block h-px w-12 bg-[#caa687]/30" />
-    </div>
-  );
-}
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
 
-function NameRow({ name, role, index }: { name: string; role: string; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.06 }}
-      className="text-center"
-    >
-      <div className="font-serif text-lg md:text-xl lg:text-2xl text-[#253d5b] leading-relaxed">
-        {name}
-        {role && (
-          <span className="text-[#caa687] font-sans text-sm md:text-base tracking-wider">
-            {' '}{role}
-          </span>
-        )}
-      </div>
-    </motion.div>
-  );
-}
-
-function GroupSection({ group, groupIndex }: { group: EntourageGroup; groupIndex: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: groupIndex * 0.1 }}
-      className="mb-10 last:mb-0"
-    >
-      <h3 className="font-['Burgues_Script',serif] text-[#caa687] text-3xl md:text-4xl text-center mb-5 leading-snug">
-        {group.title}
-      </h3>
-
-      {group.subtitle && (
-        <p className="text-[#caa687] text-center font-sans text-xs uppercase tracking-[0.2em] mb-4">
-          {group.subtitle}
-        </p>
-      )}
-
-      <div className="space-y-3">
-        {group.members.map((member, mIndex) => (
-          <NameRow
-            key={`${group.title}-${member.name}-${mIndex}`}
-            name={member.name}
-            role={member.role}
-            index={mIndex}
-          />
-        ))}
-      </div>
-    </motion.div>
-  );
-}
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
 
 export default function EntourageSection() {
   return (
-    <section id="entourage" className="section-padding bg-[#faf6f0]">
-      <div className="section-container max-w-3xl">
+    <section id="entourage" className="py-24 md:py-32 bg-[#faf6f0]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
-        <div className="text-center mb-14">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[#caa687] font-sans text-xs uppercase tracking-[0.3em] mb-4"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <p className="text-[#caa687] font-['Montserrat',sans-serif] text-xs uppercase tracking-[0.3em] mb-5">
             Our Wedding Party
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-['Burgues_Script',serif] text-5xl md:text-6xl lg:text-7xl text-[#caa687] leading-tight"
-          >
+          </p>
+          <h2 className="font-['Great_Vibes',cursive] text-5xl md:text-6xl lg:text-7xl text-[#caa687] leading-none">
             The Entourage
-          </motion.h2>
-        </div>
+          </h2>
+        </motion.div>
 
-        {/* Groups */}
-        <div className="space-y-6">
-          {entourageData.map((group, index) => (
-            <div key={group.title}>
-              <GroupSection group={group} groupIndex={index} />
-              {index < entourageData.length - 1 && <FloralDivider />}
-            </div>
+        {/* Entourage groups */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-14 md:space-y-16"
+        >
+          {entourageData.map((group, idx) => (
+            <motion.div
+              key={group.title}
+              variants={itemVariants}
+              className="text-center"
+            >
+              {/* Group title in script */}
+              <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-3xl md:text-4xl lg:text-5xl mb-6 leading-snug">
+                {group.title}
+              </h3>
+
+              {/* Names */}
+              <div className="space-y-2.5">
+                {group.names.map((name, nIdx) => (
+                  <p
+                    key={`${group.title}-${nIdx}`}
+                    className="font-['Dancing_Script',cursive] text-[#253d5b] text-xl md:text-2xl lg:text-3xl leading-relaxed"
+                  >
+                    {name}
+                  </p>
+                ))}
+              </div>
+
+              {/* Divider between groups */}
+              {idx < entourageData.length - 1 && (
+                <div className="flex items-center justify-center gap-3 mt-10">
+                  <span className="block h-px w-10 bg-[#caa687]/30" />
+                  <svg width="16" height="16" viewBox="0 0 64 64" fill="none" className="text-[#caa687]/50">
+                    <circle cx="32" cy="32" r="5" fill="currentColor" />
+                  </svg>
+                  <span className="block h-px w-10 bg-[#caa687]/30" />
+                </div>
+              )}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
