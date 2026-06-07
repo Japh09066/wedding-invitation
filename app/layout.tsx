@@ -2,31 +2,31 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cindyandkeys.vercel.app'),
-  title: 'Cindy & Keys | Wedding Invitation',
+  metadataBase: new URL('https://wedding-invitation-neon-kappa.vercel.app'),
+  title: 'Jay Sam & Laarnie | Wedding Invitation',
   description:
-    'Join us as we celebrate the beginning of our forever. Cindy & Keys — March 31, 2026.',
+    'Join us as we celebrate the beginning of our forever. Jay Sam & Laarnie — August 18, 2026.',
   openGraph: {
-    title: 'Cindy & Keys | Wedding Invitation',
+    title: 'Jay Sam & Laarnie | Wedding Invitation',
     description:
-      'Join us as we celebrate the beginning of our forever. Cindy & Keys — March 31, 2026.',
+      'Join us as we celebrate the beginning of our forever. Jay Sam & Laarnie — August 18, 2026.',
     type: 'website',
-    locale: 'en_US',
-    siteName: 'Cindy & Keys Wedding',
+    locale: 'en_PH',
+    siteName: 'Jay Sam & Laarnie Wedding',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cindy & Keys Wedding',
+        alt: 'Jay Sam & Laarnie Wedding',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cindy & Keys | Wedding Invitation',
+    title: 'Jay Sam & Laarnie | Wedding Invitation',
     description:
-      'Join us as we celebrate the beginning of our forever. Cindy & Keys — March 31, 2026.',
+      'Join us as we celebrate the beginning of our forever. Jay Sam & Laarnie — August 18, 2026.',
     images: ['/images/og-image.jpg'],
   },
   icons: {

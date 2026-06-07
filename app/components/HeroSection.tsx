@@ -11,8 +11,8 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   onRSVPClick,
-  coupleName = 'Cindy & Keys',
-  weddingDate = 'March 31, 2026',
+  coupleName = 'Jay Sam & Laarnie',
+  weddingDate = 'August 18, 2026',
 }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
 

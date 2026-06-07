@@ -250,7 +250,7 @@ export default function PhotoGallery() {
                           {img.alt}
                         </span>
                         <span className="font-sans text-xs tracking-widest text-floral-deep/40 uppercase">
-                          Cindy &amp; Keys
+                          Jay Sam &amp; Laarnie
                         </span>
                       </div>
                     </div>

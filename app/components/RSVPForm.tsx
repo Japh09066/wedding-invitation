@@ -359,7 +359,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
                   RSVP
                 </h3>
                 <p className="font-script text-lg text-floral-gold">
-                  Kindly respond by January 8, 2026
+                  Kindly respond by August 4, 2026
                 </p>
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <span className="block h-px w-8 bg-floral-gold/40" />
@@ -385,7 +385,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
           RSVP
         </h3>
         <p className="font-script text-lg text-floral-gold">
-          Kindly respond by January 8, 2026
+          Kindly respond by August 4, 2026
         </p>
         <div className="flex items-center justify-center gap-2 mt-4">
           <span className="block h-px w-8 bg-floral-gold/40" />

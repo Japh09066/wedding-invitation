@@ -8,6 +8,7 @@ import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
 import OurStory from '@/app/components/OurStory';
 import EventDetails from '@/app/components/EventDetails';
+import FAQSection from '@/app/components/FAQSection';
 import PhotoGallery from '@/app/components/PhotoGallery';
 import RSVPForm from '@/app/components/RSVPForm';
 import FloatingRSVP from '@/app/components/FloatingRSVP';
@@ -41,8 +42,8 @@ export default function HomePage() {
         {!showSite && (
           <EnvelopeLanding
             onEnter={handleEnter}
-            coupleName="Cindy & Keys"
-            weddingDate="03.31.2026"
+            coupleName="Jay Sam & Laarnie"
+            weddingDate="08.18.2026"
           />
         )}
       </AnimatePresence>
@@ -55,8 +56,8 @@ export default function HomePage() {
         {/* Hero Section */}
         <HeroSection
           onRSVPClick={handleRSVPClick}
-          coupleName="Cindy & Keys"
-          weddingDate="March 31, 2026"
+          coupleName="Jay Sam & Laarnie"
+          weddingDate="August 18, 2026"
         />
 
         {/* Countdown Timer */}
@@ -70,6 +71,9 @@ export default function HomePage() {
 
         {/* Photo Gallery */}
         <PhotoGallery />
+
+        {/* FAQ Section */}
+        <FAQSection />
 
         {/* RSVP Section */}
         <section id="rsvp" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg">
@@ -96,7 +100,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="font-sans text-floral-taupe text-sm"
             >
-              Kindly respond by January 8, 2026
+              Kindly respond by August 4, 2026
             </motion.p>
           </div>
 

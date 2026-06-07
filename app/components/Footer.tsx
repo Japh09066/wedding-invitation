@@ -30,7 +30,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="font-script text-3xl md:text-4xl text-floral-gold mb-2"
         >
-          Cindy &amp; Keys
+          Jay Sam &amp; Laarnie
         </motion.h3>
 
         <motion.p
@@ -39,7 +39,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="font-serif text-white/60 italic mb-6"
         >
-          March 31, 2026
+          August 18, 2026
         </motion.p>
 
         {/* Decorative divider */}
@@ -65,7 +65,7 @@ export default function Footer() {
           className="mt-10 pt-8 border-t border-white/10"
         >
           <p className="font-sans text-xs text-white/30 tracking-wider">
-            &copy; {new Date().getFullYear()} Cindy &amp; Keys &mdash; Made with love
+            &copy; {new Date().getFullYear()} Jay Sam &amp; Laarnie &mdash; Made with love
           </p>
         </motion.div>
       </div>

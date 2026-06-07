@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Story', target: 'story' },
   { label: 'Events', target: 'events' },
   { label: 'Gallery', target: 'gallery' },
+  { label: 'FAQs', target: 'faq' },
   { label: 'RSVP', target: 'rsvp' },
 ];
 
@@ -60,7 +61,7 @@ export default function Navigation() {
               onClick={() => handleNavClick('home')}
               className="font-script text-xl md:text-2xl text-floral-gold hover:text-floral-taupe transition-colors"
             >
-              Cindy &amp; Keys
+              Jay Sam &amp; Laarnie
             </button>
 
             {/* Desktop menu */}

@@ -25,7 +25,7 @@ const storyMilestones = [
     icon: '💍',
   },
   {
-    date: 'March 31, 2026',
+    date: 'August 18, 2026',
     title: 'The Wedding',
     description:
       'The beginning of forever. Surrounded by our loved ones, we will finally say "I do." This is the day we\'ve been dreaming of.',
