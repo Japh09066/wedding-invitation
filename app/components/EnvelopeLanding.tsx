@@ -52,7 +52,7 @@ export default function EnvelopeLanding({
               className="relative w-full max-w-[420px]"
               style={{ aspectRatio: '420 / 300' }}
             >
-              {/* Envelope base SVG — designed to look beautiful before opening */}
+              {/* Envelope base SVG — painted floral centerpiece design */}
               <svg
                 viewBox="0 0 420 300"
                 className="absolute inset-0 w-full h-full drop-shadow-xl"
@@ -60,78 +60,130 @@ export default function EnvelopeLanding({
               >
                 <defs>
                   <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f5efe6" />
-                    <stop offset="50%" stopColor="#ede3d5" />
+                    <stop offset="0%" stopColor="#f7f2eb" />
+                    <stop offset="50%" stopColor="#efe7db" />
                     <stop offset="100%" stopColor="#e8dccb" />
                   </linearGradient>
-                  {/* Ribbon gradient */}
-                  <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  {/* Watercolor blush gradient */}
+                  <radialGradient id="blushGrad">
+                    <stop offset="0%" stopColor="#f2d5d5" stopOpacity="0.6" />
+                    <stop offset="60%" stopColor="#ecc8c8" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#ecc8c8" stopOpacity="0" />
+                  </radialGradient>
+                  {/* Deep rose gradient */}
+                  <radialGradient id="roseGrad">
+                    <stop offset="0%" stopColor="#e8a0a0" />
+                    <stop offset="50%" stopColor="#df8a8a" />
+                    <stop offset="100%" stopColor="#d47777" />
+                  </radialGradient>
+                  {/* Sage leaf gradient */}
+                  <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#a3c4b5" />
+                    <stop offset="100%" stopColor="#8bb5a0" />
+                  </linearGradient>
+                  {/* Gold accent gradient */}
+                  <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#d4a373" />
                     <stop offset="50%" stopColor="#c9986a" />
                     <stop offset="100%" stopColor="#b8885a" />
                   </linearGradient>
-                  {/* Floral corner pattern */}
-                  <g id="corner-floral">
-                    <path d="M0,0 Q12,4 16,12 Q20,20 16,28" fill="none" stroke="#c9b89a" strokeWidth="1" opacity="0.5" />
-                    <circle cx="5" cy="8" r="3" fill="#f2d5d5" opacity="0.5" />
-                    <circle cx="14" cy="16" r="2.5" fill="#a3c4b5" opacity="0.4" />
-                    <circle cx="8" cy="20" r="2" fill="#f2d5d5" opacity="0.4" />
-                    <circle cx="16" cy="8" r="2" fill="#d4a373" opacity="0.3" />
-                  </g>
                 </defs>
 
                 {/* Body */}
                 <rect x="20" y="40" width="380" height="240" rx="4" fill="url(#envGrad)" stroke="#d4c9b5" strokeWidth="1" />
 
-                {/* Decorative double-border */}
-                <rect x="28" y="48" width="364" height="224" rx="3" fill="none" stroke="#c9b89a" strokeWidth="0.5" strokeDasharray="4,4" opacity="0.5" />
+                {/* Subtle watercolor wash behind the floral */}
+                <ellipse cx="210" cy="170" rx="70" ry="55" fill="url(#blushGrad)" />
 
-                {/* Floral corner accents */}
-                <use href="#corner-floral" x="24" y="44" />
-                <use href="#corner-floral" x="388" y="44" transform="scale(-1,1) translate(-776,0)" />
-                <use href="#corner-floral" x="24" y="276" transform="scale(1,-1) translate(0,-552)" />
-                <use href="#corner-floral" x="388" y="276" transform="scale(-1,-1) translate(-776,-552)" />
+                {/* ─── PAINTED FLORAL CENTERPIECE ─── */}
 
-                {/* Vertical ribbon band */}
-                <rect x="202" y="40" width="16" height="240" fill="url(#ribbonGrad)" opacity="0.85" />
+                {/* Stems */}
+                <path d="M210,210 Q200,180 190,155" fill="none" stroke="#8bb5a0" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
+                <path d="M210,210 Q225,175 235,150" fill="none" stroke="#8bb5a0" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+                <path d="M210,210 Q190,185 170,170" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+                <path d="M210,210 Q230,190 250,175" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
 
-                {/* Horizontal ribbon band */}
-                <rect x="20" y="148" width="380" height="16" fill="url(#ribbonGrad)" opacity="0.85" />
-
-                {/* Ribbon highlight lines */}
-                <line x1="204" y1="40" x2="204" y2="280" stroke="#f5efe6" strokeWidth="0.5" opacity="0.4" />
-                <line x1="22" y1="150" x2="398" y2="150" stroke="#f5efe6" strokeWidth="0.5" opacity="0.4" />
-
-                {/* Ribbon bow at center intersection */}
-                <g transform="translate(210, 156)">
-                  {/* Left loop */}
-                  <ellipse cx="-10" cy="0" rx="12" ry="8" fill="#c9986a" opacity="0.9" transform="rotate(-20)" />
-                  <ellipse cx="-10" cy="0" rx="8" ry="5" fill="#d4a373" opacity="0.7" transform="rotate(-20)" />
-                  {/* Right loop */}
-                  <ellipse cx="10" cy="0" rx="12" ry="8" fill="#c9986a" opacity="0.9" transform="rotate(20)" />
-                  <ellipse cx="10" cy="0" rx="8" ry="5" fill="#d4a373" opacity="0.7" transform="rotate(20)" />
-                  {/* Tail left */}
-                  <path d="M-4,4 Q-16,18 -20,24" fill="none" stroke="#b8885a" strokeWidth="2" opacity="0.8" />
-                  <path d="M-18,22 L-22,30 L-14,26Z" fill="#b8885a" opacity="0.7" />
-                  {/* Tail right */}
-                  <path d="M4,4 Q16,18 20,24" fill="none" stroke="#b8885a" strokeWidth="2" opacity="0.8" />
-                  <path d="M18,22 L22,30 L14,26Z" fill="#b8885a" opacity="0.7" />
-                  {/* Center knot */}
-                  <ellipse cx="0" cy="0" rx="4" ry="5" fill="#b8885a" />
-                  <ellipse cx="0" cy="0" rx="2" ry="3" fill="#c9986a" />
+                {/* Leaves */}
+                <g opacity="0.8">
+                  <path d="M195,180 Q185,168 175,172 Q180,180 195,180Z" fill="url(#leafGrad)" />
+                  <path d="M195,180 L175,172" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
+                  <path d="M220,175 Q230,162 240,167 Q235,178 220,175Z" fill="url(#leafGrad)" />
+                  <path d="M220,175 L240,167" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
+                  <path d="M200,190 Q188,185 178,192 Q185,198 200,190Z" fill="url(#leafGrad)" opacity="0.7" />
+                  <path d="M218,192 Q230,186 240,194 Q234,200 218,192Z" fill="url(#leafGrad)" opacity="0.7" />
                 </g>
 
-                {/* Monogram initials at upper portion */}
+                {/* Small accent flowers (baby's breath / filler) */}
+                <circle cx="170" cy="165" r="3" fill="#f7f0f0" opacity="0.8" />
+                <circle cx="170" cy="165" r="1.5" fill="#f2d5d5" />
+                <circle cx="248" cy="170" r="3" fill="#f7f0f0" opacity="0.8" />
+                <circle cx="248" cy="170" r="1.5" fill="#f2d5d5" />
+                <circle cx="178" cy="148" r="2.5" fill="#f7f0f0" opacity="0.7" />
+                <circle cx="178" cy="148" r="1.2" fill="#f2d5d5" />
+                <circle cx="240" cy="148" r="2.5" fill="#f7f0f0" opacity="0.7" />
+                <circle cx="240" cy="148" r="1.2" fill="#f2d5d5" />
+                <circle cx="160" cy="175" r="2" fill="#f7f0f0" opacity="0.6" />
+                <circle cx="160" cy="175" r="1" fill="#f2d5d5" />
+                <circle cx="255" cy="178" r="2" fill="#f7f0f0" opacity="0.6" />
+                <circle cx="255" cy="178" r="1" fill="#f2d5d5" />
+
+                {/* Main rose — outer petals */}
+                <g>
+                  {/* Outermost petals */}
+                  <ellipse cx="215" cy="160" rx="16" ry="12" fill="#ecc8c8" opacity="0.6" transform="rotate(15 215 160)" />
+                  <ellipse cx="198" cy="158" rx="14" ry="10" fill="#ecc8c8" opacity="0.5" transform="rotate(-25 198 158)" />
+                  <ellipse cx="210" cy="172" rx="14" ry="10" fill="#ecc8c8" opacity="0.5" transform="rotate(40 210 172)" />
+                  <ellipse cx="200" cy="168" rx="12" ry="9" fill="#f0c8c8" opacity="0.5" transform="rotate(-10 200 168)" />
+                  <ellipse cx="222" cy="168" rx="12" ry="9" fill="#f0c8c8" opacity="0.5" transform="rotate(30 222 168)" />
+
+                  {/* Inner petals */}
+                  <ellipse cx="212" cy="162" rx="11" ry="8" fill="#e8a0a0" opacity="0.7" transform="rotate(10 212 162)" />
+                  <ellipse cx="203" cy="160" rx="10" ry="7" fill="#df8a8a" opacity="0.65" transform="rotate(-15 203 160)" />
+                  <ellipse cx="210" cy="168" rx="10" ry="7" fill="#df8a8a" opacity="0.65" transform="rotate(25 210 168)" />
+                  <ellipse cx="205" cy="165" rx="8" ry="6" fill="url(#roseGrad)" opacity="0.8" transform="rotate(-5 205 165)" />
+
+                  {/* Center */}
+                  <ellipse cx="209" cy="163" rx="5" ry="4" fill="#d47777" opacity="0.9" />
+                  <ellipse cx="209" cy="163" rx="2.5" ry="2" fill="#c96565" />
+                </g>
+
+                {/* Second smaller rose/bud */}
+                <g opacity="0.7">
+                  <ellipse cx="234" cy="160" rx="10" ry="7" fill="#f0c8c8" transform="rotate(-20 234 160)" />
+                  <ellipse cx="233" cy="158" rx="7" ry="5" fill="#e8a0a0" transform="rotate(-10 233 158)" />
+                  <ellipse cx="234" cy="160" rx="4" ry="3" fill="#d47777" />
+                </g>
+
+                {/* Third bud */}
+                <g opacity="0.6">
+                  <ellipse cx="187" cy="155" rx="8" ry="6" fill="#f0c8c8" transform="rotate(15 187 155)" />
+                  <ellipse cx="186" cy="154" rx="5" ry="4" fill="#e8a0a0" transform="rotate(5 186 154)" />
+                  <ellipse cx="186" cy="155" rx="3" ry="2" fill="#d47777" />
+                </g>
+
+                {/* Tiny eucalyptus/sprig accents */}
+                <ellipse cx="168" cy="178" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-30 168 178)" />
+                <ellipse cx="172" cy="174" rx="5" ry="2" fill="#a3c4b5" opacity="0.4" transform="rotate(-45 172 174)" />
+                <ellipse cx="248" cy="178" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.5" transform="rotate(25 248 178)" />
+                <ellipse cx="245" cy="174" rx="5" ry="2" fill="#a3c4b5" opacity="0.4" transform="rotate(40 245 174)" />
+
+                {/* Gold accent lines / artistic flourish */}
+                <path d="M145,145 Q155,140 160,148" fill="none" stroke="#d4a373" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+                <path d="M258,148 Q265,142 270,150" fill="none" stroke="#d4a373" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+                <path d="M150,185 Q158,192 165,188" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+                <path d="M260,188 Q268,194 275,190" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+
+                {/* Monogram in gold script */}
                 <text
-                  x="210" y="95"
+                  x="210" y="225"
                   textAnchor="middle"
                   fontFamily="'Dancing Script',cursive"
-                  fontSize="18"
-                  fill="#c9986a"
+                  fontSize="16"
+                  fill="url(#goldAccent)"
                   opacity="0.7"
                 >J &amp; L</text>
 
-                {/* Bottom triangles (flap underside) */}
+                {/* Bottom triangles (flap underside) — drawn AFTER the body decorations so they show correctly */}
                 <polygon points="20,280 210,200 400,280" fill="#ede3d5" stroke="#d4c9b5" strokeWidth="1" />
                 <polygon points="20,280 20,40 210,120" fill="#f5efe6" stroke="#d4c9b5" strokeWidth="0.5" />
                 <polygon points="400,280 400,40 210,120" fill="#f2ebe0" stroke="#d4c9b5" strokeWidth="0.5" />
@@ -160,24 +212,24 @@ export default function EnvelopeLanding({
                         <stop offset="0%" stopColor="#f2ebe0" />
                         <stop offset="100%" stopColor="#f5efe6" />
                       </linearGradient>
-                      <linearGradient id="flapRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#d4a373" />
-                        <stop offset="50%" stopColor="#c9986a" />
-                        <stop offset="100%" stopColor="#b8885a" />
-                      </linearGradient>
                     </defs>
-                    {/* Flap triangle */}
+                    {/* Flap triangle with subtle gradient */}
                     <polygon points="20,40 210,120 400,40" fill="url(#flapGrad)" stroke="#d4c9b5" strokeWidth="1" />
-                    {/* Subtle border line inside flap */}
-                    <polygon points="30,48 210,112 390,48" fill="none" stroke="#c9b89a" strokeWidth="0.5" strokeDasharray="3,3" opacity="0.4" />
-                    {/* Ribbon continuation on flap */}
-                    <rect x="202" y="40" width="16" height="84" fill="url(#flapRibbon)" opacity="0.85" />
-                    <line x1="204" y1="40" x2="204" y2="124" stroke="#f5efe6" strokeWidth="0.5" opacity="0.4" />
-                    {/* Tiny floral accent on flap */}
-                    <circle cx="210" cy="70" r="4" fill="#f2d5d5" opacity="0.5" />
-                    <circle cx="210" cy="70" r="2" fill="#ecc8c8" opacity="0.4" />
+                    {/* Delicate inner border */}
+                    <polygon points="30,48 210,112 390,48" fill="none" stroke="#c9b89a" strokeWidth="0.5" strokeDasharray="3,3" opacity="0.35" />
+                    {/* Small floral spray on flap */}
+                    <g opacity="0.4">
+                      <path d="M195,65 Q200,55 210,58" fill="none" stroke="#a3c4b5" strokeWidth="1" strokeLinecap="round" />
+                      <ellipse cx="195" cy="65" rx="5" ry="2.5" fill="#a3c4b5" transform="rotate(-20 195 65)" />
+                      <circle cx="210" cy="56" r="3" fill="#f2d5d5" />
+                      <circle cx="210" cy="56" r="1.5" fill="#ecc8c8" />
+                      <circle cx="215" cy="60" r="2.5" fill="#f0c8c8" />
+                      <circle cx="215" cy="60" r="1.2" fill="#e8a0a0" />
+                      <circle cx="220" cy="64" r="2" fill="#f2d5d5" />
+                      <circle cx="220" cy="64" r="1" fill="#ecc8c8" />
+                    </g>
                     {/* Fold line detail */}
-                    <path d="M20,40 L210,120 L400,40" fill="none" stroke="#c9b89a" strokeWidth="0.5" opacity={isOpened ? 0 : 0.5} />
+                    <path d="M20,40 L210,120 L400,40" fill="none" stroke="#c9b89a" strokeWidth="0.5" opacity={isOpened ? 0 : 0.4} />
                   </svg>
                 </motion.div>
               </div>
