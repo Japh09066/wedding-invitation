@@ -24,8 +24,9 @@ export default function EnvelopeLanding({
 
   const handleOpen = useCallback(() => {
     setIsOpened(true);
-    setTimeout(() => setShowInvitation(true), 1200);
-    setTimeout(() => onEnter(), 3500);
+    // Let the card be visible for ~3.5s before transitioning
+    setTimeout(() => setShowInvitation(true), 4500);
+    setTimeout(() => onEnter(), 5300);
   }, [onEnter]);
 
   return (
