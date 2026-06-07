@@ -75,8 +75,8 @@ export function getWeddingDate(): Date {
     const d = new Date(envDate);
     if (!isNaN(d.getTime())) return d;
   }
-  // Fallback — March 31, 2026, 2:00 PM PHT
-  return new Date('2026-03-31T14:00:00+08:00');
+  // Fallback — August 18, 2026, 9:00 AM PHT
+  return new Date('2026-08-18T09:00:00+08:00');
 }
 
 /**

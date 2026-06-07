@@ -6,7 +6,6 @@ import EnvelopeLanding from '@/app/components/EnvelopeLanding';
 import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
-import OurStory from '@/app/components/OurStory';
 import EventDetails from '@/app/components/EventDetails';
 import FAQSection from '@/app/components/FAQSection';
 import PhotoGallery from '@/app/components/PhotoGallery';
@@ -63,17 +62,14 @@ export default function HomePage() {
         {/* Countdown Timer */}
         <CountdownTimer />
 
-        {/* Our Story */}
-        <OurStory />
-
         {/* Event Details */}
         <EventDetails onRSVPClick={handleRSVPClick} />
 
-        {/* Photo Gallery */}
-        <PhotoGallery />
-
         {/* FAQ Section */}
         <FAQSection />
+
+        {/* Photo Gallery */}
+        <PhotoGallery />
 
         {/* RSVP Section */}
         <section id="rsvp" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg">
