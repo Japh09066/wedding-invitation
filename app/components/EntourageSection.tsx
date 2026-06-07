@@ -425,6 +425,59 @@ export default function EntourageSection() {
                 Flower Girl Name
               </p>
             </div>
+
+            {/* ===== WEDDING DETAILS ===== */}
+            <div className="mt-10 pt-8 border-t border-[#caa687]/20">
+              <div
+                {...fadeUp(0.7)}
+                className="text-center mb-8"
+              >
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.25em] font-medium mb-3">
+                  Wedding Details
+                </h3>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="block h-px w-12 bg-[#caa687]/30" />
+                  <svg width="10" height="10" viewBox="0 0 64 64" fill="none" className="text-[#caa687]/40">
+                    <circle cx="32" cy="32" r="4" fill="currentColor" />
+                  </svg>
+                  <span className="block h-px w-12 bg-[#caa687]/30" />
+                </div>
+              </div>
+
+              {/* Date */}
+              <div {...fadeUp(0.75)} className="text-center mb-6">
+                <p className="font-['Playfair_Display',serif] italic text-[#253d5b] text-2xl sm:text-3xl">
+                  August 18, 2026
+                </p>
+              </div>
+
+              {/* Schedule */}
+              <div {...fadeUp(0.8)} className="max-w-sm mx-auto space-y-4 mb-6">
+                {[
+                  { time: '9:00 AM', event: 'Wedding Ceremony' },
+                  { time: '12:00 NN', event: 'Reception' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center justify-between border-b border-[#caa687]/10 pb-2">
+                    <span className="font-['Inter',sans-serif] text-[#caa687] text-sm font-light tracking-wide">
+                      {item.time}
+                    </span>
+                    <span className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                      {item.event}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Venue */}
+              <div {...fadeUp(0.85)} className="text-center">
+                <p className="font-['Playfair_Display',serif] italic text-[#253d5b] text-base sm:text-lg mb-1">
+                  Nava Seventh-Day Adventist Church
+                </p>
+                <p className="font-['Inter',sans-serif] text-[#caa687] text-xs font-light tracking-wide">
+                  Nava, San Andres, Catanduanes
+                </p>
+              </div>
+            </div>
         </div>
       </motion.div>
     </section>
