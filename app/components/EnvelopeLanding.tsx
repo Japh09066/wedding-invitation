@@ -185,6 +185,7 @@ export default function EnvelopeLanding({
               {/* Invitation card inside — pushed down to avoid overlapping the flap */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center px-4 pb-4 pt-10 sm:px-6 sm:pb-6 sm:pt-14"
+                initial={{ opacity: 0, scale: 0.3, y: 10 }}
                 animate={
                   isOpened
                     ? { y: -15, scale: 1.05, opacity: 1 }
