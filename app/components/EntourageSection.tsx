@@ -2,258 +2,283 @@
 
 import { motion } from 'framer-motion';
 
-interface EntourageGroup {
-  title: string;
-  names: string[];
-}
-
-const entourageData: EntourageGroup[] = [
-  {
-    title: 'Principal Sponsors',
-    names: [
-      'John Francis Ontog & Francheska Alysa Ontog',
-      'Clifford Bulandi & Trixia Bulanadi',
-      'Derrick Bulanadi & Kiana Bulanadi',
-    ],
-  },
-  {
-    title: 'Best Man',
-    names: ['JM Bulanadi'],
-  },
-  {
-    title: 'Bridesmaids & Groomsmen',
-    names: ['Amara Panganiban', 'Keith Zairus Nolasco'],
-  },
-  {
-    title: 'Flower Maidens',
-    names: [
-      'Calliah Grace Aguilar',
-      'Gia Wynna Faith Aroyo',
-      'Haven Kyoko Cuales',
-    ],
-  },
-  {
-    title: 'Ring Bearers',
-    names: ['Jacob Zakeo Delos Santos', 'Aki Cabanesas'],
-  },
-  {
-    title: 'Bible Bearers',
-    names: ['Bible Bearers'],
-  },
-  {
-    title: 'Coin Bearers',
-    names: ['Coin Bearers'],
-  },
-  {
-    title: 'Cord Sponsors',
-    names: ['Cord Sponsors'],
-  },
-  {
-    title: 'Candle Sponsors',
-    names: ['Candle Sponsors'],
-  },
-];
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.5 },
-  }),
-};
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 12 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { delay, duration: 0.6, ease: 'easeOut' },
+});
 
 export default function EntourageSection() {
   return (
     <section id="entourage" className="py-16 md:py-20 bg-[#faf6f0] flex items-center justify-center">
-      {/* The paper frame */}
+      {/* Bond paper frame */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative w-full max-w-[900px] mx-4 md:mx-6"
+        className="relative w-full max-w-[820px] mx-4 sm:mx-6"
       >
-        {/* Decorative outer border */}
-        <div className="border-2 border-[#caa687]/30 rounded-sm p-2 sm:p-3">
-          <div className="border border-[#caa687]/20 rounded-sm p-4 sm:p-6 md:p-8 bg-white shadow-lg shadow-[#caa687]/5">
-            {/* Top-left corner flourish */}
-            <div className="absolute top-3 left-3 sm:top-5 sm:left-5 w-12 h-12 sm:w-16 sm:h-16 border-l-2 border-t-2 border-[#caa687]/40 rounded-tl-sm" />
-
-            {/* Top-right corner flourish */}
-            <div className="absolute top-3 right-3 sm:top-5 sm:right-5 w-12 h-12 sm:w-16 sm:h-16 border-r-2 border-t-2 border-[#caa687]/40 rounded-tr-sm" />
-
-            {/* Bottom-left corner flourish */}
-            <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 w-12 h-12 sm:w-16 sm:h-16 border-l-2 border-b-2 border-[#caa687]/40 rounded-bl-sm" />
-
-            {/* Bottom-right corner flourish */}
-            <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 w-12 h-12 sm:w-16 sm:h-16 border-r-2 border-b-2 border-[#caa687]/40 rounded-br-sm" />
-
-            {/* Inner content */}
-            <div className="relative">
-              {/* Section heading */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="text-center mb-8 md:mb-10"
+        {/* Outer frame */}
+        <div className="border border-[#caa687]/25 p-2 sm:p-3">
+          <div className="border border-[#caa687]/15 p-6 sm:p-8 md:p-10 bg-white shadow-sm">
+            {/* ===== TITLE ===== */}
+            <div className="text-center mb-8 md:mb-10">
+              <p
+                {...fadeUp(0.1)}
+                className="font-['Inter',sans-serif] text-[#caa687] text-[10px] sm:text-xs uppercase tracking-[0.3em] font-light"
               >
-                <p className="text-[#caa687] font-['Montserrat',sans-serif] text-[10px] sm:text-xs uppercase tracking-[0.25em] mb-3">
-                  Our Wedding Party
+                Our Wedding Party
+              </p>
+              <h2
+                {...fadeUp(0.2)}
+                className="font-['Playfair_Display',serif] text-[#253d5b] text-3xl sm:text-4xl md:text-5xl font-light italic mt-2"
+              >
+                The Entourage
+              </h2>
+              <div
+                {...fadeUp(0.25)}
+                className="flex items-center justify-center gap-2 mt-4"
+              >
+                <span className="block h-px w-16 bg-[#caa687]/30" />
+                <span className="block w-1.5 h-1.5 rounded-full bg-[#caa687]/30" />
+                <span className="block h-px w-16 bg-[#caa687]/30" />
+              </div>
+            </div>
+
+            {/* ===== PARENTS + OFFICIATING MINISTER (3-col) ===== */}
+            <div
+              {...fadeUp(0.3)}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+            >
+              {/* Parents of Groom */}
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
+                  Parents of the Groom
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light leading-relaxed">
+                  Father of the Groom
                 </p>
-                <h2 className="font-['Great_Vibes',cursive] text-4xl sm:text-5xl md:text-6xl text-[#caa687] leading-none mb-3">
-                  The Entourage
-                </h2>
-                {/* Gold rule under title */}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="block h-px w-12 bg-[#caa687]/40" />
-                  <svg width="12" height="12" viewBox="0 0 64 64" fill="none" className="text-[#caa687]/40">
-                    <circle cx="32" cy="32" r="4" fill="currentColor" />
-                  </svg>
-                  <span className="block h-px w-12 bg-[#caa687]/40" />
-                </div>
-              </motion.div>
-
-              {/* Two-column layout for compact fit */}
-              <div className="grid md:grid-cols-2 gap-x-10 gap-y-6 md:gap-y-7">
-                {/* LEFT COLUMN */}
-                <div className="space-y-6">
-                  {/* Principal Sponsors */}
-                  <motion.div
-                    custom={0}
-                    variants={itemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-xl sm:text-2xl md:text-3xl mb-2.5 leading-snug">
-                      Principal Sponsors
-                    </h3>
-                    <div className="space-y-1.5">
-                      {entourageData[0].names.map((name, i) => (
-                        <p key={i} className="font-['Dancing_Script',cursive] text-[#253d5b] text-base sm:text-lg md:text-xl leading-relaxed">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Best Man */}
-                  <motion.div
-                    custom={1}
-                    variants={itemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-xl sm:text-2xl md:text-3xl mb-2 leading-snug">
-                      Best Man
-                    </h3>
-                    <p className="font-['Dancing_Script',cursive] text-[#253d5b] text-base sm:text-lg md:text-xl">
-                      JM Bulanadi
-                    </p>
-                  </motion.div>
-
-                  {/* Bridesmaids & Groomsmen */}
-                  <motion.div
-                    custom={2}
-                    variants={itemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-xl sm:text-2xl md:text-3xl mb-2.5 leading-snug">
-                      Bridesmaids &amp; Groomsmen
-                    </h3>
-                    <div className="space-y-1.5">
-                      {entourageData[2].names.map((name, i) => (
-                        <p key={i} className="font-['Dancing_Script',cursive] text-[#253d5b] text-base sm:text-lg md:text-xl leading-relaxed">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* RIGHT COLUMN */}
-                <div className="space-y-6">
-                  {/* Flower Maidens */}
-                  <motion.div
-                    custom={3}
-                    variants={itemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-xl sm:text-2xl md:text-3xl mb-2.5 leading-snug">
-                      Flower Maidens
-                    </h3>
-                    <div className="space-y-1.5">
-                      {entourageData[3].names.map((name, i) => (
-                        <p key={i} className="font-['Dancing_Script',cursive] text-[#253d5b] text-base sm:text-lg md:text-xl leading-relaxed">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Ring Bearers */}
-                  <motion.div
-                    custom={4}
-                    variants={itemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-xl sm:text-2xl md:text-3xl mb-2.5 leading-snug">
-                      Ring Bearers
-                    </h3>
-                    <div className="space-y-1.5">
-                      {entourageData[4].names.map((name, i) => (
-                        <p key={i} className="font-['Dancing_Script',cursive] text-[#253d5b] text-base sm:text-lg md:text-xl leading-relaxed">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light leading-relaxed">
+                  Mother of the Groom
+                </p>
               </div>
 
-              {/* Bottom row: secondary sponsors */}
-              <motion.div
-                custom={5}
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="mt-6 md:mt-7 pt-6 md:pt-7 border-t border-[#caa687]/20"
-              >
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                  {[
-                    { title: 'Bible Bearers', names: ['Bible Bearers'] },
-                    { title: 'Coin Bearers', names: ['Coin Bearers'] },
-                    { title: 'Cord Sponsors', names: ['Cord Sponsors'] },
-                    { title: 'Candle Sponsors', names: ['Candle Sponsors'] },
-                  ].map((group) => (
-                    <div key={group.title} className="text-center">
-                      <h3 className="font-['Great_Vibes',cursive] text-[#caa687] text-lg md:text-xl mb-1.5 leading-snug">
-                        {group.title}
-                      </h3>
-                      {group.names.map((name, i) => (
-                        <p key={i} className="font-['Dancing_Script',cursive] text-[#253d5b] text-sm sm:text-base md:text-lg">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+              {/* Officiating Minister */}
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
+                  Officiating Minister
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Officiating Minister Name
+                </p>
+              </div>
+
+              {/* Parents of Bride */}
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
+                  Parents of the Bride
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light leading-relaxed">
+                  Father of the Bride
+                </p>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light leading-relaxed">
+                  Mother of the Bride
+                </p>
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div
+              {...fadeUp(0.35)}
+              className="flex items-center justify-center gap-2 mb-7"
+            >
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== PRINCIPAL SPONSORS (2-col) ===== */}
+            <div
+              {...fadeUp(0.4)}
+              className="text-center mb-7"
+            >
+              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-4">
+                Principal Sponsors
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 max-w-xl mx-auto">
+                {[
+                  'Sponsor Name 1',
+                  'Sponsor Name 2',
+                  'Sponsor Name 3',
+                  'Sponsor Name 4',
+                ].map((name, i) => (
+                  <p
+                    key={i}
+                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
+                  >
+                    {name}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div className="flex items-center justify-center gap-2 mb-7">
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== SECONDARY SPONSORS (3-col) ===== */}
+            <div
+              {...fadeUp(0.45)}
+              className="text-center mb-7"
+            >
+              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-4">
+                Secondary Sponsors
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                {[
+                  'Sponsor Name 1',
+                  'Sponsor Name 2',
+                  'Sponsor Name 3',
+                ].map((name, i) => (
+                  <p
+                    key={i}
+                    className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light"
+                  >
+                    {name}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div className="flex items-center justify-center gap-2 mb-7">
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== BEST MAN / MAID OF HONOR (2-col) ===== */}
+            <div
+              {...fadeUp(0.5)}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-7 max-w-lg mx-auto"
+            >
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Best Man
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Best Man Name
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Maid of Honor
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Maid of Honor Name
+                </p>
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div className="flex items-center justify-center gap-2 mb-7">
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== CANDLE / VEIL / CORD SPONSORS (3-col) ===== */}
+            <div
+              {...fadeUp(0.55)}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+            >
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Candle Sponsors
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Sponsor Name
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Veil Sponsors
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Sponsor Name
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Cord Sponsors
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Sponsor Name
+                </p>
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div className="flex items-center justify-center gap-2 mb-7">
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== RING BEARERS / COIN BEARERS / BIBLE BEARERS (3-col) ===== */}
+            <div
+              {...fadeUp(0.6)}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+            >
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Ring Bearers
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Coin Bearers
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                  Bible Bearers
+                </h3>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                  Bearer Name
+                </p>
+              </div>
+            </div>
+
+            {/* Gold rule */}
+            <div className="flex items-center justify-center gap-2 mb-7">
+              <span className="block h-px w-full bg-[#caa687]/20" />
+            </div>
+
+            {/* ===== FLOWER GIRLS / FLOWER BOYS (centered) ===== */}
+            <div
+              {...fadeUp(0.65)}
+              className="text-center"
+            >
+              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
+                Flower Girls
+              </h3>
+              <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light mb-1">
+                Flower Girl Name
+              </p>
+              <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light mb-1">
+                Flower Girl Name
+              </p>
             </div>
           </div>
         </div>
