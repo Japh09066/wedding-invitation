@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --color-floral-bg: #faf6f0;
+    --color-floral-cream: #f5efe6;
+    --color-floral-blush: #f2d5d5;
+    --color-floral-sage: #a3c4b5;
+    --color-floral-taupe: #c9a88e;
+    --color-floral-gold: #d4a373;
+    --color-floral-deep: #5a4a3a;
+  }
+
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-floral-bg text-floral-deep font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-floral-blush/60 text-floral-deep;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-floral-cream;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-floral-taupe/40 rounded-full hover:bg-floral-taupe/60;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl text-center text-floral-deep mb-4;
+  }
+
+  .section-subtitle {
+    @apply font-script text-xl md:text-2xl text-floral-gold text-center mb-12;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .divider-floral {
+    @apply flex items-center justify-center gap-4 my-12;
+  }
+
+  .divider-floral::before,
+  .divider-floral::after {
+    content: '';
+    @apply block h-px w-16 md:w-24 bg-floral-taupe/30;
+  }
+
+  .floral-icon {
+    @apply text-floral-gold text-2xl;
+  }
+
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-floral-taupe/10 border border-floral-cream p-6 md:p-8;
+  }
+
+  /* Floating petals animation container */
+  .petals-container {
+    @apply fixed inset-0 pointer-events-none overflow-hidden z-0;
+  }
+}
+
+/* Framer motion overrides */
+.envelope-perspective {
+  perspective: 1200px;
+}
+
+/* Smooth image reveal */
+.image-reveal {
+  clip-path: inset(0);
+  transition: clip-path 0.6s ease;
+}
+
+/* RSVP form styles */
+.rsvp-input {
+  @apply w-full px-4 py-3 bg-white border border-floral-taupe/30 rounded-xl
+         text-floral-deep placeholder-floral-taupe/50
+         focus:outline-none focus:ring-2 focus:ring-floral-gold/30 focus:border-floral-gold/50
+         transition-all duration-300;
+}
+
+.rsvp-input-error {
+  @apply border-rose-400 focus:ring-rose-300/30 focus:border-rose-400;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+/* Gradient text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-floral-gold via-floral-taupe to-floral-gold;
+}
