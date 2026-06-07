@@ -7,6 +7,7 @@ import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
 import EventDetails from '@/app/components/EventDetails';
+import EntourageSection from '@/app/components/EntourageSection';
 import FAQSection from '@/app/components/FAQSection';
 import PhotoGallery from '@/app/components/PhotoGallery';
 import RSVPForm from '@/app/components/RSVPForm';
@@ -64,6 +65,9 @@ export default function HomePage() {
 
         {/* Event Details */}
         <EventDetails onRSVPClick={handleRSVPClick} />
+
+        {/* Entourage / Wedding Party */}
+        <EntourageSection />
 
         {/* FAQ Section */}
         <FAQSection />
