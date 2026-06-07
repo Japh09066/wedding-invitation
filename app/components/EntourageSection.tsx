@@ -47,13 +47,13 @@ export default function EntourageSection() {
               </div>
             </div>
 
-            {/* ===== PARENTS + OFFICIATING MINISTER (3-col) ===== */}
+            {/* ===== PARENTS OF GROOM + PARENTS OF BRIDE (2-col) ===== */}
             <div
               {...fadeUp(0.3)}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6"
             >
               {/* Parents of Groom */}
-              <div className="text-center">
+              <div className="text-center sm:text-left">
                 <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
                   Parents of the Groom
                 </h3>
@@ -65,18 +65,8 @@ export default function EntourageSection() {
                 </p>
               </div>
 
-              {/* Officiating Minister */}
-              <div className="text-center">
-                <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
-                  Officiating Minister
-                </h3>
-                <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
-                  Officiating Minister Name
-                </p>
-              </div>
-
               {/* Parents of Bride */}
-              <div className="text-center">
+              <div className="text-center sm:text-right">
                 <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-3">
                   Parents of the Bride
                 </h3>
@@ -87,6 +77,19 @@ export default function EntourageSection() {
                   Mother of the Bride
                 </p>
               </div>
+            </div>
+
+            {/* ===== OFFICIATING MINISTER (center, below parents) ===== */}
+            <div
+              {...fadeUp(0.35)}
+              className="text-center mb-7"
+            >
+              <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-sm uppercase tracking-[0.2em] font-medium mb-2">
+                Officiating Minister
+              </h3>
+              <p className="font-['Inter',sans-serif] text-[#253d5b] text-sm font-light">
+                Officiating Minister Name
+              </p>
             </div>
 
             {/* Gold rule */}
