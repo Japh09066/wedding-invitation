@@ -45,9 +45,9 @@ export default function EnvelopeLanding({
           <FloatingPetals count={8} />
 
           {/* Envelope container */}
-          <div className="envelope-perspective relative">
+          <div className="envelope-perspective relative flex flex-col items-center">
             {/* Back envelope body */}
-            <div className="relative" style={{ width: 420, height: 300 }}>
+            <div className="relative w-[min(420px,85vw)]" style={{ height: 'clamp(200px, 60vw, 300px)' }}>
               {/* Envelope base - visible always */}
               <svg
                 viewBox="0 0 420 300"
@@ -144,34 +144,34 @@ export default function EnvelopeLanding({
                 </svg>
               </motion.div>
             </div>
-
-            {/* Open Invitation button */}
-            {!isOpened && (
-              <motion.button
-                onClick={handleOpen}
-                className="absolute -bottom-20 left-1/2 -translate-x-1/2 px-8 py-3 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-serif text-lg tracking-wider shadow-lg hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Open Invitation
-              </motion.button>
-            )}
-
-            {/* Loading/opening text */}
-            {isOpened && !showInvitation && (
-              <motion.p
-                className="absolute -bottom-20 left-1/2 -translate-x-1/2 text-floral-taupe font-serif text-lg italic"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                You are cordially invited...
-              </motion.p>
-            )}
           </div>
+
+          {/* Open Invitation button — positioned at viewport bottom */}
+          {!isOpened && (
+            <motion.button
+              onClick={handleOpen}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 px-8 py-3 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-serif text-lg tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation z-20 select-none"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Open Invitation
+            </motion.button>
+          )}
+
+          {/* Loading/opening text */}
+          {isOpened && !showInvitation && (
+            <motion.p
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 text-floral-taupe font-serif text-lg italic"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              You are cordially invited...
+            </motion.p>
+          )}
 
           {/* Floral decorative corners */}
           <div className="absolute bottom-0 left-0 w-48 h-48 opacity-30">
