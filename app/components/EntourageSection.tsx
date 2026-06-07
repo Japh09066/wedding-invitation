@@ -9,6 +9,138 @@ const fadeUp = (delay = 0) => ({
   transition: { delay, duration: 0.6, ease: 'easeOut' },
 });
 
+/* ── SVG Floral Elements ── */
+
+function FloralCornerTL() {
+  return (
+    <svg
+      className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 text-[#caa687] opacity-70 pointer-events-none"
+      viewBox="0 0 180 180"
+      fill="none"
+    >
+      {/* Curving stem */}
+      <path d="M5 175 Q20 120 45 80 Q70 40 110 20" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.6" />
+      <path d="M5 175 Q30 130 55 95 Q80 55 120 30" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.35" />
+
+      {/* Leaves */}
+      <path d="M35 105 Q45 95 50 100 Q45 110 35 105Z" fill="#a3c4b5" opacity="0.6" />
+      <path d="M55 80 Q65 70 70 75 Q65 85 55 80Z" fill="#a3c4b5" opacity="0.5" />
+      <path d="M15 145 Q25 135 30 140 Q25 150 15 145Z" fill="#a3c4b5" opacity="0.4" />
+      <path d="M75 55 Q85 50 88 58 Q80 62 75 55Z" fill="#a3c4b5" opacity="0.45" />
+
+      {/* Flower 1 — large rose */}
+      <circle cx="100" cy="25" r="16" fill="currentColor" opacity="0.15" />
+      <circle cx="100" cy="25" r="12" fill="currentColor" opacity="0.2" />
+      <circle cx="98" cy="23" r="8" fill="#f2d5d5" opacity="0.7" />
+      <circle cx="100" cy="25" r="5" fill="currentColor" opacity="0.4" />
+      <circle cx="99" cy="24" r="2.5" fill="currentColor" opacity="0.6" />
+
+      {/* Flower 2 — bud */}
+      <circle cx="50" cy="95" r="8" fill="currentColor" opacity="0.15" />
+      <circle cx="50" cy="95" r="5" fill="#f2d5d5" opacity="0.6" />
+      <circle cx="49" cy="94" r="2.5" fill="currentColor" opacity="0.35" />
+
+      {/* Small accent dots */}
+      <circle cx="115" cy="30" r="2" fill="#f2d5d5" opacity="0.5" />
+      <circle cx="108" cy="18" r="1.5" fill="#f2d5d5" opacity="0.4" />
+    </svg>
+  );
+}
+
+function FloralCornerTR() {
+  return (
+    <svg
+      className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 text-[#caa687] opacity-70 pointer-events-none scale-x-[-1]"
+      viewBox="0 0 180 180"
+      fill="none"
+    >
+      <path d="M5 175 Q20 120 45 80 Q70 40 110 20" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.6" />
+      <path d="M5 175 Q30 130 55 95 Q80 55 120 30" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.35" />
+      <path d="M35 105 Q45 95 50 100 Q45 110 35 105Z" fill="#a3c4b5" opacity="0.6" />
+      <path d="M55 80 Q65 70 70 75 Q65 85 55 80Z" fill="#a3c4b5" opacity="0.5" />
+      <path d="M15 145 Q25 135 30 140 Q25 150 15 145Z" fill="#a3c4b5" opacity="0.4" />
+      <path d="M75 55 Q85 50 88 58 Q80 62 75 55Z" fill="#a3c4b5" opacity="0.45" />
+      <circle cx="100" cy="25" r="16" fill="currentColor" opacity="0.15" />
+      <circle cx="100" cy="25" r="12" fill="currentColor" opacity="0.2" />
+      <circle cx="98" cy="23" r="8" fill="#f2d5d5" opacity="0.7" />
+      <circle cx="100" cy="25" r="5" fill="currentColor" opacity="0.4" />
+      <circle cx="99" cy="24" r="2.5" fill="currentColor" opacity="0.6" />
+      <circle cx="50" cy="95" r="8" fill="currentColor" opacity="0.15" />
+      <circle cx="50" cy="95" r="5" fill="#f2d5d5" opacity="0.6" />
+      <circle cx="49" cy="94" r="2.5" fill="currentColor" opacity="0.35" />
+      <circle cx="115" cy="30" r="2" fill="#f2d5d5" opacity="0.5" />
+      <circle cx="108" cy="18" r="1.5" fill="#f2d5d5" opacity="0.4" />
+    </svg>
+  );
+}
+
+function FloralCornerBL() {
+  return (
+    <svg
+      className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-[#caa687] opacity-60 pointer-events-none scale-y-[-1]"
+      viewBox="0 0 180 180"
+      fill="none"
+    >
+      <path d="M5 175 Q20 120 45 80 Q70 40 110 20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
+      <path d="M35 105 Q45 95 50 100 Q45 110 35 105Z" fill="#a3c4b5" opacity="0.5" />
+      <path d="M55 80 Q65 70 70 75 Q65 85 55 80Z" fill="#a3c4b5" opacity="0.4" />
+      {/* Small flower */}
+      <circle cx="100" cy="25" r="12" fill="currentColor" opacity="0.12" />
+      <circle cx="100" cy="25" r="8" fill="#f2d5d5" opacity="0.5" />
+      <circle cx="100" cy="25" r="4" fill="currentColor" opacity="0.3" />
+      {/* Leaves at base */}
+      <path d="M40 110 Q52 105 55 112 Q48 116 40 110Z" fill="#a3c4b5" opacity="0.35" />
+    </svg>
+  );
+}
+
+function FloralCornerBR() {
+  return (
+    <svg
+      className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-[#caa687] opacity-60 pointer-events-none scale-[-1]"
+      viewBox="0 0 180 180"
+      fill="none"
+    >
+      <path d="M5 175 Q20 120 45 80 Q70 40 110 20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
+      <path d="M35 105 Q45 95 50 100 Q45 110 35 105Z" fill="#a3c4b5" opacity="0.5" />
+      <path d="M55 80 Q65 70 70 75 Q65 85 55 80Z" fill="#a3c4b5" opacity="0.4" />
+      <circle cx="100" cy="25" r="12" fill="currentColor" opacity="0.12" />
+      <circle cx="100" cy="25" r="8" fill="#f2d5d5" opacity="0.5" />
+      <circle cx="100" cy="25" r="4" fill="currentColor" opacity="0.3" />
+      <path d="M40 110 Q52 105 55 112 Q48 116 40 110Z" fill="#a3c4b5" opacity="0.35" />
+    </svg>
+  );
+}
+
+function FloralSprayTop() {
+  return (
+    <div className="flex items-center justify-center gap-1.5 mb-1 pointer-events-none">
+      {/* Left spray */}
+      <svg width="40" height="24" viewBox="0 0 40 24" className="text-[#caa687]/50">
+        <path d="M40 12 Q25 5 10 10 Q0 14 2 20" stroke="currentColor" strokeWidth="0.8" fill="none" />
+        <path d="M22 8 Q26 4 30 10 Q26 12 22 8Z" fill="#a3c4b5" opacity="0.5" />
+        <path d="M12 12 Q16 8 18 14 Q14 16 12 12Z" fill="#a3c4b5" opacity="0.4" />
+        <circle cx="8" cy="14" r="4" fill="#f2d5d5" opacity="0.5" />
+        <circle cx="8" cy="14" r="2" fill="currentColor" opacity="0.25" />
+        <circle cx="2" cy="18" r="2.5" fill="#f2d5d5" opacity="0.4" />
+      </svg>
+      {/* Center dot */}
+      <svg width="8" height="8" viewBox="0 0 8 8" className="text-[#caa687]/40">
+        <circle cx="4" cy="4" r="2" fill="currentColor" />
+      </svg>
+      {/* Right spray */}
+      <svg width="40" height="24" viewBox="0 0 40 24" className="text-[#caa687]/50 scale-x-[-1]">
+        <path d="M40 12 Q25 5 10 10 Q0 14 2 20" stroke="currentColor" strokeWidth="0.8" fill="none" />
+        <path d="M22 8 Q26 4 30 10 Q26 12 22 8Z" fill="#a3c4b5" opacity="0.5" />
+        <path d="M12 12 Q16 8 18 14 Q14 16 12 12Z" fill="#a3c4b5" opacity="0.4" />
+        <circle cx="8" cy="14" r="4" fill="#f2d5d5" opacity="0.5" />
+        <circle cx="8" cy="14" r="2" fill="currentColor" opacity="0.25" />
+        <circle cx="2" cy="18" r="2.5" fill="#f2d5d5" opacity="0.4" />
+      </svg>
+    </div>
+  );
+}
+
 export default function EntourageSection() {
   return (
     <section id="entourage" className="py-16 md:py-20 bg-[#faf6f0] flex items-center justify-center">
@@ -20,9 +152,15 @@ export default function EntourageSection() {
         transition={{ duration: 0.8 }}
         className="relative w-full max-w-[820px] mx-4 sm:mx-6"
       >
+        {/* Floral corners — positioned outside the borders */}
+        <FloralCornerTL />
+        <FloralCornerTR />
+        <FloralCornerBL />
+        <FloralCornerBR />
+
         {/* Outer frame */}
         <div className="border border-[#caa687]/25 p-2 sm:p-3">
-          <div className="border border-[#caa687]/15 p-6 sm:p-8 md:p-10 bg-white shadow-sm">
+          <div className="border border-[#caa687]/15 p-6 sm:p-8 md:p-10 bg-white shadow-sm relative">
             {/* ===== TITLE ===== */}
             <div className="text-center mb-8 md:mb-10">
               <p
@@ -44,6 +182,11 @@ export default function EntourageSection() {
                 <span className="block h-px w-16 bg-[#caa687]/30" />
                 <span className="block w-1.5 h-1.5 rounded-full bg-[#caa687]/30" />
                 <span className="block h-px w-16 bg-[#caa687]/30" />
+              </div>
+
+              {/* Small floral spray under title */}
+              <div {...fadeUp(0.25)} className="mt-3">
+                <FloralSprayTop />
               </div>
             </div>
 
