@@ -102,9 +102,9 @@ export default function EnvelopeLanding({
                 animate={
                   isOpened
                     ? { y: -8, scale: 1.03, opacity: 1 }
-                    : { y: 2, scale: 0.93, opacity: 0.7 }
+                    : { opacity: 0, scale: 0.9 }
                 }
-                transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+                transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
               >
                 <InvitationCard coupleName={coupleName} weddingDate={weddingDate} />
               </motion.div>
