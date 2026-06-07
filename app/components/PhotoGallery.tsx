@@ -3,57 +3,72 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Placeholder photos — using picsum.photos for beautiful random images
-// Replace these with your actual wedding photos!
-const galleryImages = [
+interface GalleryImage {
+  id: number;
+  gradient: string;
+  alt: string;
+  icon: string;
+  featured?: boolean;
+  aspectRatio: string;
+}
+
+const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: 'https://picsum.photos/seed/wedding-couple/1200/800',
-    thumb: 'https://picsum.photos/seed/wedding-couple/600/400',
-    alt: 'Bride and Groom Portrait',
-    width: 1200,
-    height: 800,
-    featured: true, // This one is the hero image
+    gradient: 'from-rose-200/60 via-floral-blush to-sage-200/40',
+    alt: 'Bride & Groom Portrait',
+    icon: '💑',
+    featured: true,
+    aspectRatio: '3/2',
   },
   {
     id: 2,
-    src: 'https://picsum.photos/seed/wedding-bouquet/800/1000',
-    thumb: 'https://picsum.photos/seed/wedding-bouquet/400/500',
-    alt: 'Bridal Bouquet Details',
-    width: 800,
-    height: 1000,
+    gradient: 'from-floral-blush/80 via-rose-100/50 to-amber-100/40',
+    alt: 'Bridal Bouquet',
+    icon: '💐',
+    aspectRatio: '2/3',
   },
   {
     id: 3,
-    src: 'https://picsum.photos/seed/wedding-arch/800/600',
-    thumb: 'https://picsum.photos/seed/wedding-arch/400/300',
-    alt: 'Ceremony Arch',
-    width: 800,
-    height: 600,
+    gradient: 'from-sage-200/60 via-floral-cream to-floral-gold/30',
+    alt: 'Ceremony Setup',
+    icon: '⛪',
+    aspectRatio: '4/3',
   },
   {
     id: 4,
-    src: 'https://picsum.photos/seed/wedding-rings/800/800',
-    thumb: 'https://picsum.photos/seed/wedding-rings/400/400',
+    gradient: 'from-amber-200/50 via-floral-blush/60 to-rose-200/40',
     alt: 'Wedding Rings',
-    width: 800,
-    height: 800,
+    icon: '💍',
+    aspectRatio: '1/1',
   },
   {
     id: 5,
-    src: 'https://picsum.photos/seed/wedding-reception/800/600',
-    thumb: 'https://picsum.photos/seed/wedding-reception/400/300',
-    alt: 'Reception Setup',
-    width: 800,
-    height: 600,
+    gradient: 'from-floral-gold/30 via-amber-100/40 to-floral-cream',
+    alt: 'Reception Décor',
+    icon: '🎊',
+    aspectRatio: '4/3',
   },
   {
     id: 6,
-    src: 'https://picsum.photos/seed/wedding-dance/800/1000',
-    thumb: 'https://picsum.photos/seed/wedding-dance/400/500',
+    gradient: 'from-sage-200/50 via-floral-cream to-rose-200/50',
     alt: 'First Dance',
-    width: 800,
-    height: 1000,
+    icon: '💃',
+    aspectRatio: '2/3',
+  },
+  {
+    id: 7,
+    gradient: 'from-rose-300/40 via-floral-blush/60 to-amber-100/30',
+    alt: 'Wedding Cake',
+    icon: '🎂',
+    aspectRatio: '4/3',
+  },
+  {
+    id: 8,
+    gradient: 'from-amber-200/40 via-sage-200/30 to-floral-cream',
+    alt: 'Venue Details',
+    icon: '🏛️',
+    aspectRatio: '4/3',
   },
 ];
 
@@ -63,17 +78,24 @@ export default function PhotoGallery() {
   const heroImage = galleryImages.find((img) => img.featured);
   const gridImages = galleryImages.filter((img) => !img.featured);
 
+  // Show 2-column grid: first grid item spans full width, then pairs
+  const pairedGrid: GalleryImage[][] = [];
+  for (let i = 0; i < gridImages.length; i += 2) {
+    pairedGrid.push(gridImages.slice(i, i + 2));
+  }
+
   return (
     <section id="gallery" className="section-padding bg-floral-bg relative overflow-hidden">
-      {/* Background floral outlines (subtle) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <svg className="w-full h-full opacity-5" preserveAspectRatio="none">
+      {/* Background floral outlines */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
+        <svg className="w-full h-full" preserveAspectRatio="none">
           <defs>
             <pattern id="gallery-floral-bg" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
-              <circle cx="80" cy="80" r="40" fill="none" stroke="#5a4a3a" strokeWidth="0.5" />
-              <circle cx="320" cy="200" r="55" fill="none" stroke="#5a4a3a" strokeWidth="0.5" />
-              <circle cx="150" cy="320" r="30" fill="none" stroke="#5a4a3a" strokeWidth="0.5" />
-              <circle cx="280" cy="60" r="25" fill="none" stroke="#5a4a3a" strokeWidth="0.3" />
+              <circle cx="80" cy="80" r="40" fill="none" stroke="#5a4a3a" strokeWidth="1" />
+              <circle cx="320" cy="200" r="55" fill="none" stroke="#5a4a3a" strokeWidth="0.8" />
+              <circle cx="150" cy="320" r="30" fill="none" stroke="#5a4a3a" strokeWidth="0.6" />
+              <circle cx="280" cy="60" r="35" fill="none" stroke="#5a4a3a" strokeWidth="0.4" />
+              <circle cx="50" cy="200" r="20" fill="none" stroke="#5a4a3a" strokeWidth="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#gallery-floral-bg)" />
@@ -101,73 +123,91 @@ export default function PhotoGallery() {
       </div>
 
       <div className="section-container max-w-5xl relative z-10">
-        {/* Hero Image */}
+        {/* Hero Featured Image */}
         {heroImage && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-6"
+            className="mb-6 md:mb-8"
           >
             <button
               onClick={() => setSelectedImage(heroImage.id)}
               className="group relative w-full block overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500"
+              style={{ aspectRatio: heroImage.featured ? '16/9' : heroImage.aspectRatio }}
             >
-              <img
-                src={heroImage.src}
-                alt={heroImage.alt}
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="eager"
-                style={{ maxHeight: '65vh' }}
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* View label */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-white text-sm tracking-widest uppercase bg-black/30 px-6 py-2 rounded-full backdrop-blur-sm">
-                  Click to View
+              <div
+                className={`w-full h-full bg-gradient-to-br ${heroImage.gradient} flex items-center justify-center transition-transform duration-700 group-hover:scale-105`}
+              >
+                <div className="text-center p-8">
+                  <span className="text-6xl md:text-7xl block mb-4">{heroImage.icon}</span>
+                  <span className="font-serif text-2xl md:text-3xl text-floral-deep/70">
+                    {heroImage.alt}
+                  </span>
+                </div>
+              </div>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-floral-deep/0 group-hover:bg-floral-deep/15 transition-all duration-300 flex items-center justify-center">
+                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-sans text-sm tracking-widest uppercase bg-black/20 px-5 py-2 rounded-full backdrop-blur-sm">
+                  Click to Enlarge
                 </span>
               </div>
             </button>
           </motion.div>
         )}
 
-        {/* Grid Images */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6">
-          {gridImages.map((img, index) => (
-            <motion.div
-              key={img.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className={index % 3 === 0 ? 'col-span-2' : 'col-span-1'}
+        {/* Gallery Grid — 2 columns */}
+        <div className="space-y-4 md:space-y-6">
+          {pairedGrid.map((pair, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="grid grid-cols-2 gap-4 md:gap-6"
             >
-              <button
-                onClick={() => setSelectedImage(img.id)}
-                className="group relative w-full block overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
-              >
-                <img
-                  src={img.thumb}
-                  alt={img.alt}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  style={{
-                    aspectRatio: img.width / img.height,
-                  }}
-                />
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                {/* View label */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-xs tracking-widest uppercase bg-black/30 px-4 py-1.5 rounded-full backdrop-blur-sm">
-                    View
-                  </span>
-                </div>
-              </button>
-            </motion.div>
+              {pair.map((img, colIndex) => (
+                <motion.div
+                  key={img.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (rowIndex * 2 + colIndex) * 0.07 }}
+                >
+                  <button
+                    onClick={() => setSelectedImage(img.id)}
+                    className="group relative w-full block overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
+                    style={{ aspectRatio: img.aspectRatio }}
+                  >
+                    <div
+                      className={`w-full h-full bg-gradient-to-br ${img.gradient} flex items-center justify-center transition-transform duration-700 group-hover:scale-105`}
+                    >
+                      <div className="text-center p-4">
+                        <span className="text-4xl md:text-5xl block mb-2">{img.icon}</span>
+                        <span className="font-script text-lg md:text-xl text-floral-deep/60">
+                          {img.alt}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-floral-deep/0 group-hover:bg-floral-deep/10 transition-all duration-300 flex items-center justify-center">
+                      <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-sans text-xs tracking-widest uppercase bg-black/20 px-4 py-1.5 rounded-full backdrop-blur-sm">
+                        View
+                      </span>
+                    </div>
+                  </button>
+                </motion.div>
+              ))}
+            </div>
           ))}
         </div>
+
+        {/* Image count */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-8 font-sans text-xs tracking-widest text-floral-taupe/50 uppercase"
+        >
+          {galleryImages.length} Photos &middot; Click to Explore
+        </motion.p>
       </div>
 
       {/* Lightbox */}
@@ -185,7 +225,7 @@ export default function PhotoGallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="relative max-w-4xl w-full max-h-[90vh]"
+              className="relative w-full max-w-3xl"
               onClick={(e) => e.stopPropagation()}
             >
               {(() => {
@@ -193,14 +233,27 @@ export default function PhotoGallery() {
                 if (!img) return null;
                 return (
                   <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-auto max-h-[85vh] object-contain"
-                    />
-                    <p className="absolute bottom-0 left-0 right-0 text-center text-white/80 text-sm py-3 bg-gradient-to-t from-black/50 to-transparent font-serif">
-                      {img.alt}
-                    </p>
+                    <div
+                      className={`w-full bg-gradient-to-br ${img.gradient} flex items-center justify-center`}
+                      style={{ aspectRatio: img.featured ? '16/10' : img.aspectRatio, minHeight: '300px' }}
+                    >
+                      <div className="text-center p-12">
+                        <motion.span
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: 'spring', damping: 10, stiffness: 200 }}
+                          className="text-8xl block mb-6"
+                        >
+                          {img.icon}
+                        </motion.span>
+                        <span className="font-serif text-3xl text-floral-deep/70 block mb-2">
+                          {img.alt}
+                        </span>
+                        <span className="font-sans text-xs tracking-widest text-floral-deep/40 uppercase">
+                          Cindy &amp; Keys
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 );
               })()}
@@ -208,9 +261,10 @@ export default function PhotoGallery() {
               {/* Navigation arrows */}
               <button
                 onClick={() => {
-                  const current = galleryImages.findIndex((i) => i.id === selectedImage);
-                  const prev = (current - 1 + galleryImages.length) % galleryImages.length;
-                  setSelectedImage(galleryImages[prev].id);
+                  const ids = galleryImages.map((i) => i.id);
+                  const current = ids.indexOf(selectedImage);
+                  const prev = (current - 1 + ids.length) % ids.length;
+                  setSelectedImage(ids[prev]);
                 }}
                 className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300"
               >
@@ -220,9 +274,10 @@ export default function PhotoGallery() {
               </button>
               <button
                 onClick={() => {
-                  const current = galleryImages.findIndex((i) => i.id === selectedImage);
-                  const next = (current + 1) % galleryImages.length;
-                  setSelectedImage(galleryImages[next].id);
+                  const ids = galleryImages.map((i) => i.id);
+                  const current = ids.indexOf(selectedImage);
+                  const next = (current + 1) % ids.length;
+                  setSelectedImage(ids[next]);
                 }}
                 className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300"
               >
@@ -255,11 +310,11 @@ export default function PhotoGallery() {
                       e.stopPropagation();
                       setSelectedImage(img.id);
                     }}
-                    className={'w-2 h-2 rounded-full transition-all duration-300 ' +
-                      (img.id === selectedImage
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      img.id === selectedImage
                         ? 'bg-floral-gold w-6'
-                        : 'bg-white/40 hover:bg-white/60')
-                    }
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
                   />
                 ))}
               </div>
