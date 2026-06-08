@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes:wght@400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600&family=Great+Vibes:wght@400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500&display=swap');
 
 @layer base {
   :root {
@@ -13,6 +13,7 @@
     --color-floral-taupe: #c9a88e;
     --color-floral-gold: #d4a373;
     --color-floral-deep: #5a4a3a;
+    --color-floral-navy: #253d5b;
   }
 
   * {
@@ -21,94 +22,163 @@
 
   body {
     @apply bg-floral-bg text-floral-deep font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    @apply bg-floral-blush/60 text-floral-deep;
+    @apply bg-floral-blush/70 text-floral-deep;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-floral-cream;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-floral-taupe/40 rounded-full hover:bg-floral-taupe/60;
-  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-floral-cream; }
+  ::-webkit-scrollbar-thumb { @apply bg-floral-taupe/30 rounded-full hover:bg-floral-taupe/50; }
 }
 
 @layer components {
+  /* ─── Section Layout ─── */
   .section-container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .section-title {
-    @apply font-serif text-4xl md:text-5xl lg:text-6xl text-center text-floral-deep mb-4;
-  }
-
-  .section-subtitle {
-    @apply font-script text-xl md:text-2xl text-floral-gold text-center mb-12;
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
   }
 
   .section-padding {
     @apply py-20 md:py-28;
   }
 
+  /* ─── Typography ─── */
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl text-center text-floral-deep mb-4 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply font-script text-xl md:text-2xl text-floral-gold text-center;
+  }
+
+  .section-intro {
+    @apply font-sans text-sm md:text-base text-floral-taupe/80 max-w-xl mx-auto text-center leading-relaxed;
+  }
+
+  .heading-serif {
+    @apply font-serif text-2xl md:text-3xl text-floral-deep leading-tight;
+  }
+
+  .heading-script {
+    @apply font-script text-xl md:text-2xl text-floral-gold;
+  }
+
+  /* ─── Dividers ─── */
   .divider-floral {
-    @apply flex items-center justify-center gap-4 my-12;
+    @apply flex items-center justify-center gap-3 my-12 md:my-16;
   }
 
   .divider-floral::before,
   .divider-floral::after {
     content: '';
-    @apply block h-px w-16 md:w-24 bg-floral-taupe/30;
+    @apply block h-px w-12 md:w-20 bg-floral-taupe/25;
   }
 
-  .floral-icon {
-    @apply text-floral-gold text-2xl;
+  .divider-dot {
+    @apply flex items-center justify-center gap-2 my-3;
   }
 
+  .divider-dot::before,
+  .divider-dot::after {
+    content: '';
+    @apply block h-px w-8 bg-floral-taupe/20;
+  }
+
+  .divider-ornament {
+    @apply flex items-center justify-center gap-2 my-4;
+  }
+
+  /* ─── Cards ─── */
   .card {
     @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-floral-taupe/10 border border-floral-cream p-6 md:p-8;
   }
 
-  /* Floating petals animation container */
+  .card-elegant {
+    @apply bg-white/70 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.15)] border border-floral-cream/80 p-6 md:p-8
+           hover:shadow-[0_12px_40px_-8px_rgba(202,166,135,0.2)] hover:border-floral-taupe/20 transition-all duration-500;
+  }
+
+  .card-soft {
+    @apply bg-white/60 backdrop-blur-sm rounded-xl shadow-sm border border-floral-cream/60 p-5;
+  }
+
+  /* ─── Buttons ─── */
+  .btn-primary {
+    @apply px-10 py-3.5 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-serif text-base md:text-lg tracking-wider shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.97];
+  }
+
+  .btn-subtle {
+    @apply px-6 py-2.5 bg-white/80 hover:bg-white border border-floral-taupe/20 hover:border-floral-taupe/40 text-floral-deep rounded-full font-sans text-xs uppercase tracking-widest transition-all duration-300;
+  }
+
+  /* ─── Forms ─── */
+  .rsvp-input {
+    @apply w-full px-4 py-3 bg-white border border-floral-taupe/30 rounded-xl
+           text-floral-deep placeholder-floral-taupe/50
+           focus:outline-none focus:ring-2 focus:ring-floral-gold/30 focus:border-floral-gold/50
+           transition-all duration-300;
+  }
+
+  .rsvp-input-error {
+    @apply border-rose-400 focus:ring-rose-300/30 focus:border-rose-400;
+  }
+
+  /* ─── Effects ─── */
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-floral-gold via-floral-taupe to-floral-gold;
+  }
+
+  .text-fade {
+    @apply text-floral-taupe/70;
+  }
+
+  /* ─── Image / Photo ─── */
+  .photo-frame {
+    @apply rounded-2xl overflow-hidden shadow-lg shadow-floral-taupe/15 border border-floral-cream;
+  }
+
+  .photo-frame-elegant {
+    @apply rounded-2xl overflow-hidden shadow-[0_8px_30px_-6px_rgba(202,166,135,0.2)] border-2 border-floral-cream/60;
+  }
+
+  /* ─── Decorative ─── */
+  .gold-rule {
+    @apply block h-px bg-gradient-to-r from-transparent via-floral-gold/30 to-transparent;
+  }
+
+  /* ─── Floating petals container ─── */
   .petals-container {
     @apply fixed inset-0 pointer-events-none overflow-hidden z-0;
   }
 }
 
-/* Framer motion overrides */
-.envelope-perspective {
-  perspective: 1200px;
-}
-
-/* Smooth image reveal */
+/* ─── Smooth image reveal ─── */
 .image-reveal {
   clip-path: inset(0);
   transition: clip-path 0.6s ease;
 }
 
-/* RSVP form styles */
-.rsvp-input {
-  @apply w-full px-4 py-3 bg-white border border-floral-taupe/30 rounded-xl
-         text-floral-deep placeholder-floral-taupe/50
-         focus:outline-none focus:ring-2 focus:ring-floral-gold/30 focus:border-floral-gold/50
-         transition-all duration-300;
+/* ─── Animations ─── */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
-.rsvp-input-error {
-  @apply border-rose-400 focus:ring-rose-300/30 focus:border-rose-400;
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
-/* Glass effect */
-.glass {
-  @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-xl;
-}
-
-/* Gradient text */
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-floral-gold via-floral-taupe to-floral-gold;
-}
+.animate-float-soft { animation: float-soft 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }

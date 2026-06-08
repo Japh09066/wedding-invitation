@@ -23,7 +23,6 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
 
-      // Determine active section
       const sections = navItems.map((item) => document.getElementById(item.target));
       const scrollPos = window.scrollY + 120;
 
@@ -55,33 +54,36 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Brand */}
             <button
               onClick={() => handleNavClick('home')}
-              className="font-script text-xl md:text-2xl text-floral-gold hover:text-floral-taupe transition-colors"
+              className="flex items-center gap-2 group"
             >
-              Jay Sam &amp; Laarnie
+              <span className="font-script text-lg md:text-xl text-floral-gold group-hover:text-floral-taupe transition-colors">
+                Jay Sam <span className="text-floral-taupe/50">&amp;</span> Laarnie
+              </span>
+              <span className="hidden sm:block text-floral-gold/30 text-[10px]">✦</span>
             </button>
 
             {/* Desktop menu */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
                 <button
                   key={item.target}
                   onClick={() => handleNavClick(item.target)}
-                  className={`font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 relative py-2 ${
+                  className={`font-sans text-[10px] uppercase tracking-[0.2em] transition-all duration-300 relative py-2 ${
                     activeSection === item.target
                       ? 'text-floral-gold'
-                      : 'text-floral-deep/70 hover:text-floral-deep'
+                      : 'text-floral-deep/60 hover:text-floral-deep'
                   }`}
                 >
                   {item.label}
                   {activeSection === item.target && (
-                    <motion.div
+                    <motion.span
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-floral-gold"
+                      className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-floral-gold"
                     />
                   )}
                 </button>
@@ -132,17 +134,27 @@ export default function Navigation() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="pt-24 px-8">
+                {/* Mobile brand */}
+                <div className="mb-8 pb-6 border-b border-floral-cream">
+                  <p className="font-script text-xl text-floral-gold">
+                    Jay Sam <span className="text-floral-taupe/40">&amp;</span> Laarnie
+                  </p>
+                  <p className="font-sans text-[10px] uppercase tracking-widest text-floral-taupe/50 mt-1">
+                    August 18, 2026
+                  </p>
+                </div>
+
                 {navItems.map((item, i) => (
                   <motion.button
                     key={item.target}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
+                    transition={{ delay: i * 0.04 }}
                     onClick={() => handleNavClick(item.target)}
-                    className={`block w-full text-left py-4 border-b border-floral-cream font-sans text-sm uppercase tracking-widest transition-colors ${
+                    className={`block w-full text-left py-3.5 border-b border-floral-cream/60 font-sans text-sm uppercase tracking-widest transition-colors ${
                       activeSection === item.target
                         ? 'text-floral-gold'
-                        : 'text-floral-deep/70'
+                        : 'text-floral-deep/60 hover:text-floral-deep'
                     }`}
                   >
                     {item.label}

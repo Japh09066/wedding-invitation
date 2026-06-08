@@ -7,31 +7,32 @@ const faqs = [
   {
     question: 'Can I bring additional guests?',
     answer:
-      "We'd love to celebrate with everyone, but due to limited space, we are only able to accommodate those listed on your invitation. Thank you for understanding!",
+      'Due to limited venue capacity, we are only able to accommodate the guests listed on your invitation. We hope you understand — and we look forward to celebrating with you!',
   },
   {
     question: 'What time should I arrive?',
     answer:
-      'The ceremony will start promptly at 9:00 AM. We ask that you arrive at least 30 minutes before the ceremony begins to allow time for seating and preparation.',
+      'Our ceremony will begin promptly at 9:00 AM. We kindly ask that you arrive at least 30 minutes early to find your seat, greet familiar faces, and settle in before we start.',
   },
   {
     question: 'When is the RSVP deadline?',
-    answer: 'Kindly RSVP on or before August 4, 2026 so we can finalize our arrangements.',
+    answer:
+      'Please let us know if you can make it on or before <strong>August 4, 2026</strong>. This helps us finalize the guest list, seating, and meals. Every response means the world to us.',
   },
   {
     question: 'Do you have a gift preference?',
     answer:
-      'Your presence is the most precious gift. We kindly ask for no other gifts, as your love and support are already more than enough.',
+      'Your presence at our wedding is the most beautiful gift we could ask for. If you wish to give something more, a monetary gift would be gratefully received and help us start our new chapter together.',
   },
   {
-    question: 'Can I take photos and videos during the ceremony?',
+    question: 'Can I take photos and videos?',
     answer:
-      "This isn't an unplugged ceremony — you're free to take photos and videos! However, during the procession, we kindly ask everyone to put down their phones and cameras so you can be fully present and not block the view of our official photographers and videographers.",
+      'Absolutely! We would love for you to capture memories. However, during the ceremony and procession, we kindly ask everyone to set aside their phones and cameras so you can be fully present — and leave the professional shots to our photographers.',
   },
   {
     question: 'Is there a dress code?',
     answer:
-      'Semi-formal or Barong attire is preferred. We want everyone to look their best while remaining comfortable for the celebration.',
+      'Semi-formal or Barong Tagalog is preferred. We want everyone to look and feel their best as we celebrate this joyful occasion together.',
   },
 ];
 
@@ -44,10 +45,10 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="section-padding bg-gradient-to-b from-floral-bg to-floral-cream">
-      {/* Decorative header */}
-      <div className="section-container text-center mb-16">
+      {/* Header */}
+      <div className="section-container text-center mb-14">
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="font-script text-xl md:text-2xl text-floral-gold mb-3"
@@ -55,67 +56,50 @@ export default function FAQSection() {
           Everything You Need to Know
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="section-title"
         >
           FAQs
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="font-sans text-floral-taupe text-sm max-w-xl mx-auto"
-        >
-          If you have any other questions, feel free to reach out to us directly.
-        </motion.p>
       </div>
 
-      {/* FAQ Accordion */}
+      {/* FAQ accordion */}
       <div className="section-container max-w-3xl">
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
+            transition={{ delay: index * 0.04 }}
             className="mb-3"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className={`w-full text-left p-5 md:p-6 rounded-2xl transition-all duration-300 border ${
+              className={`w-full text-left p-5 md:p-6 rounded-xl transition-all duration-300 border ${
                 openIndex === index
-                  ? 'bg-white shadow-lg shadow-floral-taupe/10 border-floral-gold/30'
-                  : 'bg-white/70 hover:bg-white shadow-sm shadow-floral-taupe/5 border-floral-cream hover:border-floral-taupe/20'
+                  ? 'bg-white shadow-lg shadow-floral-taupe/10 border-floral-gold/25'
+                  : 'bg-white/60 backdrop-blur-sm hover:bg-white/80 shadow-sm border-floral-cream hover:border-floral-taupe/20'
               }`}
             >
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="font-serif text-lg md:text-xl text-floral-deep flex-1">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-serif text-base md:text-lg text-floral-deep flex-1 leading-snug">
                   {faq.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="flex-shrink-0 w-8 h-8 rounded-full bg-floral-gold/10 flex items-center justify-center"
+                  className="flex-shrink-0 w-7 h-7 rounded-full bg-floral-gold/10 flex items-center justify-center"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="#d4a373"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  >
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#d4a373" strokeWidth="2" strokeLinecap="round">
                     <line x1="8" y1="2" x2="8" y2="14" />
                     <line x1="2" y1="8" x2="14" y2="8" />
                   </svg>
                 </motion.div>
               </div>
 
-              {/* Answer */}
               <AnimatePresence initial={false}>
                 {openIndex === index && (
                   <motion.div
@@ -126,10 +110,11 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-4 border-t border-floral-cream mt-4">
-                      <p className="font-sans text-floral-taupe text-sm leading-relaxed">
-                        {faq.answer}
-                      </p>
+                    <div className="pt-4 border-t border-floral-cream/60 mt-4">
+                      <p
+                        className="font-sans text-floral-taupe text-sm leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: faq.answer }}
+                      />
                     </div>
                   </motion.div>
                 )}
@@ -139,7 +124,7 @@ export default function FAQSection() {
         ))}
       </div>
 
-      {/* Decorative divider */}
+      {/* Divider */}
       <div className="divider-floral mt-16">
         <span className="text-floral-gold text-lg">✦</span>
       </div>

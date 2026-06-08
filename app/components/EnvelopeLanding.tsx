@@ -24,9 +24,8 @@ export default function EnvelopeLanding({
 
   const handleOpen = useCallback(() => {
     setIsOpened(true);
-    // Let the card be visible for ~3.5s before transitioning
-    setTimeout(() => setShowInvitation(true), 4500);
-    setTimeout(() => onEnter(), 5300);
+    setTimeout(() => setShowInvitation(true), 2800);
+    setTimeout(() => onEnter(), 3800);
   }, [onEnter]);
 
   return (
@@ -34,55 +33,52 @@ export default function EnvelopeLanding({
       {!showInvitation && (
         <motion.div
           key="envelope"
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#faf6f0] overflow-hidden touch-none"
-          exit={{ opacity: 0, transition: { duration: 0.8, ease: 'easeInOut' } }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#faf6f0] overflow-hidden touch-none cursor-pointer select-none"
+          exit={{ opacity: 0, transition: { duration: 0.7, ease: 'easeInOut' } }}
+          onClick={handleOpen}
         >
           {/* Background floral pattern */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <FloralBackground />
+          <div className="absolute inset-0 opacity-15 pointer-events-none">
+            <BackgroundFloral />
           </div>
 
           {/* Floating petals */}
-          <FloatingPetals count={6} />
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <FloatingPetals count={6} />
+          </div>
 
-          {/* Centered content */}
-          <div className="relative z-10 flex flex-col items-center px-4 w-full max-w-md">
-            {/* Envelope with proper aspect ratio */}
-            <div
-              className="relative w-full max-w-[420px]"
-              style={{ aspectRatio: '420 / 300' }}
+          <div className="relative z-10 flex flex-col items-center px-4 w-full max-w-sm">
+            {/* ─── ENVELOPE ─── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-[340px] sm:max-w-[400px]"
+              style={{ aspectRatio: '400 / 280' }}
             >
-              {/* Envelope base SVG — painted floral centerpiece design */}
-              <svg
-                viewBox="0 0 420 300"
-                className="absolute inset-0 w-full h-full drop-shadow-xl"
-                style={{ filter: 'drop-shadow(0 15px 35px rgba(90,74,58,0.18))' }}
-              >
+              {/* Envelope body */}
+              <svg viewBox="0 0 400 280" className="w-full h-full drop-shadow-xl">
                 <defs>
-                  <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f7f2eb" />
-                    <stop offset="50%" stopColor="#efe7db" />
-                    <stop offset="100%" stopColor="#e8dccb" />
+                  <linearGradient id="env-body" x1="0" y1="0" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f8f4ed" />
+                    <stop offset="50%" stopColor="#f0e8dc" />
+                    <stop offset="100%" stopColor="#e8ddcd" />
                   </linearGradient>
-                  {/* Watercolor blush gradient */}
-                  <radialGradient id="blushGrad">
-                    <stop offset="0%" stopColor="#f2d5d5" stopOpacity="0.6" />
-                    <stop offset="60%" stopColor="#ecc8c8" stopOpacity="0.3" />
+                  <radialGradient id="env-blush">
+                    <stop offset="0%" stopColor="#f2d5d5" stopOpacity="0.5" />
+                    <stop offset="60%" stopColor="#ecc8c8" stopOpacity="0.2" />
                     <stop offset="100%" stopColor="#ecc8c8" stopOpacity="0" />
                   </radialGradient>
-                  {/* Deep rose gradient */}
-                  <radialGradient id="roseGrad">
+                  <radialGradient id="env-rose">
                     <stop offset="0%" stopColor="#e8a0a0" />
                     <stop offset="50%" stopColor="#df8a8a" />
                     <stop offset="100%" stopColor="#d47777" />
                   </radialGradient>
-                  {/* Sage leaf gradient */}
-                  <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="env-leaf" x1="0" y1="0" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#a3c4b5" />
                     <stop offset="100%" stopColor="#8bb5a0" />
                   </linearGradient>
-                  {/* Gold accent gradient */}
-                  <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient id="env-gold" x1="0" y1="0" x2="100%" y2="0">
                     <stop offset="0%" stopColor="#d4a373" />
                     <stop offset="50%" stopColor="#c9986a" />
                     <stop offset="100%" stopColor="#b8885a" />
@@ -90,215 +86,158 @@ export default function EnvelopeLanding({
                 </defs>
 
                 {/* Body */}
-                <rect x="20" y="40" width="380" height="240" rx="4" fill="url(#envGrad)" stroke="#d4c9b5" strokeWidth="1" />
+                <rect x="20" y="40" width="360" height="220" rx="4" fill="url(#env-body)" stroke="#d4c9b5" strokeWidth="0.8" />
 
-                {/* Subtle watercolor wash behind the floral */}
-                <ellipse cx="210" cy="170" rx="70" ry="55" fill="url(#blushGrad)" />
+                {/* Watercolor wash */}
+                <ellipse cx="200" cy="155" rx="60" ry="45" fill="url(#env-blush)" />
 
-                {/* ─── PAINTED FLORAL CENTERPIECE ─── */}
-
+                {/* ─── PAINTED ROSES ─── */}
                 {/* Stems */}
-                <path d="M210,210 Q200,180 190,155" fill="none" stroke="#8bb5a0" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
-                <path d="M210,210 Q225,175 235,150" fill="none" stroke="#8bb5a0" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-                <path d="M210,210 Q190,185 170,170" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-                <path d="M210,210 Q230,190 250,175" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+                <path d="M200,195 Q193,168 185,148" fill="none" stroke="#8bb5a0" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
+                <path d="M200,195 Q212,165 220,145" fill="none" stroke="#8bb5a0" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+                <path d="M200,195 Q185,175 168,165" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+                <path d="M200,195 Q218,180 235,170" fill="none" stroke="#8bb5a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
 
                 {/* Leaves */}
-                <g opacity="0.8">
-                  <path d="M195,180 Q185,168 175,172 Q180,180 195,180Z" fill="url(#leafGrad)" />
-                  <path d="M195,180 L175,172" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
-                  <path d="M220,175 Q230,162 240,167 Q235,178 220,175Z" fill="url(#leafGrad)" />
-                  <path d="M220,175 L240,167" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
-                  <path d="M200,190 Q188,185 178,192 Q185,198 200,190Z" fill="url(#leafGrad)" opacity="0.7" />
-                  <path d="M218,192 Q230,186 240,194 Q234,200 218,192Z" fill="url(#leafGrad)" opacity="0.7" />
-                </g>
-
-                {/* Small accent flowers (baby's breath / filler) */}
-                <circle cx="170" cy="165" r="3" fill="#f7f0f0" opacity="0.8" />
-                <circle cx="170" cy="165" r="1.5" fill="#f2d5d5" />
-                <circle cx="248" cy="170" r="3" fill="#f7f0f0" opacity="0.8" />
-                <circle cx="248" cy="170" r="1.5" fill="#f2d5d5" />
-                <circle cx="178" cy="148" r="2.5" fill="#f7f0f0" opacity="0.7" />
-                <circle cx="178" cy="148" r="1.2" fill="#f2d5d5" />
-                <circle cx="240" cy="148" r="2.5" fill="#f7f0f0" opacity="0.7" />
-                <circle cx="240" cy="148" r="1.2" fill="#f2d5d5" />
-                <circle cx="160" cy="175" r="2" fill="#f7f0f0" opacity="0.6" />
-                <circle cx="160" cy="175" r="1" fill="#f2d5d5" />
-                <circle cx="255" cy="178" r="2" fill="#f7f0f0" opacity="0.6" />
-                <circle cx="255" cy="178" r="1" fill="#f2d5d5" />
-
-                {/* Main rose — outer petals */}
-                <g>
-                  {/* Outermost petals */}
-                  <ellipse cx="215" cy="160" rx="16" ry="12" fill="#ecc8c8" opacity="0.6" transform="rotate(15 215 160)" />
-                  <ellipse cx="198" cy="158" rx="14" ry="10" fill="#ecc8c8" opacity="0.5" transform="rotate(-25 198 158)" />
-                  <ellipse cx="210" cy="172" rx="14" ry="10" fill="#ecc8c8" opacity="0.5" transform="rotate(40 210 172)" />
-                  <ellipse cx="200" cy="168" rx="12" ry="9" fill="#f0c8c8" opacity="0.5" transform="rotate(-10 200 168)" />
-                  <ellipse cx="222" cy="168" rx="12" ry="9" fill="#f0c8c8" opacity="0.5" transform="rotate(30 222 168)" />
-
-                  {/* Inner petals */}
-                  <ellipse cx="212" cy="162" rx="11" ry="8" fill="#e8a0a0" opacity="0.7" transform="rotate(10 212 162)" />
-                  <ellipse cx="203" cy="160" rx="10" ry="7" fill="#df8a8a" opacity="0.65" transform="rotate(-15 203 160)" />
-                  <ellipse cx="210" cy="168" rx="10" ry="7" fill="#df8a8a" opacity="0.65" transform="rotate(25 210 168)" />
-                  <ellipse cx="205" cy="165" rx="8" ry="6" fill="url(#roseGrad)" opacity="0.8" transform="rotate(-5 205 165)" />
-
-                  {/* Center */}
-                  <ellipse cx="209" cy="163" rx="5" ry="4" fill="#d47777" opacity="0.9" />
-                  <ellipse cx="209" cy="163" rx="2.5" ry="2" fill="#c96565" />
-                </g>
-
-                {/* Second smaller rose/bud */}
                 <g opacity="0.7">
-                  <ellipse cx="234" cy="160" rx="10" ry="7" fill="#f0c8c8" transform="rotate(-20 234 160)" />
-                  <ellipse cx="233" cy="158" rx="7" ry="5" fill="#e8a0a0" transform="rotate(-10 233 158)" />
-                  <ellipse cx="234" cy="160" rx="4" ry="3" fill="#d47777" />
+                  <path d="M190,172 Q182,162 174,165 Q178,174 190,172Z" fill="url(#env-leaf)" />
+                  <path d="M190,172 L174,165" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
+                  <path d="M212,168 Q222,158 230,162 Q226,172 212,168Z" fill="url(#env-leaf)" />
+                  <path d="M212,168 L230,162" fill="none" stroke="#7aa58f" strokeWidth="0.5" />
+                  <path d="M196,182 Q186,178 178,184 Q184,190 196,182Z" fill="url(#env-leaf)" opacity="0.6" />
+                  <path d="M210,184 Q221,179 230,186 Q225,192 210,184Z" fill="url(#env-leaf)" opacity="0.6" />
+                </g>
+
+                {/* Baby's breath */}
+                {[
+                  [165,160], [245,165], [175,145], [228,145], [158,170], [250,175]
+                ].map(([cx, cy], i) => (
+                  <g key={i}>
+                    <circle cx={cx} cy={cy} r="3" fill="#f7f0f0" opacity="0.7" />
+                    <circle cx={cx} cy={cy} r="1.5" fill="#f2d5d5" />
+                  </g>
+                ))}
+
+                {/* Main rose */}
+                <g>
+                  <ellipse cx="205" cy="155" rx="14" ry="10" fill="#ecc8c8" opacity="0.6" transform="rotate(15 205 155)" />
+                  <ellipse cx="190" cy="152" rx="12" ry="9" fill="#ecc8c8" opacity="0.5" transform="rotate(-25 190 152)" />
+                  <ellipse cx="202" cy="165" rx="12" ry="9" fill="#ecc8c8" opacity="0.5" transform="rotate(40 202 165)" />
+                  <ellipse cx="193" cy="160" rx="10" ry="8" fill="#f0c8c8" opacity="0.5" transform="rotate(-10 193 160)" />
+                  <ellipse cx="212" cy="163" rx="10" ry="8" fill="#f0c8c8" opacity="0.5" transform="rotate(30 212 163)" />
+                  <ellipse cx="204" cy="157" rx="10" ry="7" fill="#e8a0a0" opacity="0.7" transform="rotate(10 204 157)" />
+                  <ellipse cx="196" cy="154" rx="9" ry="6" fill="#df8a8a" opacity="0.65" transform="rotate(-15 196 154)" />
+                  <ellipse cx="202" cy="162" rx="9" ry="6" fill="#df8a8a" opacity="0.65" transform="rotate(25 202 162)" />
+                  <ellipse cx="200" cy="158" rx="7" ry="5" fill="url(#env-rose)" opacity="0.8" />
+                  <ellipse cx="200" cy="157" rx="4" ry="3" fill="#d47777" opacity="0.9" />
+                  <ellipse cx="200" cy="157" rx="2" ry="1.5" fill="#c96565" />
+                </g>
+
+                {/* Secondary rose bud */}
+                <g opacity="0.6">
+                  <ellipse cx="228" cy="155" rx="9" ry="6" fill="#f0c8c8" transform="rotate(-20 228 155)" />
+                  <ellipse cx="227" cy="153" rx="6" ry="4.5" fill="#e8a0a0" transform="rotate(-10 227 153)" />
+                  <ellipse cx="228" cy="155" rx="3.5" ry="2.5" fill="#d47777" />
                 </g>
 
                 {/* Third bud */}
-                <g opacity="0.6">
-                  <ellipse cx="187" cy="155" rx="8" ry="6" fill="#f0c8c8" transform="rotate(15 187 155)" />
-                  <ellipse cx="186" cy="154" rx="5" ry="4" fill="#e8a0a0" transform="rotate(5 186 154)" />
-                  <ellipse cx="186" cy="155" rx="3" ry="2" fill="#d47777" />
+                <g opacity="0.5">
+                  <ellipse cx="182" cy="150" rx="7" ry="5" fill="#f0c8c8" transform="rotate(15 182 150)" />
+                  <ellipse cx="181" cy="149" rx="4.5" ry="3.5" fill="#e8a0a0" transform="rotate(5 181 149)" />
+                  <ellipse cx="181" cy="150" rx="2.5" ry="1.8" fill="#d47777" />
                 </g>
 
-                {/* Tiny eucalyptus/sprig accents */}
-                <ellipse cx="168" cy="178" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-30 168 178)" />
-                <ellipse cx="172" cy="174" rx="5" ry="2" fill="#a3c4b5" opacity="0.4" transform="rotate(-45 172 174)" />
-                <ellipse cx="248" cy="178" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.5" transform="rotate(25 248 178)" />
-                <ellipse cx="245" cy="174" rx="5" ry="2" fill="#a3c4b5" opacity="0.4" transform="rotate(40 245 174)" />
+                {/* Eucalyptus sprigs */}
+                <ellipse cx="166" cy="170" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.45" transform="rotate(-30 166 170)" />
+                <ellipse cx="170" cy="166" rx="5" ry="2" fill="#a3c4b5" opacity="0.35" transform="rotate(-45 170 166)" />
+                <ellipse cx="234" cy="172" rx="6" ry="2.5" fill="#a3c4b5" opacity="0.45" transform="rotate(25 234 172)" />
+                <ellipse cx="230" cy="168" rx="5" ry="2" fill="#a3c4b5" opacity="0.35" transform="rotate(40 230 168)" />
 
-                {/* Gold accent lines / artistic flourish */}
-                <path d="M145,145 Q155,140 160,148" fill="none" stroke="#d4a373" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
-                <path d="M258,148 Q265,142 270,150" fill="none" stroke="#d4a373" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
-                <path d="M150,185 Q158,192 165,188" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
-                <path d="M260,188 Q268,194 275,190" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+                {/* Gold flourish accents */}
+                <path d="M148,142 Q158,138 162,146" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.4" strokeLinecap="round" />
+                <path d="M240,145 Q248,140 252,148" fill="none" stroke="#d4a373" strokeWidth="0.8" opacity="0.4" strokeLinecap="round" />
 
-                {/* Monogram in gold script */}
-                <text
-                  x="210" y="225"
-                  textAnchor="middle"
-                  fontFamily="'Dancing Script',cursive"
-                  fontSize="16"
-                  fill="url(#goldAccent)"
-                  opacity="0.7"
-                >J &amp; L</text>
+                {/* Monogram */}
+                <text x="200" y="215" textAnchor="middle" fontFamily="'Dancing Script',cursive" fontSize="14" fill="url(#env-gold)" opacity="0.6">
+                  J &amp; L
+                </text>
 
-                {/* Bottom triangles (flap underside) — drawn AFTER the body decorations so they show correctly */}
-                <polygon points="20,280 210,200 400,280" fill="#ede3d5" stroke="#d4c9b5" strokeWidth="1" />
-                <polygon points="20,280 20,40 210,120" fill="#f5efe6" stroke="#d4c9b5" strokeWidth="0.5" />
-                <polygon points="400,280 400,40 210,120" fill="#f2ebe0" stroke="#d4c9b5" strokeWidth="0.5" />
-                {/* Crease lines */}
-                <line x1="20" y1="280" x2="210" y2="200" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.6" />
-                <line x1="400" y1="280" x2="210" y2="200" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.6" />
+                {/* Envelope flaps — drawn after decorations */}
+                <polygon points="20,260 200,185 380,260" fill="#ede3d5" stroke="#d4c9b5" strokeWidth="0.8" />
+                <polygon points="20,260 20,40 200,110" fill="#f5efe6" stroke="#d4c9b5" strokeWidth="0.5" />
+                <polygon points="380,260 380,40 200,110" fill="#f2ebe0" stroke="#d4c9b5" strokeWidth="0.5" />
+                <line x1="20" y1="260" x2="200" y2="185" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.5" />
+                <line x1="380" y1="260" x2="200" y2="185" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.5" />
               </svg>
 
               {/* Animated top flap */}
-              <div
-                className="absolute inset-0 z-10"
-                style={{ perspective: '1200px' }}
-              >
+              <div className="absolute inset-0" style={{ perspective: '1200px' }}>
                 <motion.div
                   className="w-full h-full"
                   style={{ transformOrigin: '50% 100%', transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
                   animate={isOpened ? { rotateX: 180 } : { rotateX: 0 }}
-                  transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 >
-                  <svg
-                    viewBox="0 0 420 300"
-                    className="w-full h-full"
-                  >
+                  <svg viewBox="0 0 400 280" className="w-full h-full">
                     <defs>
-                      <linearGradient id="flapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <linearGradient id="env-flap" x1="0" y1="0" x2="0" y2="100%">
                         <stop offset="0%" stopColor="#f2ebe0" />
                         <stop offset="100%" stopColor="#f5efe6" />
                       </linearGradient>
                     </defs>
-                    {/* Flap triangle with subtle gradient */}
-                    <polygon points="20,40 210,120 400,40" fill="url(#flapGrad)" stroke="#d4c9b5" strokeWidth="1" />
-                    {/* Delicate inner border */}
-                    <polygon points="30,48 210,112 390,48" fill="none" stroke="#c9b89a" strokeWidth="0.5" strokeDasharray="3,3" opacity="0.35" />
-                    {/* Small floral spray on flap */}
-                    <g opacity="0.4">
-                      <path d="M195,65 Q200,55 210,58" fill="none" stroke="#a3c4b5" strokeWidth="1" strokeLinecap="round" />
-                      <ellipse cx="195" cy="65" rx="5" ry="2.5" fill="#a3c4b5" transform="rotate(-20 195 65)" />
-                      <circle cx="210" cy="56" r="3" fill="#f2d5d5" />
-                      <circle cx="210" cy="56" r="1.5" fill="#ecc8c8" />
-                      <circle cx="215" cy="60" r="2.5" fill="#f0c8c8" />
-                      <circle cx="215" cy="60" r="1.2" fill="#e8a0a0" />
-                      <circle cx="220" cy="64" r="2" fill="#f2d5d5" />
-                      <circle cx="220" cy="64" r="1" fill="#ecc8c8" />
-                    </g>
-                    {/* Fold line detail */}
-                    <path d="M20,40 L210,120 L400,40" fill="none" stroke="#c9b89a" strokeWidth="0.5" opacity={isOpened ? 0 : 0.4} />
+                    <polygon points="20,40 200,110 380,40" fill="url(#env-flap)" stroke="#d4c9b5" strokeWidth="0.8" />
+                    <line x1="20" y1="40" x2="200" y2="110" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.4" />
+                    <line x1="380" y1="40" x2="200" y2="110" stroke="#d4c9b5" strokeWidth="0.5" opacity="0.4" />
                   </svg>
                 </motion.div>
               </div>
+            </motion.div>
 
-              {/* Invitation card inside — pushed down to avoid overlapping the flap */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center px-4 pb-4 pt-10 sm:px-6 sm:pb-6 sm:pt-14"
-                initial={{ opacity: 0, scale: 0.3, y: 10 }}
-                animate={
-                  isOpened
-                    ? { y: -15, scale: 1.05, opacity: 1 }
-                    : { opacity: 0, scale: 0.3, y: 10 }
-                }
-                transition={{ duration: 0.7, delay: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
-              >
-                <InvitationCard coupleName={coupleName} weddingDate={weddingDate} />
-              </motion.div>
-
-              {/* Wax seal */}
-              <motion.div
-                className="absolute z-20"
-                style={{ bottom: '2%', left: '50%', marginLeft: -18 }}
-                animate={isOpened ? { y: -20, opacity: 0, scale: 0.3 } : { y: 0, opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <svg width="36" height="36" viewBox="0 0 40 40">
-                  <circle cx="20" cy="20" r="18" fill="#d4a373" stroke="#c4956a" strokeWidth="1" />
-                  <circle cx="20" cy="20" r="14" fill="none" stroke="#c4956a" strokeWidth="0.5" opacity="0.5" />
-                  <path d="M14,16 Q20,12 26,16 Q20,20 14,16Z" fill="#c4956a" opacity="0.7" />
-                  <path d="M14,16 Q20,20 26,16 Q20,24 14,16Z" fill="#b8865a" opacity="0.5" />
-                  <circle cx="20" cy="16" r="2" fill="#b8865a" />
-                </svg>
-              </motion.div>
-            </div>
-
-            {/* Button / text — below envelope */}
-            <div className="mt-6 sm:mt-8 flex justify-center min-h-[56px]">
-              {!isOpened ? (
-                <motion.button
-                  onClick={handleOpen}
-                  className="px-8 py-3 sm:px-10 sm:py-4 bg-[#d4a373] hover:bg-[#c9a88e] text-white rounded-full font-serif text-lg tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 select-none"
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.6 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+            {/* ─── INVITATION CARD (appears after opening) ─── */}
+            <AnimatePresence>
+              {isOpened && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="absolute z-20 w-[85%] max-w-[320px]"
+                  style={{ top: '52%' }}
                 >
-                  Open Invitation
-                </motion.button>
-              ) : (
-                <motion.p
-                  className="text-[#c9a88e] font-serif text-lg italic"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  You are cordially invited...
-                </motion.p>
+                  <InvitationCard coupleName={coupleName} weddingDate={weddingDate} />
+                </motion.div>
               )}
-            </div>
-          </div>
+            </AnimatePresence>
 
+            {/* ─── TAP INDICATOR ─── */}
+            {!isOpened && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+                className="mt-4 sm:mt-5"
+              >
+                <motion.div
+                  animate={{ y: [0, 4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex flex-col items-center gap-1 text-[#caa687]/40"
+                >
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] font-['Inter',sans-serif] font-light">
+                    Tap to Open
+                  </span>
+                  <svg width="12" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </motion.div>
+              </motion.div>
+            )}
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
 
-/* ─── Invitation Card ─── */
+/* ─── INVITATION CARD ─── */
 function InvitationCard({
   coupleName,
   weddingDate,
@@ -310,122 +249,139 @@ function InvitationCard({
 
   return (
     <motion.div
-      className="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-[#f5efe6] p-3 sm:p-6 text-center w-full max-w-[240px] sm:max-w-[280px]"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="relative bg-white rounded-lg shadow-[0_15px_40px_-10px_rgba(90,74,58,0.3)] border border-floral-cream p-6 sm:p-7 text-center"
     >
+      {/* Card border ornament */}
+      <div className="absolute inset-2 border border-[#caa687]/10 rounded-md pointer-events-none" />
+
       {/* Top ornament */}
-      <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
-        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
-        <span className="text-[#d4a373] text-xs sm:text-lg">✦</span>
-        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
+      <div className="flex items-center justify-center gap-1.5 mb-3">
+        <span className="block h-px w-6 bg-[#caa687]/25" />
+        <span className="text-[#caa687] text-xs">✦</span>
+        <span className="block h-px w-6 bg-[#caa687]/25" />
       </div>
 
-      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-xs sm:text-lg mb-1 sm:mb-2">
-        Together with their families
-      </p>
-
-      <div className="flex justify-center items-center gap-1 mb-1 sm:mb-2 flex-wrap">
-        <span className="font-serif text-base sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
-          {name1}
-        </span>
-        <span className="font-['Dancing_Script',cursive] text-[#d4a373] text-base sm:text-2xl">&amp;</span>
-        <span className="font-serif text-base sm:text-2xl tracking-widest text-[#5a4a3a] uppercase">
-          {name2}
-        </span>
-      </div>
-
-      <div className="w-10 sm:w-16 h-px bg-[#c9a88e]/30 mx-auto my-1 sm:my-3" />
-
-      <p className="font-serif text-[#c9a88e] text-[10px] sm:text-sm uppercase tracking-[0.3em] mb-0.5 sm:mb-1">
+      {/* Save the Date */}
+      <p className="font-['Playfair_Display',serif] text-[#caa687] text-[10px] uppercase tracking-[0.35em] font-medium mb-2">
         Save the Date
       </p>
-      <p className="font-['Dancing_Script',cursive] text-[#d4a373] text-lg sm:text-3xl mb-1 sm:mb-2">
+
+      {/* Decorative line */}
+      <div className="flex items-center justify-center gap-1.5 mb-2">
+        <span className="block h-px w-4 bg-[#caa687]/15" />
+        <svg className="w-1.5 h-1.5 text-[#caa687]/25" viewBox="0 0 20 20" fill="currentColor">
+          <circle cx="10" cy="10" r="2" />
+          <ellipse cx="10" cy="7.5" rx="1.2" ry="0.8" opacity="0.5" />
+        </svg>
+        <span className="block h-px w-4 bg-[#caa687]/15" />
+      </div>
+
+      {/* Names */}
+      <h1 className="flex flex-col items-center mb-2">
+        <span className="font-['Playfair_Display',serif] text-[#253d5b] text-xl sm:text-2xl font-light tracking-[0.12em] uppercase leading-tight">
+          {name1}
+        </span>
+        <span className="font-['Dancing_Script',cursive] text-[#caa687] text-lg sm:text-xl leading-none my-0.5">
+          &amp;
+        </span>
+        <span className="font-['Playfair_Display',serif] text-[#253d5b] text-xl sm:text-2xl font-light tracking-[0.12em] uppercase leading-tight">
+          {name2}
+        </span>
+      </h1>
+
+      {/* Decorative line */}
+      <div className="flex items-center justify-center gap-1.5 mb-2">
+        <span className="block h-px w-4 bg-[#caa687]/15" />
+        <svg className="w-1.5 h-1.5 text-[#caa687]/25" viewBox="0 0 20 20" fill="currentColor">
+          <circle cx="10" cy="10" r="2" />
+          <ellipse cx="10" cy="7.5" rx="1.2" ry="0.8" opacity="0.5" />
+        </svg>
+        <span className="block h-px w-4 bg-[#caa687]/15" />
+      </div>
+
+      {/* Date */}
+      <p className="font-['Dancing_Script',cursive] text-[#caa687] text-lg sm:text-xl mb-1">
         {weddingDate}
       </p>
 
-      <p className="font-serif text-[#5a4a3a] text-[10px] sm:text-sm italic">
+      {/* We're getting married */}
+      <p className="font-['Playfair_Display',serif] italic text-[#5a4a3a]/60 text-[11px] sm:text-xs leading-tight">
         We are getting married
       </p>
 
       {/* Bottom ornament */}
-      <div className="flex items-center justify-center gap-2 mt-2 sm:mt-4">
-        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
-        <span className="text-[#d4a373] text-xs sm:text-lg">✦</span>
-        <span className="block h-px w-4 sm:w-8 bg-[#d4a373]/50" />
+      <div className="flex items-center justify-center gap-1.5 mt-3">
+        <span className="block h-px w-6 bg-[#caa687]/25" />
+        <span className="text-[#caa687] text-xs">✦</span>
+        <span className="block h-px w-6 bg-[#caa687]/25" />
       </div>
     </motion.div>
   );
 }
 
-/* ─── Floral Background Pattern ─── */
-function FloralBackground() {
+/* ─── BACKGROUND PATTERN ─── */
+function BackgroundFloral() {
   return (
-    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-full h-full">
       <defs>
-        <pattern id="floral-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-          <circle cx="50" cy="50" r="8" fill="#f2d5d5" opacity="0.5" />
-          <circle cx="50" cy="50" r="4" fill="#f5c4c4" opacity="0.3" />
-          <circle cx="150" cy="120" r="6" fill="#a3c4b5" opacity="0.4" />
-          <circle cx="150" cy="120" r="3" fill="#8bb5a0" opacity="0.3" />
-          <circle cx="80" cy="160" r="5" fill="#f2d5d5" opacity="0.3" />
-          <circle cx="180" cy="40" r="4" fill="#d4a373" opacity="0.3" />
-          <ellipse cx="60" cy="100" rx="10" ry="3" transform="rotate(-30 60 100)" fill="#a3c4b5" opacity="0.3" />
-          <ellipse cx="130" cy="70" rx="8" ry="2.5" transform="rotate(20 130 70)" fill="#a3c4b5" opacity="0.25" />
+        <pattern id="env-bg-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+          <circle cx="40" cy="40" r="7" fill="#f2d5d5" opacity="0.4" />
+          <circle cx="40" cy="40" r="3.5" fill="#f5c4c4" opacity="0.25" />
+          <circle cx="140" cy="110" r="5" fill="#a3c4b5" opacity="0.35" />
+          <circle cx="140" cy="110" r="2.5" fill="#8bb5a0" opacity="0.25" />
+          <circle cx="80" cy="150" r="4" fill="#f2d5d5" opacity="0.2" />
+          <circle cx="170" cy="40" r="3.5" fill="#d4a373" opacity="0.25" />
+          <ellipse cx="60" cy="90" rx="8" ry="2.5" transform="rotate(-30 60 90)" fill="#a3c4b5" opacity="0.2" />
+          <ellipse cx="130" cy="70" rx="7" ry="2" transform="rotate(20 130 70)" fill="#a3c4b5" opacity="0.18" />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#floral-pattern)" />
+      <rect width="100%" height="100%" fill="url(#env-bg-pattern)" />
     </svg>
   );
 }
 
-/* ─── Floating Petals ─── */
+/* ─── FLOATING PETALS ─── */
 function FloatingPetals({ count = 6 }: { count?: number }) {
   const petals = Array.from({ length: count }, (_, i) => ({
     id: i,
-    left: 10 + Math.random() * 80,
+    left: 5 + Math.random() * 90,
     delay: Math.random() * 5,
-    duration: 6 + Math.random() * 4,
-    size: 6 + Math.random() * 10,
+    duration: 8 + Math.random() * 4,
+    size: 5 + Math.random() * 8,
     rotation: Math.random() * 360,
-    color: i % 3 === 0 ? '#f2d5d5' : i % 3 === 1 ? '#f5efe6' : '#a3c4b5',
+    color: ['#f2d5d5', '#f5efe6', '#a3c4b5', '#d4a373', '#f7f0f0', '#ecc8c8'][i % 6],
   }));
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {mountedPetals(petals)}
-    </div>
+    <>
+      {petals.map((petal) => (
+        <motion.div
+          key={petal.id}
+          className="absolute opacity-25"
+          style={{
+            left: `${petal.left}%`,
+            top: '-5%',
+            width: petal.size,
+            height: petal.size * 1.2,
+            backgroundColor: petal.color,
+            borderRadius: '50% 0 50% 0',
+          }}
+          animate={{
+            y: ['0vh', '110vh'],
+            x: [0, 15, -8, 12, 0],
+            rotate: [petal.rotation, petal.rotation + 360],
+          }}
+          transition={{
+            duration: petal.duration,
+            delay: petal.delay,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      ))}
+    </>
   );
 }
-
-function mountedPetals(
-  petals: { id: number; left: number; delay: number; duration: number; size: number; rotation: number; color: string }[]
-) {
-  return petals.map((petal) => (
-    <motion.div
-      key={petal.id}
-      className="absolute rounded-full opacity-30"
-      style={{
-        left: `${petal.left}%`,
-        top: '-5%',
-        width: petal.size,
-        height: petal.size,
-        backgroundColor: petal.color,
-      }}
-      animate={{
-        y: ['0vh', '105vh'],
-        x: [0, 25, -15, 10],
-        rotate: [petal.rotation, petal.rotation + 360],
-      }}
-      transition={{
-        duration: petal.duration,
-        delay: petal.delay,
-        repeat: Infinity,
-        ease: 'linear',
-      }}
-    />
-  ));
-}
-
-
