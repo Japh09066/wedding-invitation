@@ -100,14 +100,14 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-gold/85 text-[clamp(1.4rem,4vw,2.4rem)] leading-snug mb-3"
+          className="font-serif text-floral-gold/85 text-[clamp(1.3rem,3.5vw,2rem)] leading-snug mb-3 italic"
         >
           You are cordially invited
         </motion.p>
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/55 text-[clamp(1.2rem,3.5vw,2rem)] mb-6 sm:mb-7"
+          className="font-serif text-floral-deep/55 text-[clamp(1.1rem,3vw,1.6rem)] mb-6 sm:mb-7 italic"
         >
           To the wedding of
         </motion.p>
@@ -128,7 +128,7 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/75 text-[clamp(1.5rem,4.5vw,2.6rem)] mb-0"
+          className="font-serif text-floral-deep/75 text-[clamp(1.2rem,3.5vw,2rem)] mb-0 italic"
         >
           {weddingDate}
         </motion.p>
