@@ -54,7 +54,7 @@ export default function HeroSection({
       />
 
       {/* ─── Content ─── */}
-      <div className="relative z-10 flex flex-col items-center justify-start h-full w-full px-4 sm:px-6 pt-20 sm:pt-28">
+      <div className="relative z-10 flex flex-col items-center justify-start h-full w-full px-4 sm:px-6 pt-32 sm:pt-44">
         <motion.div
           initial="hidden"
           animate="show"
