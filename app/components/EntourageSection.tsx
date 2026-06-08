@@ -17,10 +17,8 @@ function OrnateCorner({ className }: { className: string }) {
       viewBox="0 0 120 120"
       fill="none"
     >
-      {/* Double-line border corner */}
       <path d="M2 118 V2 H118" stroke="currentColor" strokeWidth="1.2" opacity="0.35" />
       <path d="M8 112 V8 H112" stroke="currentColor" strokeWidth="0.6" opacity="0.25" />
-      {/* Filigree swirl */}
       <path
         d="M15 15 Q25 5 40 10 Q55 18 50 30 Q45 42 30 38 Q18 34 20 22 Q22 14 30 18"
         stroke="currentColor"
@@ -28,7 +26,6 @@ function OrnateCorner({ className }: { className: string }) {
         fill="none"
         opacity="0.3"
       />
-      {/* Tiny leaf */}
       <ellipse cx="24" cy="24" rx="4" ry="2" transform="rotate(-40 24 24)" fill="#a3c4b5" opacity="0.35" />
       <circle cx="18" cy="18" r="2" fill="#f2d5d5" opacity="0.5" />
     </svg>
@@ -38,7 +35,7 @@ function OrnateCorner({ className }: { className: string }) {
 // ─── Tiny Decorative Divider ──────────────────────────────────
 function TinyDivider() {
   return (
-    <div className="flex items-center justify-center gap-1.5 my-1 sm:my-1.5">
+    <div className="flex items-center justify-center gap-1.5 my-0.5 sm:my-1">
       <span className="block h-px w-6 bg-[#caa687]/20" />
       <span className="block w-1 h-1 rounded-full bg-[#caa687]/25" />
       <span className="block h-px w-6 bg-[#caa687]/20" />
@@ -119,22 +116,36 @@ export default function EntourageSection() {
             </div>
           </motion.div>
 
-          {/* ===== PARENTS ===== */}
-          <motion.div {...fadeUp(0.05)} className="text-center">
-            <span className={groupLabel}>Parents of the Groom</span>
-            <p className={groupName + " mt-0.5"}>Father of the Groom</p>
-            <p className={groupName}>Mother of the Groom</p>
-          </motion.div>
-          <motion.div {...fadeUp(0.08)} className="text-center -mt-0.5">
-            <span className={groupLabel}>Parents of the Bride</span>
-            <p className={groupName + " mt-0.5"}>Father of the Bride</p>
-            <p className={groupName}>Mother of the Bride</p>
+          {/* ===== BRIDE & GROOM (2-column) ===== */}
+          <motion.div {...fadeUp(0.04)} className="grid grid-cols-2 gap-4 sm:gap-8 max-w-sm mx-auto">
+            <div className="text-center">
+              <span className={groupLabel}>The Groom</span>
+              <p className={groupName + " mt-0.5"}>Jay Sam</p>
+            </div>
+            <div className="text-center">
+              <span className={groupLabel}>The Bride</span>
+              <p className={groupName + " mt-0.5"}>Laarnie</p>
+            </div>
           </motion.div>
 
           <TinyDivider />
 
-          {/* ===== OFFICIATING MINISTER ===== */}
-          <motion.div {...fadeUp(0.1)} className="text-center">
+          {/* ===== PARENTS (2-column) ===== */}
+          <motion.div {...fadeUp(0.07)} className="grid grid-cols-2 gap-4 sm:gap-8 max-w-sm mx-auto">
+            <div className="text-center">
+              <span className={groupLabel}>Parents of the Groom</span>
+              <p className={groupName + " mt-0.5"}>Father of the Groom</p>
+              <p className={groupName}>Mother of the Groom</p>
+            </div>
+            <div className="text-center">
+              <span className={groupLabel}>Parents of the Bride</span>
+              <p className={groupName + " mt-0.5"}>Father of the Bride</p>
+              <p className={groupName}>Mother of the Bride</p>
+            </div>
+          </motion.div>
+
+          {/* ===== OFFICIATING MINISTER (centered below parents) ===== */}
+          <motion.div {...fadeUp(0.1)} className="text-center mt-1">
             <span className={groupLabel}>Officiating Minister</span>
             <p className={groupName + " mt-0.5"}>Minister Name</p>
           </motion.div>

@@ -36,8 +36,8 @@ export default function HeroSection({
     offset: ['start start', 'end start'],
   });
 
-  const photoY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const patternOpacity = useTransform(scrollYProgress, [0, 0.5], [0.04, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.8], [0, 60]);
 
   useEffect(() => {
@@ -48,29 +48,35 @@ export default function HeroSection({
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen w-full overflow-hidden bg-floral-deep select-none"
+      className="relative h-screen w-full overflow-hidden select-none"
     >
-      {/* ─── Photo with parallax ─── */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: photoY }}
-      >
-        <div
-          className="w-full h-[120%] bg-cover bg-center -top-[10%] relative"
-          style={{
-            backgroundImage: "url('/images/couple-hero.png')",
-            backgroundPosition: '50% 30%',
-          }}
-        />
-      </motion.div>
-
-      {/* ─── Cinematic overlay ─── */}
+      {/* ─── Elegant gradient background ─── */}
       <motion.div
         className="absolute inset-0"
         style={{ opacity: overlayOpacity }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-br from-floral-deep via-[#1a2d45] to-[#0f1d30]" />
+        {/* Subtle radial glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-floral-gold/5 blur-3xl" />
+        {/* Decorative corner light */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-2xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-white/[0.015] blur-2xl" />
+      </motion.div>
+
+      {/* ─── Subtle pattern overlay ─── */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ opacity: patternOpacity }}
+      >
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)
+            `,
+            backgroundSize: '40px 40px',
+          }}
+        />
       </motion.div>
 
       {/* ─── Content ─── */}
@@ -81,6 +87,18 @@ export default function HeroSection({
         style={{ y: textY }}
         className="relative z-10 flex flex-col items-center justify-center h-full w-full px-6"
       >
+        {/* Top decorative bar */}
+        <motion.div
+          variants={fadeUp}
+          className="flex items-center justify-center gap-3 mb-4"
+        >
+          <span className="block h-px w-12 bg-floral-gold/30" />
+          <svg className="w-4 h-4 text-floral-gold/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+            <path d="M12 2L14 9L21 9L15 14L17 21L12 17L7 21L9 14L3 9L10 9L12 2Z" />
+          </svg>
+          <span className="block h-px w-12 bg-floral-gold/30" />
+        </motion.div>
+
         <motion.p
           variants={fadeUp}
           className="font-sans text-floral-gold/70 text-[11px] sm:text-xs uppercase tracking-[0.22em] font-light mb-3"
