@@ -132,14 +132,13 @@ export default function OurStory() {
                     transition={{ duration: 1.5, ease: 'easeOut' }}
                   />
 
-                  {/* Dark gradient overlay — heavier for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
+
 
                   {/* Subtle overlay shimmer on hover */}
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-700" />
 
                   {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8">
+                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8 bg-gradient-to-t from-black/95 via-black/75 to-transparent">
                     {/* Top icon */}
                     <motion.span
                       initial={{ opacity: 0, y: 10 }}
