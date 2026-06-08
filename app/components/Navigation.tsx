@@ -73,16 +73,6 @@ export default function Navigation() {
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Brand */}
-            <button
-              onClick={() => handleNavClick('home')}
-              className="flex items-center gap-2 group"
-            >
-              <span className="font-script text-lg md:text-xl text-floral-gold group-hover:text-floral-taupe transition-colors">
-                Jay Sam <span className="text-floral-taupe/40">&amp;</span> Laarnie
-              </span>
-            </button>
-
             {/* Desktop menu */}
             <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
@@ -150,16 +140,6 @@ export default function Navigation() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="pt-24 px-8">
-                {/* Mobile brand */}
-                <div className="mb-8 pb-6 border-b border-floral-cream">
-                  <p className="font-script text-xl text-floral-gold">
-                    Jay Sam <span className="text-floral-taupe/40">&amp;</span> Laarnie
-                  </p>
-                  <p className="font-sans text-[10px] uppercase tracking-widest text-floral-taupe/50 mt-1">
-                    August 18, 2026
-                  </p>
-                </div>
-
                 {navItems.map((item, i) => (
                   <motion.button
                     key={item.target}
