@@ -132,8 +132,8 @@ export default function OurStory() {
                     transition={{ duration: 1.5, ease: 'easeOut' }}
                   />
 
-                  {/* Dark gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+                  {/* Dark gradient overlay — heavier for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
 
                   {/* Subtle overlay shimmer on hover */}
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-700" />
