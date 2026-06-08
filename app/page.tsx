@@ -18,10 +18,6 @@ import Footer from '@/app/components/Footer';
 export default function HomePage() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false);
 
-  const handleRSVPClick = useCallback(() => {
-    setIsRSVPModalOpen(true);
-  }, []);
-
   const handleFloatingRSVPClick = useCallback(() => {
     setIsRSVPModalOpen(true);
   }, []);
@@ -46,7 +42,7 @@ export default function HomePage() {
         <OurStory />
 
         {/* Event Details */}
-        <EventDetails onRSVPClick={handleRSVPClick} />
+        <EventDetails />
 
         {/* Entourage / Wedding Party */}
         <EntourageSection />
@@ -59,8 +55,6 @@ export default function HomePage() {
 
         {/* Photo Gallery */}
         <PhotoGallery />
-
-
 
         {/* Footer */}
         <Footer />

@@ -27,7 +27,7 @@ const events = [
   },
 ];
 
-export default function EventDetails({ onRSVPClick }: EventDetailsProps) {
+export default function EventDetails() {
   return (
     <section id="events" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg relative overflow-hidden">
       {/* Background watermark — minimal */}
@@ -120,25 +120,7 @@ export default function EventDetails({ onRSVPClick }: EventDetailsProps) {
           ))}
         </div>
 
-        {/* RSVP CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-14"
-        >
-          <p className="font-script text-xl text-floral-gold mb-3">
-            Will you be joining us?
-          </p>
-          <motion.button
-            onClick={onRSVPClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-3.5 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-serif text-base md:text-lg tracking-wider shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            RSVP Now
-          </motion.button>
-        </motion.div>
+
       </div>
     </section>
   );
