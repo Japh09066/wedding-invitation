@@ -5,31 +5,31 @@ import { useRef } from 'react';
 
 const storyMilestones = [
   {
-    date: 'Summer 2018',
-    title: 'First Met',
+    date: 'April 19, 2025',
+    title: 'First Meeting',
     description:
-      'It all began at a quiet gathering of friends. A chance meeting, a shared laugh, and a spark neither of us expected. That night, two strangers became something more.',
-    icon: '💫',
+      'Our paths first crossed at VSU during Sabbath worship, and we officially got to know each other at Nava Seventh-day Adventist Church. One of our favorite memories is taking our first photo together on April 19, 2025.',
+    icon: '✨',
   },
   {
-    date: 'Spring 2019',
-    title: 'First Date',
-    description:
-      'Coffee turned into dinner, dinner stretched into late-night walks. Hours vanished like minutes as we discovered how much we had to say — and how comfortable silence could be.',
-    icon: '☕',
-  },
-  {
-    date: 'Winter 2021',
+    date: 'March 22, 2026',
     title: 'The Proposal',
     description:
-      'Under a canopy of stars at our favorite spot, a question that had been whispered in the heart for months finally found its voice. The answer was — and always will be — yes.',
+      'On March 22, 2026, our journey took a beautiful turn when we decided to spend forever together.',
     icon: '💍',
+  },
+  {
+    date: 'June 3, 2026',
+    title: 'First Date',
+    description:
+      'A simple but special date at 7-Eleven on June 3, 2026\u2014proof that the best moments are often the simplest ones.',
+    icon: '💕',
   },
   {
     date: 'August 18, 2026',
     title: 'The Wedding',
     description:
-      'The beginning of forever. Surrounded by the people who matter most, we will finally say the words we have been waiting for: \u201cI do.\u201d This is the day we have dreamed of.',
+      'And now, with grateful hearts, we look forward to celebrating our wedding day on August 18, 2026, surrounded by the people we love.',
     icon: '💒',
   },
 ];
