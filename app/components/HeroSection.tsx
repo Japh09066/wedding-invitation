@@ -49,7 +49,7 @@ export default function HeroSection({
 
       {/* ─── Dark overlay ─── */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10"
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/60"
         style={{ opacity: overlayFade }}
       />
 
@@ -123,23 +123,7 @@ export default function HeroSection({
           </motion.p>
         </motion.div>
 
-        {/* Scroll */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 flex flex-col items-center gap-2"
-        >
-          <span className="font-sans text-[9px] uppercase tracking-[0.35em] text-white/25">Scroll</span>
-          <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="white" strokeWidth="1" className="opacity-25">
-            <rect x="1.5" y="1.5" width="11" height="19" rx="5.5" />
-            <motion.circle
-              cx="7" cy="7" r="1.5" fill="white"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            />
-          </svg>
-        </motion.div>
+
       </div>
     </section>
   );
