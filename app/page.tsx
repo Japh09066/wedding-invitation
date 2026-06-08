@@ -14,7 +14,6 @@ import RSVPForm from '@/app/components/RSVPForm';
 import FloatingRSVP from '@/app/components/FloatingRSVP';
 import MusicToggle from '@/app/components/MusicToggle';
 import Footer from '@/app/components/Footer';
-import { scrollToSection } from '@/app/lib/utils';
 
 export default function HomePage() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false);

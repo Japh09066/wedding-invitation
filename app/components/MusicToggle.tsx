@@ -9,7 +9,6 @@ export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Hide tooltip after a few seconds
     if (showTooltip) {
       const timer = setTimeout(() => setShowTooltip(false), 4000);
       return () => clearTimeout(timer);
@@ -18,7 +17,6 @@ export default function MusicToggle() {
 
   const toggleMusic = () => {
     if (!audioRef.current) {
-      // Create audio element
       const musicUrl = process.env.NEXT_PUBLIC_MUSIC_URL || '/music/wedding-song.mp3';
       audioRef.current = new Audio(musicUrl);
       audioRef.current.loop = true;
@@ -29,7 +27,6 @@ export default function MusicToggle() {
       audioRef.current.pause();
     } else {
       audioRef.current.play().catch(() => {
-        // Autoplay blocked — user needs to interact
         console.log('Autoplay blocked. User must interact first.');
       });
     }
@@ -40,7 +37,7 @@ export default function MusicToggle() {
 
   return (
     <>
-      {/* Tooltip hint */}
+      {/* Tooltip */}
       <AnimatePresence>
         {showTooltip && (
           <motion.div
@@ -64,10 +61,22 @@ export default function MusicToggle() {
         aria-label={isPlaying ? 'Pause music' : 'Play music'}
       >
         {isPlaying ? (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5a4a3a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="6" y="4" width="4" height="16" />
-            <rect x="14" y="4" width="4" height="16" />
-          </svg>
+          <div className="flex items-center gap-[2.5px] h-5">
+            {[3, 5, 4, 6, 3].map((h, i) => (
+              <motion.span
+                key={i}
+                className="w-[3px] rounded-full bg-floral-gold"
+                animate={{ height: [h, h * 2.5, h, h * 1.5, h] }}
+                transition={{
+                  duration: 0.6 + i * 0.1,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: i * 0.08,
+                }}
+                style={{ height: h }}
+              />
+            ))}
+          </div>
         ) : (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5a4a3a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polygon points="5 3 19 12 5 21 5 3" />

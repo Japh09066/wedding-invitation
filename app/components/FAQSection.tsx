@@ -124,10 +124,8 @@ export default function FAQSection() {
         ))}
       </div>
 
-      {/* Divider */}
-      <div className="divider-floral mt-16">
-        <span className="text-floral-gold text-lg">✦</span>
-      </div>
+      {/* Bottom spacer */}
+      <div className="mt-8" />
     </section>
   );
 }

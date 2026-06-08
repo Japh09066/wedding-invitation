@@ -18,16 +18,22 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
 
-      const sections = navItems.map((item) => document.getElementById(item.target));
-      const scrollPos = window.scrollY + 120;
+      // Scroll progress
+      const docEl = document.documentElement;
+      const scrollTop = window.scrollY;
+      const docHeight = docEl.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0);
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
+      // Active section
+      const scrollPos = window.scrollY + 120;
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navItems[i].target);
         if (section && section.offsetTop <= scrollPos) {
           setActiveSection(navItems[i].target);
           break;
@@ -46,11 +52,22 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Desktop navigation */}
+      {/* ─── Scroll Progress Bar ─── */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-transparent"
+        style={{ transformOrigin: '0% 50%' }}
+      >
+        <motion.div
+          className="h-full bg-gradient-to-r from-floral-gold/60 via-floral-gold to-floral-taupe"
+          style={{ scaleX: scrollProgress }}
+        />
+      </motion.div>
+
+      {/* ─── Desktop navigation ─── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-floral-cream'
+            ? 'bg-white/85 backdrop-blur-lg shadow-sm border-b border-floral-cream/60'
             : 'bg-transparent'
         }`}
       >
@@ -62,9 +79,8 @@ export default function Navigation() {
               className="flex items-center gap-2 group"
             >
               <span className="font-script text-lg md:text-xl text-floral-gold group-hover:text-floral-taupe transition-colors">
-                Jay Sam <span className="text-floral-taupe/50">&amp;</span> Laarnie
+                Jay Sam <span className="text-floral-taupe/40">&amp;</span> Laarnie
               </span>
-              <span className="hidden sm:block text-floral-gold/30 text-[10px]">✦</span>
             </button>
 
             {/* Desktop menu */}
@@ -122,7 +138,7 @@ export default function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm md:hidden"
             onClick={() => setIsMobileOpen(false)}
           >
             <motion.div

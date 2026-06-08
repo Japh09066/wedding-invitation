@@ -7,18 +7,13 @@ export default function Footer() {
 
   return (
     <footer className="relative py-16 bg-floral-deep text-white/80 overflow-hidden">
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-floral-gold/40 to-transparent" />
-
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-floral-gold/30 to-transparent" />
+      <div className="absolute inset-0 opacity-4 pointer-events-none">
         <svg className="w-full h-full">
           <defs>
             <pattern id="footer-bg" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
               <circle cx="30" cy="30" r="6" fill="#fff" opacity="0.3" />
-              <circle cx="120" cy="100" r="5" fill="#fff" opacity="0.2" />
               <ellipse cx="60" cy="60" rx="10" ry="2.5" transform="rotate(-30 60 60)" fill="#fff" opacity="0.15" />
-              <ellipse cx="130" cy="40" rx="8" ry="2" transform="rotate(40 130 40)" fill="#fff" opacity="0.12" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#footer-bg)" />
@@ -26,7 +21,6 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 section-container text-center">
-        {/* Couple names */}
         <motion.h3
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,14 +39,6 @@ export default function Footer() {
           August 18, 2026
         </motion.p>
 
-        {/* Decorative divider */}
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <span className="block h-px w-8 bg-floral-gold/25" />
-          <span className="text-floral-gold text-sm">✦</span>
-          <span className="block h-px w-8 bg-floral-gold/25" />
-        </div>
-
-        {/* Message */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -62,7 +48,6 @@ export default function Footer() {
           &ldquo;With hearts full of gratitude, we look forward to celebrating this new chapter with the ones we love most.&rdquo;
         </motion.p>
 
-        {/* Bottom bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -70,7 +55,7 @@ export default function Footer() {
           className="mt-10 pt-8 border-t border-white/10"
         >
           <p className="font-sans text-[11px] text-white/25 tracking-wider uppercase">
-            &copy; {year} Jay Sam &amp; Laarnie &mdash; Crafted with love
+            &copy; {year} Jay Sam &amp; Laarnie
           </p>
         </motion.div>
       </div>

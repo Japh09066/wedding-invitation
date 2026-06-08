@@ -22,15 +22,14 @@ export default function CountdownTimer() {
   ];
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-floral-cream via-floral-bg to-floral-cream">
-      {/* Background decoration — concentric rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-        <svg className="w-full max-w-2xl" viewBox="0 0 600 600" fill="none">
-          <circle cx="300" cy="300" r="280" stroke="#253d5b" strokeWidth="0.6" />
-          <circle cx="300" cy="300" r="230" stroke="#253d5b" strokeWidth="0.5" />
-          <circle cx="300" cy="300" r="180" stroke="#253d5b" strokeWidth="0.4" />
-          <circle cx="300" cy="300" r="130" stroke="#253d5b" strokeWidth="0.3" />
-          <circle cx="300" cy="300" r="80" stroke="#253d5b" strokeWidth="0.2" />
+    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-floral-cream via-floral-bg to-floral-cream">
+      {/* Subtle background — minimalist rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
+        <svg className="w-full max-w-3xl" viewBox="0 0 600 600" fill="none">
+          <circle cx="300" cy="300" r="260" stroke="#5a4a3a" strokeWidth="0.4" />
+          <circle cx="300" cy="300" r="200" stroke="#5a4a3a" strokeWidth="0.3" />
+          <circle cx="300" cy="300" r="140" stroke="#5a4a3a" strokeWidth="0.2" />
+          <circle cx="300" cy="300" r="80" stroke="#5a4a3a" strokeWidth="0.15" />
         </svg>
       </div>
 
@@ -65,37 +64,38 @@ export default function CountdownTimer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="section-title mb-12"
+              className="section-title mb-14"
             >
               Our Special Day
             </motion.h2>
 
-            <div className="flex justify-center gap-3 sm:gap-4 md:gap-6">
+            <div className="flex justify-center gap-3 sm:gap-5 md:gap-8">
               {timeUnits.map((item, i) => (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex flex-col items-center group"
+                  transition={{ delay: i * 0.1, type: 'spring', damping: 15 }}
+                  className="flex flex-col items-center"
                 >
-                  {/* Card */}
-                  <div className="relative">
-                    <div className="w-[68px] h-[72px] sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl bg-white/70 backdrop-blur-sm shadow-[0_4px_20px_-8px_rgba(202,166,135,0.3)] border border-[#caa687]/15 flex items-center justify-center group-hover:shadow-[0_8px_30px_-6px_rgba(202,166,135,0.4)] group-hover:border-[#caa687]/30 transition-all duration-500">
-                      <span className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#253d5b] tabular-nums tracking-tight">
+                  {/* Glass card */}
+                  <div className="relative group">
+                    <div className="w-[72px] h-[76px] sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white/40 backdrop-blur-xl shadow-[0_8px_32px_-8px_rgba(202,166,135,0.2)] border border-white/60 flex items-center justify-center group-hover:shadow-[0_12px_40px_-6px_rgba(202,166,135,0.3)] group-hover:border-white/80 transition-all duration-700">
+                      <motion.span
+                        key={item.value}
+                        initial={{ y: -8, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="font-serif text-2xl sm:text-4xl md:text-5xl text-floral-deep tabular-nums tracking-tight"
+                      >
                         {String(item.value).padStart(2, '0')}
-                      </span>
+                      </motion.span>
                     </div>
-                    {/* Subtle accent dot */}
-                    {i < timeUnits.length - 1 && (
-                      <span className="absolute -right-[10px] sm:-right-[14px] top-1/2 -translate-y-1/2 text-[#caa687]/20 text-[8px] sm:text-xs hidden sm:block">
-                        :
-                      </span>
-                    )}
+                    {/* Glow dot on hover */}
+                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-floral-gold/5 via-transparent to-floral-blush/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm" />
                   </div>
-                  {/* Label */}
-                  <span className="mt-2 text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#caa687]/70 font-['Inter',sans-serif] font-light">
+                  <span className="mt-3 text-[9px] sm:text-xs uppercase tracking-[0.25em] text-floral-taupe/70 font-sans font-light">
                     {item.label}
                   </span>
                 </motion.div>
@@ -103,11 +103,6 @@ export default function CountdownTimer() {
             </div>
           </div>
         )}
-      </div>
-
-      {/* Decorative divider */}
-      <div className="divider-floral mt-16">
-        <span className="text-floral-gold text-lg">✦</span>
       </div>
     </section>
   );
