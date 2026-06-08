@@ -70,7 +70,8 @@ export default function HeroSection({
           {/* Subtitle */}
           <motion.p
             variants={fadeIn}
-            className="font-serif text-white/80 text-[clamp(0.8rem,2vw,1.1rem)] tracking-[0.3em] uppercase mb-1"
+            className="font-serif text-[#e8d8c0] text-[clamp(0.8rem,2vw,1.1rem)] tracking-[0.3em] uppercase mb-1"
+            style={{textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6)'}}
           >
             You are cordially invited
           </motion.p>
@@ -78,7 +79,8 @@ export default function HeroSection({
           {/* Subtitle 2 */}
           <motion.p
             variants={fadeIn}
-            className="font-serif text-white/50 text-[clamp(0.65rem,1.6vw,0.9rem)] tracking-[0.35em] uppercase mb-8 sm:mb-12"
+            className="font-serif text-[#d4c4aa] text-[clamp(0.65rem,1.6vw,0.9rem)] tracking-[0.35em] uppercase mb-8 sm:mb-12"
+            style={{textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6)'}}
           >
             To the wedding of
           </motion.p>
