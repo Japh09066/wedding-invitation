@@ -21,7 +21,7 @@ const events = [
     title: 'Reception Dinner',
     date: 'August 18, 2026',
     time: '12:00 NN',
-    venue: 'Nava Municipal Gymnasium (tentative)',
+    venue: 'Nava SDA Basketball Court',
     address: 'Nava, Hinunangan, Leyte, Philippines',
     icon: '🍽️',
   },
