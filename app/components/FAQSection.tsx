@@ -5,34 +5,54 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: 'Can I bring additional guests?',
-    answer:
-      'Due to limited venue capacity, we are only able to accommodate the guests listed on your invitation. We hope you understand — and we look forward to celebrating with you!',
-  },
-  {
-    question: 'What time should I arrive?',
-    answer:
-      'Our ceremony will begin promptly at 9:00 AM. We kindly ask that you arrive at least 30 minutes early to find your seat, greet familiar faces, and settle in before we start.',
-  },
-  {
     question: 'When is the RSVP deadline?',
     answer:
-      'Please let us know if you can make it on or before <strong>August 4, 2026</strong>. This helps us finalize the guest list, seating, and meals. Every response means the world to us.',
+      'Please RSVP by <strong>July 01, 2026</strong> so we can have an accurate headcount. 🙂',
   },
   {
-    question: 'Do you have a gift preference?',
+    question: 'Can I bring a date?',
     answer:
-      'Your presence at our wedding is the most beautiful gift we could ask for. If you wish to give something more, a monetary gift would be gratefully received and help us start our new chapter together.',
+      'We appreciate your support and appreciation of our union. However, we are only able to accommodate guests named on the invitations.',
   },
   {
-    question: 'Can I take photos and videos?',
+    question: 'Are kids welcome?',
     answer:
-      'Absolutely! We would love for you to capture memories. However, during the ceremony and procession, we kindly ask everyone to set aside their phones and cameras so you can be fully present — and leave the professional shots to our photographers.',
+      'As much as we love your little ones, we will not be including them in the ceremony or reception. However, we recognize that some of you will be traveling with your kids, so kindly let us know ahead of time. Please reach out if you have questions!',
   },
   {
-    question: 'Is there a dress code?',
+    question: 'Where should I park?',
     answer:
-      'Semi-formal or Barong Tagalog is preferred. We want everyone to look and feel their best as we celebrate this joyful occasion together.',
+      'There is plenty of free parking at the wedding venue and reception.',
+  },
+  {
+    question: 'What should I wear?',
+    answer:
+      'Guests are encouraged to wear semi-formal attire in shades of dusty pink, dusty rose, blush, or muted pink.',
+  },
+  {
+    question: 'Is the wedding indoors or outdoors?',
+    answer:
+      'Our wedding ceremony will be held indoors while the reception will be held outdoors.',
+  },
+  {
+    question: 'Is it okay to take pictures with our phones and cameras during the wedding?',
+    answer:
+      'Yes! We would love for you to take photos and share them on social media with the official hashtag <strong>#oriJAYnallymeantforLAARNIE</strong>',
+  },
+  {
+    question: 'Whom should I call with questions?',
+    answer:
+      'Feel free to contact us through Messenger.',
+  },
+  {
+    question: 'What time will the reception end?',
+    answer:
+      'Approximately between 7:00–8:00 PM.',
+  },
+  {
+    question: 'Is there a gifts registry?',
+    answer:
+      'We are grateful for your presence at our wedding. Should you wish to give a gift, a monetary gift would be greatly appreciated as we begin our life together.',
   },
 ];
 
