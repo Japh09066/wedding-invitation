@@ -84,9 +84,16 @@ export default function HeroSection({
           >
             To the wedding of
           </motion.p>
+        </motion.div>
 
+        {/* ─── Names + Date at the bottom ─── */}
+        <motion.div
+          initial="hidden"
+          animate="show"
+          className="absolute bottom-20 sm:bottom-24 left-0 right-0 flex flex-col items-center text-center px-4 sm:px-6"
+        >
           {/* Names — big, bold, clear */}
-          <motion.div variants={fadeUp} className="mb-8 sm:mb-12 mt-16 sm:mt-12">
+          <motion.div variants={fadeUp} className="mb-6 sm:mb-8">
             <h1 className="leading-tight space-y-1 sm:space-y-2">
               <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
                 {name1}
