@@ -86,13 +86,13 @@ export default function HeroSection({
           {/* Names — big, bold, clear */}
           <motion.div variants={fadeUp} className="mb-8 sm:mb-12">
             <h1 className="leading-tight space-y-1 sm:space-y-2">
-              <span className="font-['Great_Vibes',cursive] text-white text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block drop-shadow-lg">
+              <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
                 {name1}
               </span>
               <span className="font-['Great_Vibes',cursive] text-[#d4a373] text-[clamp(1.6rem,5vw,3rem)] leading-none block drop-shadow-lg">
                 &amp;
               </span>
-              <span className="font-['Great_Vibes',cursive] text-white text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block drop-shadow-lg">
+              <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
                 {name2}
               </span>
             </h1>
