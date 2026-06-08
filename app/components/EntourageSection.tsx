@@ -116,20 +116,6 @@ export default function EntourageSection() {
             </div>
           </motion.div>
 
-          {/* ===== BRIDE & GROOM (2-column) ===== */}
-          <motion.div {...fadeUp(0.04)} className="grid grid-cols-2 gap-4 sm:gap-8 max-w-sm mx-auto">
-            <div className="text-center">
-              <span className={groupLabel}>The Groom</span>
-              <p className={groupName + " mt-0.5"}>Jay Sam</p>
-            </div>
-            <div className="text-center">
-              <span className={groupLabel}>The Bride</span>
-              <p className={groupName + " mt-0.5"}>Laarnie</p>
-            </div>
-          </motion.div>
-
-          <TinyDivider />
-
           {/* ===== PARENTS (2-column) ===== */}
           <motion.div {...fadeUp(0.07)} className="grid grid-cols-2 gap-4 sm:gap-8 max-w-sm mx-auto">
             <div className="text-center">
