@@ -54,14 +54,14 @@ export default function HeroSection({
       />
 
       {/* ─── Content ─── */}
-      <div className="relative z-10 flex flex-col items-center justify-start h-full w-full px-4 sm:px-6 pt-32 sm:pt-44">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-6">
         <motion.div
           initial="hidden"
           animate="show"
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center text-center absolute top-8 sm:top-12 left-0 right-0 px-4 sm:px-6"
         >
           {/* Top line */}
-          <motion.div variants={fadeIn} className="flex items-center gap-2 mb-6 sm:mb-8">
+          <motion.div variants={fadeIn} className="flex items-center gap-2 mb-4 sm:mb-5">
             <div className="w-8 sm:w-12 h-px bg-white/30" />
             <div className="w-1.5 h-1.5 rounded-full bg-[#d4a373]/70" />
             <div className="w-8 sm:w-12 h-px bg-white/30" />
@@ -79,14 +79,14 @@ export default function HeroSection({
           {/* Subtitle 2 */}
           <motion.p
             variants={fadeIn}
-            className="font-serif text-[#d4c4aa] text-[clamp(0.65rem,1.6vw,0.9rem)] tracking-[0.35em] uppercase mb-8 sm:mb-12"
+            className="font-serif text-[#d4c4aa] text-[clamp(0.65rem,1.6vw,0.9rem)] tracking-[0.35em] uppercase mb-0"
             style={{textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6)'}}
           >
             To the wedding of
           </motion.p>
 
           {/* Names — big, bold, clear */}
-          <motion.div variants={fadeUp} className="mb-8 sm:mb-12">
+          <motion.div variants={fadeUp} className="mb-8 sm:mb-12 mt-16 sm:mt-12">
             <h1 className="leading-tight space-y-1 sm:space-y-2">
               <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
                 {name1}
