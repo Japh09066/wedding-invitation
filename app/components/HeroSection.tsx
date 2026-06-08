@@ -50,20 +50,26 @@ export default function HeroSection({
       id="home"
       className="relative h-screen w-full overflow-hidden select-none"
     >
-      {/* ─── Elegant gradient background ─── */}
+      {/* ─── Warm floral gradient ─── */}
       <motion.div
         className="absolute inset-0"
         style={{ opacity: overlayOpacity }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-floral-deep via-[#1a2d45] to-[#0f1d30]" />
-        {/* Subtle radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-floral-gold/5 blur-3xl" />
-        {/* Decorative corner light */}
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-2xl" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-white/[0.015] blur-2xl" />
+        {/* Base gradient: warm cream to soft beige */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fdf6ee] via-[#f8efe4] to-[#f0e3d3]" />
+
+        {/* Subtle warm glow — center */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#caa687]/8 blur-3xl" />
+
+        {/* Soft sage corners */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/6 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/4 blur-3xl" />
+
+        {/* Gentle edge vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#caa687]/5 via-transparent to-[#caa687]/5" />
       </motion.div>
 
-      {/* ─── Subtle pattern overlay ─── */}
+      {/* ─── Subtle pattern ─── */}
       <motion.div
         className="absolute inset-0"
         style={{ opacity: patternOpacity }}
@@ -72,7 +78,7 @@ export default function HeroSection({
           className="w-full h-full"
           style={{
             backgroundImage: `
-              radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)
+              radial-gradient(circle at 1px 1px, #caa687 1px, transparent 0)
             `,
             backgroundSize: '40px 40px',
           }}
@@ -93,7 +99,7 @@ export default function HeroSection({
           className="flex items-center justify-center gap-3 mb-4"
         >
           <span className="block h-px w-12 bg-floral-gold/30" />
-          <svg className="w-4 h-4 text-floral-gold/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+          <svg className="w-4 h-4 text-floral-gold/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
             <path d="M12 2L14 9L21 9L15 14L17 21L12 17L7 21L9 14L3 9L10 9L12 2Z" />
           </svg>
           <span className="block h-px w-12 bg-floral-gold/30" />
@@ -101,27 +107,27 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-sans text-floral-gold/70 text-[11px] sm:text-xs uppercase tracking-[0.22em] font-light mb-3"
+          className="font-sans text-floral-gold/80 text-[11px] sm:text-xs uppercase tracking-[0.22em] font-medium mb-3"
         >
           You are cordially invited
         </motion.p>
 
         <motion.p
           variants={fadeUp}
-          className="font-serif text-white/60 text-xs sm:text-sm uppercase tracking-[0.18em] font-light mb-6 sm:mb-8"
+          className="font-serif text-floral-deep/50 text-xs sm:text-sm uppercase tracking-[0.18em] font-light mb-6 sm:mb-8"
         >
           To the wedding of
         </motion.p>
 
         <motion.div variants={fadeUp} className="text-center mb-6 sm:mb-8">
-          <h1 className="text-white leading-none">
-            <span className="font-serif text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
+          <h1 className="leading-none">
+            <span className="font-serif text-floral-deep text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
               {name1}
             </span>
             <span className="font-script text-floral-gold text-[clamp(1.2rem,4vw,2.5rem)] leading-none block my-1 sm:my-2">
               &amp;
             </span>
-            <span className="font-serif text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
+            <span className="font-serif text-floral-deep text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
               {name2}
             </span>
           </h1>
@@ -129,7 +135,7 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-serif text-white/80 text-sm sm:text-base md:text-lg tracking-[0.06em] mb-8"
+          className="font-serif text-floral-deep/70 text-sm sm:text-base md:text-lg tracking-[0.06em] mb-8"
         >
           {weddingDate}
         </motion.p>
@@ -139,7 +145,7 @@ export default function HeroSection({
           onClick={onRSVPClick}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
-          className="px-9 py-3 bg-floral-gold text-white rounded-full font-sans text-sm tracking-[0.15em] uppercase font-light shadow-lg shadow-black/20 hover:shadow-xl hover:bg-floral-taupe transition-all duration-300"
+          className="px-9 py-3 bg-floral-gold text-white rounded-full font-sans text-sm tracking-[0.15em] uppercase font-light shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:bg-floral-taupe transition-all duration-300"
         >
           RSVP
         </motion.button>
@@ -147,7 +153,7 @@ export default function HeroSection({
         {/* Scroll hint */}
         <motion.div
           variants={fadeUp}
-          className="absolute bottom-8 flex flex-col items-center gap-1.5 text-white/25"
+          className="absolute bottom-8 flex flex-col items-center gap-1.5 text-floral-deep/20"
         >
           <motion.svg
             animate={{ y: [0, 4, 0] }}
