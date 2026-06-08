@@ -34,9 +34,8 @@ export default function HomePage() {
         {/* Navigation */}
         <Navigation />
 
-        {/* Hero Section with full-screen photo */}
+        {/* Hero Section */}
         <HeroSection
-          onRSVPClick={handleRSVPClick}
           coupleName="Jay Sam & Laarnie"
           weddingDate="August 18, 2026"
         />

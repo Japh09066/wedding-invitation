@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 
 interface HeroSectionProps {
-  onRSVPClick?: () => void;
   coupleName?: string;
   weddingDate?: string;
 }
@@ -23,7 +22,6 @@ const fadeUp = {
 };
 
 export default function HeroSection({
-  onRSVPClick,
   coupleName = 'Jay Sam & Laarnie',
   weddingDate = 'August 18, 2026',
 }: HeroSectionProps) {
@@ -107,27 +105,27 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-gold/85 text-[clamp(1rem,3vw,1.8rem)] leading-snug mb-2"
+          className="font-script text-floral-gold/85 text-[clamp(1.2rem,3.5vw,2rem)] leading-snug mb-3"
         >
           You are cordially invited
         </motion.p>
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/55 text-[clamp(0.85rem,2.5vw,1.4rem)] mb-5 sm:mb-6"
+          className="font-script text-floral-deep/55 text-[clamp(1rem,3vw,1.6rem)] mb-6 sm:mb-7"
         >
           To the wedding of
         </motion.p>
 
-        <motion.div variants={fadeUp} className="text-center mb-6 sm:mb-8">
+        <motion.div variants={fadeUp} className="text-center mb-7 sm:mb-9">
           <h1 className="leading-none">
-            <span className="font-script text-floral-deep text-[clamp(2.8rem,9vw,6rem)] leading-[1.05] block">
+            <span className="font-script text-floral-deep text-[clamp(3rem,10vw,6.5rem)] leading-[1.05] block">
               {name1}
             </span>
-            <span className="font-script text-floral-gold text-[clamp(1.2rem,4vw,2.5rem)] leading-none block my-0.5 sm:my-1">
+            <span className="font-script text-floral-gold text-[clamp(1.4rem,4.5vw,2.8rem)] leading-none block my-0.5 sm:my-1">
               &amp;
             </span>
-            <span className="font-script text-floral-deep text-[clamp(2.8rem,9vw,6rem)] leading-[1.05] block">
+            <span className="font-script text-floral-deep text-[clamp(3rem,10vw,6.5rem)] leading-[1.05] block">
               {name2}
             </span>
           </h1>
@@ -135,20 +133,10 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/75 text-[clamp(1.1rem,3.5vw,2rem)] mb-8"
+          className="font-script text-floral-deep/75 text-[clamp(1.3rem,4vw,2.2rem)] mb-0"
         >
           {weddingDate}
         </motion.p>
-
-        <motion.button
-          variants={fadeUp}
-          onClick={onRSVPClick}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-9 py-3 bg-floral-gold text-white rounded-full font-script text-[clamp(0.9rem,2.5vw,1.1rem)] shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:bg-floral-taupe transition-all duration-300"
-        >
-          RSVP
-        </motion.button>
 
         {/* Scroll hint */}
         <motion.div

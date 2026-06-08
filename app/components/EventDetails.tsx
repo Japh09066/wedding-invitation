@@ -13,7 +13,7 @@ const events = [
     date: 'August 18, 2026',
     time: '9:00 AM',
     venue: 'Nava Seventh-Day Adventist Church',
-    address: 'Nava, San Andres, Catanduanes, Philippines',
+    address: 'Nava, Hinunangan, Leyte, Philippines',
     icon: '⛪',
   },
   {
@@ -22,7 +22,7 @@ const events = [
     date: 'August 18, 2026',
     time: '12:00 NN',
     venue: 'Nava Municipal Gymnasium (tentative)',
-    address: 'Nava, San Andres, Catanduanes, Philippines',
+    address: 'Nava, Hinunangan, Leyte, Philippines',
     icon: '🍽️',
   },
 ];
