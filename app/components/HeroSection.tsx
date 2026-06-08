@@ -121,13 +121,13 @@ export default function HeroSection({
 
         <motion.div variants={fadeUp} className="text-center mb-6 sm:mb-8">
           <h1 className="leading-none">
-            <span className="font-serif text-floral-deep text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
+            <span className="font-script text-floral-deep text-[clamp(2.8rem,9vw,6rem)] leading-[1.05] block">
               {name1}
             </span>
-            <span className="font-script text-floral-gold text-[clamp(1.2rem,4vw,2.5rem)] leading-none block my-1 sm:my-2">
+            <span className="font-script text-floral-gold text-[clamp(1.2rem,4vw,2.5rem)] leading-none block my-0.5 sm:my-1">
               &amp;
             </span>
-            <span className="font-serif text-floral-deep text-[clamp(2.5rem,8vw,5.5rem)] font-light tracking-[0.04em] block">
+            <span className="font-script text-floral-deep text-[clamp(2.8rem,9vw,6rem)] leading-[1.05] block">
               {name2}
             </span>
           </h1>
