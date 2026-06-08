@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useCallback } from 'react';
 import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
@@ -10,10 +11,17 @@ import WeddingDetails from '@/app/components/WeddingDetails';
 import FAQSection from '@/app/components/FAQSection';
 import PhotoGallery from '@/app/components/PhotoGallery';
 import RSVPForm from '@/app/components/RSVPForm';
+import FloatingRSVP from '@/app/components/FloatingRSVP';
 import MusicToggle from '@/app/components/MusicToggle';
 import Footer from '@/app/components/Footer';
 
 export default function HomePage() {
+  const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false);
+
+  const handleFloatingRSVPClick = useCallback(() => {
+    setIsRSVPModalOpen(true);
+  }, []);
+
   return (
     <>
       {/* Main site content */}
@@ -71,7 +79,19 @@ export default function HomePage() {
         <Footer />
 
         {/* Floating elements */}
+        <FloatingRSVP onClick={handleFloatingRSVPClick} />
         <MusicToggle />
+
+        {/* RSVP Modal */}
+        {isRSVPModalOpen && (
+          <RSVPForm
+            isModal
+            onClose={() => setIsRSVPModalOpen(false)}
+            onSuccess={() => {
+              setTimeout(() => setIsRSVPModalOpen(false), 4000);
+            }}
+          />
+        )}
       </div>
     </>
   );
