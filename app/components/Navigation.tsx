@@ -6,6 +6,7 @@ import { scrollToSection } from '@/app/lib/utils';
 
 const navItems = [
   { label: 'Home', target: 'home' },
+  { label: 'Story', target: 'story' },
   { label: 'Events', target: 'events' },
   { label: 'Entourage', target: 'entourage' },
   { label: 'FAQs', target: 'faq' },

@@ -14,18 +14,23 @@ export default function CountdownTimer() {
 
   if (!mounted) return null;
 
+  const timeUnits = [
+    { value: days, label: 'Days' },
+    { value: hours, label: 'Hours' },
+    { value: minutes, label: 'Minutes' },
+    { value: seconds, label: 'Seconds' },
+  ];
+
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-floral-cream to-floral-bg">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full">
-          <defs>
-            <pattern id="countdown-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-              <circle cx="40" cy="40" r="6" fill="#d4a373" opacity="0.4" />
-              <circle cx="160" cy="120" r="4" fill="#a3c4b5" opacity="0.4" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#countdown-pattern)" />
+    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-floral-cream via-floral-bg to-floral-cream">
+      {/* Background decoration — concentric rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
+        <svg className="w-full max-w-2xl" viewBox="0 0 600 600" fill="none">
+          <circle cx="300" cy="300" r="280" stroke="#253d5b" strokeWidth="0.6" />
+          <circle cx="300" cy="300" r="230" stroke="#253d5b" strokeWidth="0.5" />
+          <circle cx="300" cy="300" r="180" stroke="#253d5b" strokeWidth="0.4" />
+          <circle cx="300" cy="300" r="130" stroke="#253d5b" strokeWidth="0.3" />
+          <circle cx="300" cy="300" r="80" stroke="#253d5b" strokeWidth="0.2" />
         </svg>
       </div>
 
@@ -65,27 +70,32 @@ export default function CountdownTimer() {
               Our Special Day
             </motion.h2>
 
-            <div className="flex justify-center gap-4 md:gap-8">
-              {[
-                { value: days, label: 'Days' },
-                { value: hours, label: 'Hours' },
-                { value: minutes, label: 'Minutes' },
-                { value: seconds, label: 'Seconds' },
-              ].map((item, i) => (
+            <div className="flex justify-center gap-3 sm:gap-4 md:gap-6">
+              {timeUnits.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex flex-col items-center"
+                  className="flex flex-col items-center group"
                 >
-                  <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg border border-floral-cream flex items-center justify-center">
-                    <span className="font-serif text-3xl md:text-5xl text-floral-deep tabular-nums">
-                      {String(item.value).padStart(2, '0')}
-                    </span>
+                  {/* Card */}
+                  <div className="relative">
+                    <div className="w-[68px] h-[72px] sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl bg-white/70 backdrop-blur-sm shadow-[0_4px_20px_-8px_rgba(202,166,135,0.3)] border border-[#caa687]/15 flex items-center justify-center group-hover:shadow-[0_8px_30px_-6px_rgba(202,166,135,0.4)] group-hover:border-[#caa687]/30 transition-all duration-500">
+                      <span className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#253d5b] tabular-nums tracking-tight">
+                        {String(item.value).padStart(2, '0')}
+                      </span>
+                    </div>
+                    {/* Subtle accent dot */}
+                    {i < timeUnits.length - 1 && (
+                      <span className="absolute -right-[10px] sm:-right-[14px] top-1/2 -translate-y-1/2 text-[#caa687]/20 text-[8px] sm:text-xs hidden sm:block">
+                        :
+                      </span>
+                    )}
                   </div>
-                  <span className="mt-2 text-xs md:text-sm uppercase tracking-widest text-floral-taupe font-sans">
+                  {/* Label */}
+                  <span className="mt-2 text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#caa687]/70 font-['Inter',sans-serif] font-light">
                     {item.label}
                   </span>
                 </motion.div>

@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   },
 };
 
+import FloatingPetals from '@/app/components/FloatingPetals';
+
 export default function RootLayout({
   children,
 }: {
@@ -42,7 +44,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen bg-floral-bg text-floral-deep overflow-x-hidden">
-        {children}
+        <FloatingPetals />
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );
