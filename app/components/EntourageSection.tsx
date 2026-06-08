@@ -402,17 +402,7 @@ export default function EntourageSection() {
             ))}
           </motion.div>
 
-          <span className={sectionRule + " my-4 mx-12"} />
 
-          {/* ===== GIFT GUIDE ===== */}
-          <motion.div {...fadeUp(0.36)} className="text-center">
-            <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-[9px] sm:text-[10px] uppercase tracking-[0.25em] font-medium mb-1">
-              Gift Guide
-            </h3>
-            <p className="font-['Playfair_Display',serif] italic text-[#253d5b] text-[10px] sm:text-[11px] leading-tight max-w-xs mx-auto">
-              Your presence is present enough.<br />A monetary gift would be greatly appreciated.
-            </p>
-          </motion.div>
 
         </div>
       </div>

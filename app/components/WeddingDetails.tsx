@@ -15,7 +15,7 @@ export default function WeddingDetails() {
         <img
           src="/images/wedding-details-card.png"
           alt="Wedding Details"
-          className="w-full h-auto block rounded-xl shadow-[0_12px_40px_-8px_rgba(202,166,135,0.2)]"
+          className="w-full h-auto block rounded-xl"
           loading="lazy"
         />
       </motion.div>
