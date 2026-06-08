@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import EnvelopeLanding from '@/app/components/EnvelopeLanding';
+import { motion } from 'framer-motion';
 import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
@@ -18,15 +17,7 @@ import Footer from '@/app/components/Footer';
 import { scrollToSection } from '@/app/lib/utils';
 
 export default function HomePage() {
-  const [showSite, setShowSite] = useState(false);
-  const [showRSVPMenu, setShowRSVPMenu] = useState(false);
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false);
-
-  const handleEnter = useCallback(() => {
-    setShowSite(true);
-    // Small delay then scroll to hero
-    setTimeout(() => scrollToSection('home'), 500);
-  }, []);
 
   const handleRSVPClick = useCallback(() => {
     setIsRSVPModalOpen(true);
@@ -38,23 +29,12 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Envelope landing overlay */}
-      <AnimatePresence>
-        {!showSite && (
-          <EnvelopeLanding
-            onEnter={handleEnter}
-            coupleName="Jay Sam & Laarnie"
-            weddingDate="08.18.2026"
-          />
-        )}
-      </AnimatePresence>
-
       {/* Main site content */}
-      <div className={`transition-opacity duration-1000 ${showSite ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="opacity-100">
         {/* Navigation */}
         <Navigation />
 
-        {/* Hero Section */}
+        {/* Hero Section with full-screen photo */}
         <HeroSection
           onRSVPClick={handleRSVPClick}
           coupleName="Jay Sam & Laarnie"
@@ -86,7 +66,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-script text-xl md:text-2xl text-floral-gold mb-3"
+              className="heading-script mb-3"
             >
               Will you join us?
             </motion.p>
@@ -134,4 +114,3 @@ export default function HomePage() {
     </>
   );
 }
-
