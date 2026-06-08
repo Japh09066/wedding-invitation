@@ -13,6 +13,7 @@ import PhotoGallery from '@/app/components/PhotoGallery';
 import RSVPForm from '@/app/components/RSVPForm';
 import FloatingRSVP from '@/app/components/FloatingRSVP';
 import MusicToggle from '@/app/components/MusicToggle';
+import FloralDivider from '@/app/components/FloralDivider';
 import Footer from '@/app/components/Footer';
 
 export default function HomePage() {
@@ -37,24 +38,31 @@ export default function HomePage() {
 
         {/* Countdown Timer */}
         <CountdownTimer />
+        <FloralDivider />
 
         {/* Our Story */}
         <OurStory />
+        <FloralDivider variant="small" />
 
         {/* Event Details */}
         <EventDetails />
+        <FloralDivider />
 
         {/* Entourage / Wedding Party */}
         <EntourageSection />
+        <FloralDivider variant="small" />
 
         {/* Wedding Details */}
         <WeddingDetails />
+        <FloralDivider />
 
         {/* FAQ Section */}
         <FAQSection />
+        <FloralDivider variant="small" />
 
         {/* Photo Gallery */}
         <PhotoGallery />
+        <FloralDivider />
 
         {/* RSVP Section */}
         <section id="rsvp" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg">

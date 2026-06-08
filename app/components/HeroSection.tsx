@@ -53,6 +53,73 @@ export default function HeroSection({
         style={{ opacity: overlayFade }}
       />
 
+      {/* ─── Floral corner decorations ─── */}
+      <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
+        {/* Top-left corner */}
+        <svg className="absolute top-2 left-2 sm:top-4 sm:left-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
+          <g opacity="0.35">
+            {/* Spiral vine */}
+            <path d="M 0 40 Q 15 25 30 40 Q 45 60 60 40 M 50 40 Q 65 25 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" />
+            {/* Blossom cluster */}
+            <ellipse cx="65" cy="32" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(-30 65 32)" />
+            <ellipse cx="62" cy="28" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(20 62 28)" />
+            <ellipse cx="68" cy="30" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(-60 68 30)" />
+            <circle cx="65" cy="30" r="2.5" fill="#d4a373" opacity="0.5" />
+            {/* Small leaves */}
+            <ellipse cx="55" cy="36" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-20 55 36)" />
+            <ellipse cx="58" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(15 58 40)" />
+            {/* Tiny buds */}
+            <circle cx="48" cy="42" r="1.5" fill="#f2d5d5" opacity="0.5" />
+            <circle cx="52" cy="44" r="1" fill="#d4a373" opacity="0.4" />
+          </g>
+        </svg>
+
+        {/* Top-right corner */}
+        <svg className="absolute top-2 right-2 sm:top-4 sm:right-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
+          <g opacity="0.35">
+            <path d="M 0 40 Q 15 25 30 40 Q 45 60 60 40 M 50 40 Q 65 25 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" transform="scale(-1, 1) translate(-80, 0)" />
+            <ellipse cx="15" cy="32" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(30 15 32)" />
+            <ellipse cx="18" cy="28" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(-20 18 28)" />
+            <ellipse cx="12" cy="30" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(60 12 30)" />
+            <circle cx="15" cy="30" r="2.5" fill="#d4a373" opacity="0.5" />
+            <ellipse cx="25" cy="36" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(20 25 36)" />
+            <ellipse cx="22" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(-15 22 40)" />
+            <circle cx="32" cy="42" r="1.5" fill="#f2d5d5" opacity="0.5" />
+            <circle cx="28" cy="44" r="1" fill="#d4a373" opacity="0.4" />
+          </g>
+        </svg>
+
+        {/* Bottom-left corner */}
+        <svg className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
+          <g opacity="0.35">
+            <path d="M 0 40 Q 15 55 30 40 Q 45 20 60 40 M 50 40 Q 65 55 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" />
+            <ellipse cx="65" cy="48" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(30 65 48)" />
+            <ellipse cx="62" cy="52" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(-20 62 52)" />
+            <ellipse cx="68" cy="50" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(60 68 50)" />
+            <circle cx="65" cy="50" r="2.5" fill="#d4a373" opacity="0.5" />
+            <ellipse cx="55" cy="44" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(20 55 44)" />
+            <ellipse cx="58" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(-15 58 40)" />
+            <circle cx="48" cy="38" r="1.5" fill="#f2d5d5" opacity="0.5" />
+            <circle cx="52" cy="36" r="1" fill="#d4a373" opacity="0.4" />
+          </g>
+        </svg>
+
+        {/* Bottom-right corner */}
+        <svg className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
+          <g opacity="0.35">
+            <path d="M 0 40 Q 15 55 30 40 Q 45 20 60 40 M 50 40 Q 65 55 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" transform="scale(-1, 1) translate(-80, 0)" />
+            <ellipse cx="15" cy="48" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(-30 15 48)" />
+            <ellipse cx="18" cy="52" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(20 18 52)" />
+            <ellipse cx="12" cy="50" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(-60 12 50)" />
+            <circle cx="15" cy="50" r="2.5" fill="#d4a373" opacity="0.5" />
+            <ellipse cx="25" cy="44" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-20 25 44)" />
+            <ellipse cx="22" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(15 22 40)" />
+            <circle cx="32" cy="38" r="1.5" fill="#f2d5d5" opacity="0.5" />
+            <circle cx="28" cy="36" r="1" fill="#d4a373" opacity="0.4" />
+          </g>
+        </svg>
+      </div>
+
       {/* ─── Content ─── */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-6">
         <motion.div

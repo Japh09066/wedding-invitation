@@ -21,6 +21,29 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 section-container text-center">
+        {/* Floral accent */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-4"
+        >
+          <svg width="60" height="28" viewBox="0 0 60 28" fill="none" className="opacity-60">
+            <path d="M 0 14 Q 10 8 20 14 Q 30 20 40 14 Q 50 8 60 14" stroke="#d4a373" strokeWidth="0.8" fill="none" />
+            <g transform="translate(30, 14)">
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(0)" />
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(60)" />
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(120)" />
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(180)" />
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(240)" />
+              <ellipse cx="0" cy="-3" rx="2" ry="3.5" fill="#f2d5d5" opacity="0.6" transform="rotate(300)" />
+              <circle cx="0" cy="0" r="1.5" fill="#d4a373" opacity="0.7" />
+            </g>
+            <ellipse cx="16" cy="12" rx="3" ry="1.2" fill="#a3c4b5" opacity="0.4" transform="rotate(-25 16 12)" />
+            <ellipse cx="44" cy="12" rx="3" ry="1.2" fill="#a3c4b5" opacity="0.4" transform="rotate(25 44 12)" />
+          </svg>
+        </motion.div>
+
         <motion.h3
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
