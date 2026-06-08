@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 
 interface HeroSectionProps {
   coupleName?: string;
@@ -12,20 +12,19 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.06, delayChildren: 0 },
   },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
 export default function HeroSection({
   coupleName = 'Jay Sam & Laarnie',
   weddingDate = 'August 18, 2026',
 }: HeroSectionProps) {
-  const [loaded, setLoaded] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [name1, name2] = coupleName.split('&').map((s) => s.trim());
 
@@ -37,10 +36,6 @@ export default function HeroSection({
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const patternOpacity = useTransform(scrollYProgress, [0, 0.5], [0.04, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.8], [0, 60]);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
 
   return (
     <section
@@ -87,7 +82,7 @@ export default function HeroSection({
       <motion.div
         variants={container}
         initial="hidden"
-        animate={loaded ? 'show' : 'hidden'}
+        animate="show"
         style={{ y: textY }}
         className="relative z-10 flex flex-col items-center justify-center h-full w-full px-6"
       >
@@ -105,27 +100,27 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-gold/85 text-[clamp(1.2rem,3.5vw,2rem)] leading-snug mb-3"
+          className="font-script text-floral-gold/85 text-[clamp(1.4rem,4vw,2.4rem)] leading-snug mb-3"
         >
           You are cordially invited
         </motion.p>
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/55 text-[clamp(1rem,3vw,1.6rem)] mb-6 sm:mb-7"
+          className="font-script text-floral-deep/55 text-[clamp(1.2rem,3.5vw,2rem)] mb-6 sm:mb-7"
         >
           To the wedding of
         </motion.p>
 
         <motion.div variants={fadeUp} className="text-center mb-7 sm:mb-9">
           <h1 className="leading-none">
-            <span className="font-script text-floral-deep text-[clamp(3rem,10vw,6.5rem)] leading-[1.05] block">
+            <span className="font-script text-floral-deep text-[clamp(3.5rem,12vw,7.5rem)] leading-[1.05] block">
               {name1}
             </span>
-            <span className="font-script text-floral-gold text-[clamp(1.4rem,4.5vw,2.8rem)] leading-none block my-0.5 sm:my-1">
+            <span className="font-script text-floral-gold text-[clamp(1.6rem,5vw,3.2rem)] leading-none block my-0.5 sm:my-1">
               &amp;
             </span>
-            <span className="font-script text-floral-deep text-[clamp(3rem,10vw,6.5rem)] leading-[1.05] block">
+            <span className="font-script text-floral-deep text-[clamp(3.5rem,12vw,7.5rem)] leading-[1.05] block">
               {name2}
             </span>
           </h1>
@@ -133,7 +128,7 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-script text-floral-deep/75 text-[clamp(1.3rem,4vw,2.2rem)] mb-0"
+          className="font-script text-floral-deep/75 text-[clamp(1.5rem,4.5vw,2.6rem)] mb-0"
         >
           {weddingDate}
         </motion.p>
