@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
 import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
 import CountdownTimer from '@/app/components/CountdownTimer';
@@ -61,39 +60,7 @@ export default function HomePage() {
         {/* Photo Gallery */}
         <PhotoGallery />
 
-        {/* RSVP Section */}
-        <section id="rsvp" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg">
-          <div className="section-container text-center mb-12">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="heading-script mb-3"
-            >
-              Will you join us?
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="section-title"
-            >
-              RSVP
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="font-sans text-floral-taupe text-sm"
-            >
-              Kindly respond by August 4, 2026
-            </motion.p>
-          </div>
 
-          <div className="section-container max-w-xl">
-            <RSVPForm />
-          </div>
-        </section>
 
         {/* Footer */}
         <Footer />
