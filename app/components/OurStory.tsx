@@ -20,9 +20,9 @@ const storyMilestones = [
   },
   {
     date: 'March 22, 2026',
-    title: 'The Proposal',
+    title: 'Officially Engaged',
     description:
-      'On March 22, 2026, a beautiful question was asked and answered with joy. In that moment, two hearts chose the same future and the promise of forever began.',
+      'On March 22, 2026, we officially became engaged—a beautiful question asked and answered with joy. In that moment, two hearts chose the same future and the promise of forever began.',
     icon: '💍',
   },
   {
