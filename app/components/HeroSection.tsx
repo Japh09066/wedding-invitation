@@ -43,23 +43,34 @@ export default function HeroSection({
       id="home"
       className="relative h-screen w-full overflow-hidden select-none"
     >
-      {/* ─── Warm floral gradient ─── */}
+      {/* ─── Photo background ─── */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ opacity: useTransform(scrollYProgress, [0, 1], [1, 0.6]) }}
+      >
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: 'url(/images/couple-hero.png)' }}
+        />
+      </motion.div>
+
+      {/* ─── Warm floral gradient overlay ─── */}
       <motion.div
         className="absolute inset-0"
         style={{ opacity: overlayOpacity }}
       >
-        {/* Base gradient: warm cream to soft beige */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fdf6ee] via-[#f8efe4] to-[#f0e3d3]" />
+        {/* Warm cream overlay on top of photo */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fdf6ee]/85 via-[#f8efe4]/80 to-[#f0e3d3]/85" />
 
         {/* Subtle warm glow — center */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#caa687]/8 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#caa687]/10 blur-3xl" />
 
         {/* Soft sage corners */}
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/6 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/4 blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/8 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#a3c4b5]/6 blur-3xl" />
 
         {/* Gentle edge vignette */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#caa687]/5 via-transparent to-[#caa687]/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#caa687]/10 via-transparent to-[#caa687]/10" />
       </motion.div>
 
       {/* ─── Subtle pattern ─── */}
