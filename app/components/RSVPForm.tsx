@@ -379,6 +379,21 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
   // Inline mode
   return (
     <div className="card max-w-lg mx-auto">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h3 className="font-serif text-3xl text-floral-deep mb-2">
+          RSVP
+        </h3>
+        <p className="font-script text-lg text-floral-gold">
+          Kindly respond by July 01, 2026
+        </p>
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <span className="block h-px w-8 bg-floral-gold/40" />
+          <span className="text-floral-gold">✦</span>
+          <span className="block h-px w-8 bg-floral-gold/40" />
+        </div>
+      </div>
+
       {formContent}
     </div>
   );

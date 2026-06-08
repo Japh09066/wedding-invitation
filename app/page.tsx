@@ -58,18 +58,6 @@ export default function HomePage() {
 
         {/* RSVP Section */}
         <section id="rsvp" className="section-padding bg-gradient-to-b from-floral-cream to-floral-bg">
-          <div className="section-container text-center mb-12">
-            <p className="font-script text-xl md:text-2xl text-floral-gold mb-3">
-              Will you join us?
-            </p>
-            <h2 className="section-title">
-              RSVP
-            </h2>
-            <p className="font-sans text-floral-taupe text-sm">
-              Kindly respond by July 01, 2026
-            </p>
-          </div>
-
           <div className="section-container max-w-xl">
             <RSVPForm />
           </div>
