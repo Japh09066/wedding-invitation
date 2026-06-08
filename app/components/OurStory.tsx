@@ -138,7 +138,7 @@ export default function OurStory() {
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-700" />
 
                   {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8 bg-gradient-to-t from-black/95 via-black/75 to-transparent">
+                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8" style={{background:'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.60) 70%, rgba(0,0,0,0.15) 100%)'}}>
                     {/* Top icon */}
                     <motion.span
                       initial={{ opacity: 0, y: 10 }}
@@ -178,7 +178,7 @@ export default function OurStory() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.15 + 0.45 }}
-                      className="font-sans text-white/70 text-xs sm:text-sm leading-relaxed max-w-lg"
+                      className="font-sans text-white/85 text-xs sm:text-sm leading-relaxed max-w-lg"
                     >
                       {milestone.description}
                     </motion.p>
