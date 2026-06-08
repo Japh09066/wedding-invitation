@@ -119,8 +119,7 @@ export default function OurStory() {
               <div className={`flex-1 md:w-[calc(50%-1.5rem)] ${index % 2 === 1 ? 'md:pl-0 md:pr-4' : 'md:pr-0 md:pl-4'}`}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="relative overflow-hidden rounded-2xl shadow-2xl group"
-                  style={{ aspectRatio: '16/9' }}
+                  className="relative overflow-hidden rounded-2xl shadow-2xl group min-h-[380px] sm:min-h-[420px] md:min-h-[460px]"
                 >
                   {/* Image with Ken Burns zoom */}
                   <motion.div
@@ -138,7 +137,7 @@ export default function OurStory() {
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-700" />
 
                   {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8" style={{background:'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.60) 70%, rgba(0,0,0,0.15) 100%)'}}>
+                  <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8" style={{background:'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.90) 50%, rgba(0,0,0,0.70) 75%, rgba(0,0,0,0.25) 100%)'}}>
                     {/* Top icon */}
                     <motion.span
                       initial={{ opacity: 0, y: 10 }}
