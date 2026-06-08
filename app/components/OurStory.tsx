@@ -6,31 +6,31 @@ import { useRef } from 'react';
 const storyMilestones = [
   {
     date: 'April 19, 2025',
-    title: 'First Meeting',
+    title: 'Where It All Began',
     description:
-      'Our paths first crossed at VSU during Sabbath worship, and we officially got to know each other at Nava Seventh-day Adventist Church. One of our favorite memories is taking our first photo together on April 19, 2025.',
+      'What started as a simple encounter at VSU during Sabbath blossomed into something beautiful when we officially met at Nava Seventh-day Adventist Church. On April 19, 2025, we captured our very first photo together\u2014a precious memory of the beginning of our journey.',
+    icon: '🌸',
+  },
+  {
+    date: 'June 3, 2026',
+    title: 'Our First Date',
+    description:
+      'On June 3, 2026, we shared our first date at a humble 7-Eleven. It wasn\u2019t the place that made it special, but the laughter, conversations, and growing connection that made the moment unforgettable.',
     icon: '✨',
   },
   {
     date: 'March 22, 2026',
     title: 'The Proposal',
     description:
-      'On March 22, 2026, our journey took a beautiful turn when we decided to spend forever together.',
+      'On March 22, 2026, a beautiful question was asked and answered with joy. In that moment, two hearts chose the same future and the promise of forever began.',
     icon: '💍',
   },
   {
-    date: 'June 3, 2026',
-    title: 'First Date',
-    description:
-      'A simple but special date at 7-Eleven on June 3, 2026\u2014proof that the best moments are often the simplest ones.',
-    icon: '💕',
-  },
-  {
     date: 'August 18, 2026',
-    title: 'The Wedding',
+    title: 'Our Wedding Day',
     description:
-      'And now, with grateful hearts, we look forward to celebrating our wedding day on August 18, 2026, surrounded by the people we love.',
-    icon: '💒',
+      'On August 18, 2026, surrounded by God\u2019s love, our family, and dear friends, we will begin our greatest adventure yet\u2014not as two separate stories, but as one beautiful journey together.',
+    icon: '🤍',
   },
 ];
 
