@@ -222,31 +222,8 @@ export default function EntourageSection() {
 
           <span className={sectionRule + " my-1.5 mx-12"} />
 
-          {/* ===== DETAILS ===== */}
+          {/* ===== GIFT GUIDE ===== */}
           <motion.div {...fadeUp(0.26)} className="text-center">
-            {/* Attire */}
-            <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-[9px] sm:text-[10px] uppercase tracking-[0.25em] font-medium mb-1">
-              Attire
-            </h3>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 text-center mb-1.5">
-              <div>
-                <p className="font-['Playfair_Display',serif] italic text-[#253d5b] text-[10px] sm:text-[11px] leading-snug">
-                  Ladies: Blush pink, olive, or nude
-                </p>
-                <p className="font-['Inter',sans-serif] text-[#253d5b] text-[8px] sm:text-[9px] font-light mt-px opacity-60">
-                  No sleeveless during ceremony
-                </p>
-              </div>
-              <div>
-                <p className="font-['Playfair_Display',serif] italic text-[#253d5b] text-[10px] sm:text-[11px] leading-snug">
-                  Gentlemen: Long sleeves &amp; slacks
-                </p>
-                <p className="font-['Inter',sans-serif] text-[#253d5b] text-[8px] sm:text-[9px] font-light mt-px opacity-60">
-                  Tie in motif color
-                </p>
-              </div>
-            </div>
-            {/* Gift Guide */}
             <h3 className="font-['Playfair_Display',serif] text-[#caa687] text-[9px] sm:text-[10px] uppercase tracking-[0.25em] font-medium mb-0.5">
               Gift Guide
             </h3>

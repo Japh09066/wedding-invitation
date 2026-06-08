@@ -14,7 +14,6 @@ const events = [
     time: '9:00 AM',
     venue: 'Nava Seventh-Day Adventist Church',
     address: 'Nava, San Andres, Catanduanes, Philippines',
-    dress: 'Semi-Formal / Barong',
     icon: '⛪',
   },
   {
@@ -24,7 +23,6 @@ const events = [
     time: '12:00 NN',
     venue: 'Nava Municipal Gymnasium (tentative)',
     address: 'Nava, San Andres, Catanduanes, Philippines',
-    dress: 'Semi-Formal / Barong',
     icon: '🍽️',
   },
 ];
@@ -101,7 +99,6 @@ export default function EventDetails({ onRSVPClick }: EventDetailsProps) {
                   <p className="font-serif text-floral-deep text-sm md:text-base leading-snug">{event.venue}</p>
                   <p className="font-sans text-floral-taupe text-xs leading-snug mt-0.5">{event.address}</p>
                 </div>
-                <DetailPill label="Dress Code" value={event.dress} />
               </div>
 
               {/* Maps button */}

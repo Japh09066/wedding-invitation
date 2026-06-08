@@ -8,6 +8,7 @@ import CountdownTimer from '@/app/components/CountdownTimer';
 import OurStory from '@/app/components/OurStory';
 import EventDetails from '@/app/components/EventDetails';
 import EntourageSection from '@/app/components/EntourageSection';
+import WeddingDetails from '@/app/components/WeddingDetails';
 import FAQSection from '@/app/components/FAQSection';
 import PhotoGallery from '@/app/components/PhotoGallery';
 import RSVPForm from '@/app/components/RSVPForm';
@@ -51,6 +52,9 @@ export default function HomePage() {
 
         {/* Entourage / Wedding Party */}
         <EntourageSection />
+
+        {/* Wedding Details */}
+        <WeddingDetails />
 
         {/* FAQ Section */}
         <FAQSection />
