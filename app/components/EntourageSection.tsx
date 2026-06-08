@@ -215,9 +215,6 @@ export default function EntourageSection() {
 
           {/* ===== TITLE ===== */}
           <motion.div {...fadeUp()} className="text-center mb-6">
-            <p className="font-['Inter',sans-serif] text-[#caa687] text-[9px] sm:text-[10px] uppercase tracking-[0.35em] font-light">
-              Our Wedding Party
-            </p>
             <h2 className={callig + " text-[#253d5b] text-2xl sm:text-3xl md:text-4xl leading-snug mt-1"}>
               The Entourage
             </h2>
