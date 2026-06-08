@@ -107,14 +107,14 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-sans text-floral-gold/80 text-[11px] sm:text-xs uppercase tracking-[0.22em] font-medium mb-3"
+          className="font-script text-floral-gold/85 text-[clamp(1rem,3vw,1.8rem)] leading-snug mb-2"
         >
           You are cordially invited
         </motion.p>
 
         <motion.p
           variants={fadeUp}
-          className="font-serif text-floral-deep/50 text-xs sm:text-sm uppercase tracking-[0.18em] font-light mb-6 sm:mb-8"
+          className="font-script text-floral-deep/55 text-[clamp(0.85rem,2.5vw,1.4rem)] mb-5 sm:mb-6"
         >
           To the wedding of
         </motion.p>
@@ -135,7 +135,7 @@ export default function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="font-serif text-floral-deep/70 text-sm sm:text-base md:text-lg tracking-[0.06em] mb-8"
+          className="font-script text-floral-deep/75 text-[clamp(1.1rem,3.5vw,2rem)] mb-8"
         >
           {weddingDate}
         </motion.p>
@@ -145,7 +145,7 @@ export default function HeroSection({
           onClick={onRSVPClick}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
-          className="px-9 py-3 bg-floral-gold text-white rounded-full font-sans text-sm tracking-[0.15em] uppercase font-light shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:bg-floral-taupe transition-all duration-300"
+          className="px-9 py-3 bg-floral-gold text-white rounded-full font-script text-[clamp(0.9rem,2.5vw,1.1rem)] shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:bg-floral-taupe transition-all duration-300"
         >
           RSVP
         </motion.button>
