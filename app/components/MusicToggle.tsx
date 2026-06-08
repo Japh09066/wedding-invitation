@@ -9,26 +9,35 @@ export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (showTooltip) {
+    // Attempt autoplay on mount
+    const musicUrl = process.env.NEXT_PUBLIC_MUSIC_URL || '/music/wedding-song.mp3';
+    const audio = new Audio(musicUrl);
+    audio.loop = true;
+    audio.volume = 0.3;
+    audioRef.current = audio;
+
+    audio.play().then(() => {
+      setIsPlaying(true);
+      setShowTooltip(false);
+    }).catch(() => {
+      // Autoplay blocked — show tooltip, user will tap
       const timer = setTimeout(() => setShowTooltip(false), 4000);
       return () => clearTimeout(timer);
-    }
-  }, [showTooltip]);
+    });
+
+    return () => {
+      audio.pause();
+      audio.src = '';
+    };
+  }, []);
 
   const toggleMusic = () => {
-    if (!audioRef.current) {
-      const musicUrl = process.env.NEXT_PUBLIC_MUSIC_URL || '/music/wedding-song.mp3';
-      audioRef.current = new Audio(musicUrl);
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.3;
-    }
+    if (!audioRef.current) return;
 
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play().catch(() => {
-        console.log('Autoplay blocked. User must interact first.');
-      });
+      audioRef.current.play().catch(() => {});
     }
 
     setIsPlaying(!isPlaying);
