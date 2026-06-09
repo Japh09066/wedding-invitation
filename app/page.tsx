@@ -34,6 +34,7 @@ export default function HomePage() {
         <HeroSection
           coupleName="Jay Sam & Laarnie"
           weddingDate="August 18, 2026"
+          onRSVPClick={handleFloatingRSVPClick}
         />
 
         {/* Countdown Timer */}

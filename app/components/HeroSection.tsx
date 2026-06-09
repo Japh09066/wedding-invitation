@@ -6,11 +6,12 @@ import { useRef } from 'react';
 interface HeroSectionProps {
   coupleName?: string;
   weddingDate?: string;
+  onRSVPClick?: () => void;
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
 const fadeIn = {
@@ -18,9 +19,18 @@ const fadeIn = {
   show: { opacity: 1, transition: { duration: 0.8 } },
 };
 
+const stagger = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.25, delayChildren: 0.3 },
+  },
+};
+
 export default function HeroSection({
   coupleName = 'Jay Sam & Laarnie',
   weddingDate = 'August 18, 2026',
+  onRSVPClick,
 }: HeroSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [name1, name2] = coupleName.split('&').map((s) => s.trim());
@@ -30,7 +40,6 @@ export default function HeroSection({
     offset: ['start start', 'end start'],
   });
 
-  const overlayFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
@@ -39,7 +48,7 @@ export default function HeroSection({
       id="home"
       className="relative h-screen w-full overflow-hidden select-none"
     >
-      {/* ─── Photo ─── */}
+      {/* ─── Background Image with parallax ─── */}
       <motion.div className="absolute inset-0 bg-[#1a1a1a]" style={{ scale }}>
         <div
           className="w-full h-full bg-cover bg-center"
@@ -48,150 +57,128 @@ export default function HeroSection({
       </motion.div>
 
       {/* ─── Dark overlay ─── */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/60"
-        style={{ opacity: overlayFade }}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* ─── Flower corners ─── */}
+      <img
+        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
+        className="absolute top-0 left-0 w-[120px] opacity-40 pointer-events-none"
+        alt=""
+      />
+      <img
+        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
+        className="absolute top-0 right-0 w-[120px] opacity-40 scale-x-[-1] pointer-events-none"
+        alt=""
+      />
+      <img
+        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
+        className="absolute bottom-0 left-0 w-[120px] opacity-40 scale-y-[-1] pointer-events-none"
+        alt=""
+      />
+      <img
+        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
+        className="absolute bottom-0 right-0 w-[120px] opacity-40 scale-[-1] pointer-events-none"
+        alt=""
       />
 
-      {/* ─── Floral corner decorations ─── */}
-      <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
-        {/* Top-left corner */}
-        <svg className="absolute top-2 left-2 sm:top-4 sm:left-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
-          <g opacity="0.35">
-            {/* Spiral vine */}
-            <path d="M 0 40 Q 15 25 30 40 Q 45 60 60 40 M 50 40 Q 65 25 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" />
-            {/* Blossom cluster */}
-            <ellipse cx="65" cy="32" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(-30 65 32)" />
-            <ellipse cx="62" cy="28" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(20 62 28)" />
-            <ellipse cx="68" cy="30" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(-60 68 30)" />
-            <circle cx="65" cy="30" r="2.5" fill="#d4a373" opacity="0.5" />
-            {/* Small leaves */}
-            <ellipse cx="55" cy="36" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-20 55 36)" />
-            <ellipse cx="58" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(15 58 40)" />
-            {/* Tiny buds */}
-            <circle cx="48" cy="42" r="1.5" fill="#f2d5d5" opacity="0.5" />
-            <circle cx="52" cy="44" r="1" fill="#d4a373" opacity="0.4" />
-          </g>
-        </svg>
-
-        {/* Top-right corner */}
-        <svg className="absolute top-2 right-2 sm:top-4 sm:right-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
-          <g opacity="0.35">
-            <path d="M 0 40 Q 15 25 30 40 Q 45 60 60 40 M 50 40 Q 65 25 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" transform="scale(-1, 1) translate(-80, 0)" />
-            <ellipse cx="15" cy="32" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(30 15 32)" />
-            <ellipse cx="18" cy="28" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(-20 18 28)" />
-            <ellipse cx="12" cy="30" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(60 12 30)" />
-            <circle cx="15" cy="30" r="2.5" fill="#d4a373" opacity="0.5" />
-            <ellipse cx="25" cy="36" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(20 25 36)" />
-            <ellipse cx="22" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(-15 22 40)" />
-            <circle cx="32" cy="42" r="1.5" fill="#f2d5d5" opacity="0.5" />
-            <circle cx="28" cy="44" r="1" fill="#d4a373" opacity="0.4" />
-          </g>
-        </svg>
-
-        {/* Bottom-left corner */}
-        <svg className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
-          <g opacity="0.35">
-            <path d="M 0 40 Q 15 55 30 40 Q 45 20 60 40 M 50 40 Q 65 55 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" />
-            <ellipse cx="65" cy="48" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(30 65 48)" />
-            <ellipse cx="62" cy="52" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(-20 62 52)" />
-            <ellipse cx="68" cy="50" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(60 68 50)" />
-            <circle cx="65" cy="50" r="2.5" fill="#d4a373" opacity="0.5" />
-            <ellipse cx="55" cy="44" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(20 55 44)" />
-            <ellipse cx="58" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(-15 58 40)" />
-            <circle cx="48" cy="38" r="1.5" fill="#f2d5d5" opacity="0.5" />
-            <circle cx="52" cy="36" r="1" fill="#d4a373" opacity="0.4" />
-          </g>
-        </svg>
-
-        {/* Bottom-right corner */}
-        <svg className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-20 h-20 sm:w-28 sm:h-28" viewBox="0 0 80 80" fill="none">
-          <g opacity="0.35">
-            <path d="M 0 40 Q 15 55 30 40 Q 45 20 60 40 M 50 40 Q 65 55 80 40" stroke="#c9a88e" strokeWidth="0.8" fill="none" transform="scale(-1, 1) translate(-80, 0)" />
-            <ellipse cx="15" cy="48" rx="5" ry="8" fill="#f2d5d5" opacity="0.6" transform="rotate(-30 15 48)" />
-            <ellipse cx="18" cy="52" rx="4" ry="7" fill="#f2d5d5" opacity="0.5" transform="rotate(20 18 52)" />
-            <ellipse cx="12" cy="50" rx="4" ry="6" fill="#d4a373" opacity="0.4" transform="rotate(-60 12 50)" />
-            <circle cx="15" cy="50" r="2.5" fill="#d4a373" opacity="0.5" />
-            <ellipse cx="25" cy="44" rx="4" ry="1.5" fill="#a3c4b5" opacity="0.5" transform="rotate(-20 25 44)" />
-            <ellipse cx="22" cy="40" rx="3.5" ry="1.5" fill="#a3c4b5" opacity="0.4" transform="rotate(15 22 40)" />
-            <circle cx="32" cy="38" r="1.5" fill="#f2d5d5" opacity="0.5" />
-            <circle cx="28" cy="36" r="1" fill="#d4a373" opacity="0.4" />
-          </g>
-        </svg>
-      </div>
-
-      {/* ─── Content ─── */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-6">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          className="flex flex-col items-center text-center absolute top-8 sm:top-12 left-0 right-0 px-4 sm:px-6"
+      {/* ─── Glass Card Content ─── */}
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={stagger}
+        className="relative z-10 flex items-center justify-center h-full w-full px-4"
+      >
+        <div
+          className="text-center px-10 sm:px-12 py-12 sm:py-14 w-full max-w-[500px]"
+          style={{
+            background: 'rgba(255, 255, 255, 0.12)',
+            borderRadius: '20px',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.3)',
+            color: '#fff',
+          }}
         >
-          {/* Top line */}
-          <motion.div variants={fadeIn} className="flex items-center gap-2 mb-4 sm:mb-5">
-            <div className="w-8 sm:w-12 h-px bg-white/30" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#d4a373]/70" />
-            <div className="w-8 sm:w-12 h-px bg-white/30" />
-          </motion.div>
-
-          {/* Subtitle */}
+          {/* Together with their families */}
           <motion.p
             variants={fadeIn}
-            className="font-serif text-[#e8d8c0] text-[clamp(0.8rem,2vw,1.1rem)] tracking-[0.3em] uppercase mb-1"
-            style={{textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6)'}}
+            className="font-['Cormorant_Garamond',serif] text-[14px] tracking-[3px] uppercase opacity-85"
           >
-            You are cordially invited
+            Together with their families
           </motion.p>
 
-          {/* Subtitle 2 */}
-          <motion.p
-            variants={fadeIn}
-            className="font-serif text-[#d4c4aa] text-[clamp(0.65rem,1.6vw,0.9rem)] tracking-[0.35em] uppercase mb-0"
-            style={{textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6)'}}
-          >
-            To the wedding of
-          </motion.p>
-        </motion.div>
-
-        {/* ─── Names + Date at the bottom ─── */}
-        <motion.div
-          initial="hidden"
-          animate="show"
-          className="absolute bottom-20 sm:bottom-24 left-0 right-0 flex flex-col items-center text-center px-4 sm:px-6"
-        >
-          {/* Names — big, bold, clear */}
-          <motion.div variants={fadeUp} className="mb-6 sm:mb-8">
-            <h1 className="leading-tight space-y-1 sm:space-y-2">
-              <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
-                {name1}
-              </span>
-              <span className="font-['Great_Vibes',cursive] text-[#d4a373] text-[clamp(1.6rem,5vw,3rem)] leading-none block drop-shadow-lg">
-                &amp;
-              </span>
-              <span className="font-['Great_Vibes',cursive] text-[#f0d9b5] text-[clamp(3.5rem,12vw,7rem)] leading-[1.1] block" style={{textShadow:'0 0 20px rgba(240,217,181,0.15), 0 4px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.5)'}}>
-                {name2}
-              </span>
-            </h1>
+          {/* Divider */}
+          <motion.div variants={fadeIn} className="flex justify-center my-4">
+            <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
           </motion.div>
 
-          {/* Bottom divider */}
-          <motion.div variants={fadeIn} className="flex items-center gap-2 mb-4">
-            <div className="w-8 sm:w-12 h-px bg-white/20" />
-            <div className="w-1 h-1 rounded-full bg-white/40" />
-            <div className="w-8 sm:w-12 h-px bg-white/20" />
+          {/* Sub-text */}
+          <motion.p
+            variants={fadeIn}
+            className="font-['Cormorant_Garamond',serif] text-[16px] italic opacity-85 mt-2.5"
+          >
+            request the honor of your presence at the marriage of
+          </motion.p>
+
+          {/* Names */}
+          <motion.h1
+            variants={fadeUp}
+            className="font-['Allura',cursive] text-[clamp(52px,7vw,72px)] leading-tight my-3 relative"
+            style={{
+              color: '#ffdce5',
+              textShadow:
+                '0 0 5px rgba(255,200,210,0.6), 0 0 10px rgba(255,170,190,0.5), 0 0 20px rgba(255,140,170,0.4)',
+            }}
+          >
+            <span>{name1}</span>
+            <span className="block text-[clamp(28px,4vw,40px)] text-[#ffdce5] leading-none my-0.5">
+              &amp;
+            </span>
+            <span>{name2}</span>
+          </motion.h1>
+
+          {/* Divider */}
+          <motion.div variants={fadeIn} className="flex justify-center my-4">
+            <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
           </motion.div>
 
           {/* Date */}
           <motion.p
-            variants={fadeUp}
-            className="font-serif text-white/80 text-[clamp(1rem,2.8vw,1.6rem)] tracking-[0.15em]"
+            variants={fadeIn}
+            className="font-['Cormorant_Garamond',serif] text-[18px] opacity-90"
           >
             {weddingDate}
           </motion.p>
-        </motion.div>
 
+          {/* RSVP Button */}
+          <motion.button
+            variants={fadeUp}
+            onClick={onRSVPClick}
+            className="inline-block mt-6 px-7 py-3 rounded-[30px] text-white text-[14px] tracking-[1px] border-none cursor-pointer transition-all duration-300 hover:scale-105"
+            style={{ background: '#ff8fab' }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#ff5d8f')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = '#ff8fab')}
+          >
+            RSVP Now
+          </motion.button>
+        </div>
+      </motion.div>
 
-      </div>
+      {/* ─── Scroll Down Hint ─── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.8 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none"
+      >
+        <motion.span
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-white text-[13px] tracking-[2px] font-['Cormorant_Garamond',serif]"
+        >
+          ↓
+        </motion.span>
+      </motion.div>
     </section>
   );
 }
