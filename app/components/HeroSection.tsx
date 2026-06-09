@@ -46,40 +46,18 @@ export default function HeroSection({
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen w-full overflow-hidden select-none"
+      className="relative w-full overflow-hidden select-none h-screen max-sm:h-[85vh]"
     >
       {/* ─── Background Image with parallax ─── */}
       <motion.div className="absolute inset-0 bg-[#1a1a1a]" style={{ scale }}>
         <div
-          className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: 'url(/images/couple-hero.png)' }}
+          className="w-full h-full bg-cover"
+          style={{ backgroundImage: 'url(/images/couple-hero.png)', backgroundPosition: 'center' }}
         />
       </motion.div>
 
       {/* ─── Dark overlay ─── */}
-      <div className="absolute inset-0 bg-black/40" />
-
-      {/* ─── Flower corners ─── */}
-      <img
-        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
-        className="absolute top-0 left-0 w-[120px] opacity-40 pointer-events-none"
-        alt=""
-      />
-      <img
-        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
-        className="absolute top-0 right-0 w-[120px] opacity-40 scale-x-[-1] pointer-events-none"
-        alt=""
-      />
-      <img
-        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
-        className="absolute bottom-0 left-0 w-[120px] opacity-40 scale-y-[-1] pointer-events-none"
-        alt=""
-      />
-      <img
-        src="https://pngimg.com/uploads/flower/flower_PNG102.png"
-        className="absolute bottom-0 right-0 w-[120px] opacity-40 scale-[-1] pointer-events-none"
-        alt=""
-      />
+      <div className="absolute inset-0 bg-black/35" />
 
       {/* ─── Glass Card Content ─── */}
       <motion.div
@@ -89,33 +67,33 @@ export default function HeroSection({
         className="relative z-10 flex items-center justify-center h-full w-full px-4"
       >
         <div
-          className="text-center px-10 sm:px-12 py-12 sm:py-14 w-full max-w-[500px]"
+          className="text-center w-full max-w-[640px] px-10 sm:px-12 py-12 sm:py-14 max-sm:px-5 max-sm:py-8 max-sm:mx-3"
           style={{
             background: 'rgba(255, 255, 255, 0.12)',
             borderRadius: '20px',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.3)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
+            border: '1px solid rgba(255,255,255,0.25)',
             color: '#fff',
           }}
         >
           {/* Together with their families */}
           <motion.p
             variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[14px] tracking-[3px] uppercase opacity-85"
+            className="font-['Cormorant_Garamond',serif] text-[13px] tracking-[3px] uppercase opacity-85"
           >
             Together with their families
           </motion.p>
 
           {/* Divider */}
-          <motion.div variants={fadeIn} className="flex justify-center my-4">
+          <motion.div variants={fadeIn} className="flex justify-center my-[18px]">
             <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
           </motion.div>
 
           {/* Sub-text */}
           <motion.p
             variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[16px] italic opacity-85 mt-2.5"
+            className="font-['Cormorant_Garamond',serif] text-[16px] italic opacity-90 mt-2.5 max-sm:text-[14px]"
           >
             request the honor of your presence at the marriage of
           </motion.p>
@@ -123,29 +101,33 @@ export default function HeroSection({
           {/* Names */}
           <motion.h1
             variants={fadeUp}
-            className="font-['Allura',cursive] text-[clamp(52px,7vw,72px)] leading-tight my-3 relative"
+            className="font-['Allura',cursive] leading-tight my-[15px] relative"
             style={{
               color: '#ffdce5',
               textShadow:
-                '0 0 5px rgba(255,200,210,0.6), 0 0 10px rgba(255,170,190,0.5), 0 0 20px rgba(255,140,170,0.4)',
+                '0 0 6px rgba(255,200,210,0.6), 0 0 12px rgba(255,170,190,0.6)',
             }}
           >
-            <span>{name1}</span>
+            <span className="text-[clamp(50px,7vw,70px)] max-sm:text-[40px]">
+              {name1}
+            </span>
             <span className="block text-[clamp(28px,4vw,40px)] text-[#ffdce5] leading-none my-0.5">
               &amp;
             </span>
-            <span>{name2}</span>
+            <span className="text-[clamp(50px,7vw,70px)] max-sm:text-[40px]">
+              {name2}
+            </span>
           </motion.h1>
 
           {/* Divider */}
-          <motion.div variants={fadeIn} className="flex justify-center my-4">
+          <motion.div variants={fadeIn} className="flex justify-center my-[18px]">
             <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
           </motion.div>
 
           {/* Date */}
           <motion.p
             variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[18px] opacity-90"
+            className="font-['Cormorant_Garamond',serif] text-[18px] opacity-90 tracking-[1px]"
           >
             {weddingDate}
           </motion.p>
@@ -154,7 +136,7 @@ export default function HeroSection({
           <motion.button
             variants={fadeUp}
             onClick={onRSVPClick}
-            className="inline-block mt-6 px-7 py-3 rounded-[30px] text-white text-[14px] tracking-[1px] border-none cursor-pointer transition-all duration-300 hover:scale-105"
+            className="inline-block mt-[25px] px-[30px] py-3 rounded-[30px] text-white text-[14px] tracking-[1px] border-none cursor-pointer transition-all duration-300 hover:scale-105"
             style={{ background: '#ff8fab' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = '#ff5d8f')}
             onMouseLeave={(e) => (e.currentTarget.style.background = '#ff8fab')}
@@ -164,20 +146,21 @@ export default function HeroSection({
         </div>
       </motion.div>
 
-      {/* ─── Scroll Down Hint ─── */}
+      {/* ─── Scroll Down Indicator ─── */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
+        animate={{ opacity: 0.85 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none"
+        className="absolute bottom-6 left-0 right-0 flex flex-col items-center pointer-events-none"
       >
-        <motion.span
-          animate={{ y: [0, -6, 0] }}
+        <motion.div
+          animate={{ y: [0, -6, 0], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="text-white text-[13px] tracking-[2px] font-['Cormorant_Garamond',serif]"
+          className="text-white text-[12px] tracking-[2px] font-['Cormorant_Garamond',serif] flex flex-col items-center"
         >
-          ↓
-        </motion.span>
+          SCROLL DOWN
+          <span className="block text-[20px] mt-1">↓</span>
+        </motion.div>
       </motion.div>
     </section>
   );
