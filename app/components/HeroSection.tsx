@@ -55,7 +55,7 @@ export default function HeroSection({
   ];
 
   const handleScrollToDetails = () => {
-    const el = document.getElementById('story');
+    const el = document.getElementById('details');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 

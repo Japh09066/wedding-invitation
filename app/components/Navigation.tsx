@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Story', target: 'story' },
   { label: 'Events', target: 'events' },
   { label: 'Entourage', target: 'entourage' },
+  { label: 'Details', target: 'details' },
   { label: 'FAQs', target: 'faq' },
   { label: 'Gallery', target: 'gallery' },
   { label: 'RSVP', target: 'rsvp' },

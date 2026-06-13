@@ -128,7 +128,7 @@ export default function WeddingDetails() {
             rel="noopener noreferrer"
             className="group inline-block"
           >
-            <span className="font-sans text-[11px] sm:text-[13px] tracking-[0.35em] uppercase text-floral-taupe/80 group-hover:text-floral-gold transition-colors duration-500">
+            <span className="font-['Playfair_Display',serif] text-[15px] sm:text-[18px] tracking-wide text-floral-deep/85 group-hover:text-floral-gold transition-colors duration-500">
               #oriJAYnallymeantforLAARNIE
             </span>
           </a>
