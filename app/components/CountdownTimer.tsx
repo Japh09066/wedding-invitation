@@ -82,15 +82,21 @@ export default function CountdownTimer() {
                   {/* Glass card */}
                   <div className="relative group">
                     <div className="w-[72px] h-[76px] sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white/40 backdrop-blur-xl shadow-[0_8px_32px_-8px_rgba(202,166,135,0.2)] border border-white/60 flex items-center justify-center group-hover:shadow-[0_12px_40px_-6px_rgba(202,166,135,0.3)] group-hover:border-white/80 transition-all duration-700">
-                      <motion.span
-                        key={item.value}
-                        initial={{ y: -8, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                        className="font-serif text-2xl sm:text-4xl md:text-5xl text-floral-deep tabular-nums tracking-tight"
-                      >
-                        {String(item.value).padStart(2, '0')}
-                      </motion.span>
+                      {item.label === 'Seconds' ? (
+                        <span className="font-serif text-3xl sm:text-5xl md:text-6xl font-light text-floral-deep tabular-nums tracking-tight">
+                          {String(item.value).padStart(2, '0')}
+                        </span>
+                      ) : (
+                        <motion.span
+                          key={item.value}
+                          initial={{ y: -8, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                          className="font-serif text-3xl sm:text-5xl md:text-6xl font-light text-floral-deep tabular-nums tracking-tight"
+                        >
+                          {String(item.value).padStart(2, '0')}
+                        </motion.span>
+                      )}
                     </div>
                     {/* Glow dot on hover */}
                     <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-floral-gold/5 via-transparent to-floral-blush/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm" />

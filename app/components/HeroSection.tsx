@@ -128,7 +128,7 @@ export default function HeroSection({
                 {timeUnits.map((unit, i) => (
                   <div key={unit.label} className="flex items-center gap-4 sm:gap-6">
                     <div className="text-center">
-                      <span className="block font-serif text-xl sm:text-2xl text-floral-deep tabular-nums">
+                      <span className="block font-serif text-2xl sm:text-3xl font-light text-floral-deep tabular-nums">
                         {String(unit.value).padStart(2, '0')}
                       </span>
                       <span className="block text-[8px] uppercase tracking-[0.2em] text-floral-deep font-sans font-medium mt-0.5">
@@ -189,24 +189,7 @@ export default function HeroSection({
         </div>
       </div>
 
-      {/* ─── Scroll Indicator ─── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.5 }}
-        className="absolute bottom-8 left-8 z-20 flex flex-col items-start pointer-events-none"
-      >
-        <motion.div
-          animate={{ y: [0, -5, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-          className="flex items-center gap-2"
-        >
-          <span className="block w-6 h-px bg-floral-deep/20" />
-          <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-floral-deep/30 font-light">
-            Scroll
-          </span>
-        </motion.div>
-      </motion.div>
+
     </section>
   );
 }
