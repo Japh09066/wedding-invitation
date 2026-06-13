@@ -63,12 +63,12 @@ export default function Navigation() {
         />
       </motion.div>
 
-      {/* ─── Desktop navigation ─── */}
+      {/* ─── Glassmorphism Nav ─── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-xl transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/85 backdrop-blur-lg shadow-sm border-b border-floral-cream/60'
-            : 'bg-transparent'
+            ? 'bg-white/85 shadow-sm border-b border-floral-cream/60'
+            : 'bg-white/30 border-b border-white/10'
         }`}
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -79,7 +79,7 @@ export default function Navigation() {
                 <button
                   key={item.target}
                   onClick={() => handleNavClick(item.target)}
-                  className={`font-sans text-[10px] uppercase tracking-[0.2em] transition-all duration-300 relative py-2 ${
+                  className={`group font-sans text-[10px] uppercase tracking-[0.2em] transition-all duration-300 relative py-2 ${
                     activeSection === item.target
                       ? 'text-floral-gold'
                       : 'text-floral-deep/60 hover:text-floral-deep'
@@ -136,7 +136,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl"
+              className="absolute right-0 top-0 h-full w-72 bg-white/95 backdrop-blur-xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="pt-24 px-8">

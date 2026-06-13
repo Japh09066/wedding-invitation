@@ -44,7 +44,7 @@ export default function HeroSection({
     offset: ['start start', 'end start'],
   });
 
-  const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const timeUnits = [
@@ -55,7 +55,7 @@ export default function HeroSection({
   ];
 
   const handleScrollToDetails = () => {
-    const el = document.getElementById('our-story');
+    const el = document.getElementById('story');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -63,9 +63,8 @@ export default function HeroSection({
     <section
       ref={sectionRef}
       id="home"
-      className="relative w-full min-h-screen overflow-hidden bg-floral-bg"
+      className="relative w-full min-h-screen overflow-visible bg-floral-bg"
     >
-      {/* ─── Split Layout ─── */}
       <div className="flex flex-col-reverse lg:flex-row h-full min-h-screen">
         {/* ─── Left: Text Side ─── */}
         <motion.div
@@ -73,10 +72,10 @@ export default function HeroSection({
           animate="show"
           variants={stagger}
           style={{ opacity: textOpacity as unknown as number }}
-          className="relative z-10 w-full lg:w-[55%] xl:w-[58%] flex items-center justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-20 lg:py-0"
+          className="relative z-20 w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-20 lg:py-0"
         >
           <div className="w-full max-w-xl mx-auto lg:mx-0">
-            {/* Save the Date label */}
+            {/* Save the Date */}
             <motion.div
               variants={fadeIn}
               className="flex items-center gap-3 mb-6"
@@ -87,23 +86,23 @@ export default function HeroSection({
               </span>
             </motion.div>
 
-            {/* ─── Names ─── */}
+            {/* ─── Names — negative-margin overlap into photo zone ─── */}
             <motion.h1
               variants={fadeUp}
-              className="font-['Playfair_Display',serif] leading-[1.1]"
+              className="font-['Playfair_Display',serif] leading-[1.05] lg:-mr-[22%] relative z-30"
             >
-              <span className="block text-[clamp(44px,6vw,80px)] text-floral-deep font-light tracking-tight">
+              <span className="block text-[clamp(48px,7vw,90px)] text-floral-deep font-light tracking-tight">
                 {name1}
               </span>
-              <span className="block text-[clamp(22px,2.5vw,36px)] text-floral-gold font-script font-normal my-1 -ml-1">
+              <span className="block text-[clamp(24px,3vw,40px)] text-floral-gold font-script font-normal my-1 lg:my-2">
                 &amp;
               </span>
-              <span className="block text-[clamp(44px,6vw,80px)] text-floral-deep font-light tracking-tight">
+              <span className="block text-[clamp(48px,7vw,90px)] text-floral-deep font-light tracking-tight">
                 {name2}
               </span>
             </motion.h1>
 
-            {/* ─── Decorative Divider ─── */}
+            {/* Decorative Divider */}
             <motion.div
               variants={fadeIn}
               className="flex items-center gap-3 my-8"
@@ -113,7 +112,7 @@ export default function HeroSection({
               <span className="block w-12 h-px bg-floral-gold/40" />
             </motion.div>
 
-            {/* ─── Date & Location ─── */}
+            {/* Date & Location */}
             <motion.div variants={fadeUp} className="space-y-2 mb-10">
               <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep/80 font-light">
                 {weddingDate}
@@ -123,11 +122,8 @@ export default function HeroSection({
               </p>
             </motion.div>
 
-            {/* ─── Mini Countdown ─── */}
-            <motion.div
-              variants={fadeIn}
-              className="mb-10"
-            >
+            {/* Mini Countdown */}
+            <motion.div variants={fadeIn} className="mb-10">
               <div className="inline-flex items-center gap-4 sm:gap-6 py-4 px-5 bg-white/50 backdrop-blur-sm rounded-xl border border-floral-cream/80">
                 {timeUnits.map((unit, i) => (
                   <div key={unit.label} className="flex items-center gap-4 sm:gap-6">
@@ -147,51 +143,49 @@ export default function HeroSection({
               </div>
             </motion.div>
 
-            {/* ─── CTA Buttons ─── */}
+            {/* ─── CTA: Text links with center-out underline ─── */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-5"
+              className="flex flex-wrap items-center gap-8"
             >
               <button
                 onClick={onRSVPClick}
-                className="group relative px-9 py-3.5 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-sans text-xs sm:text-sm uppercase tracking-[0.2em] font-medium transition-all duration-500 ease-in-out shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:shadow-floral-taupe/25 hover:-translate-y-0.5"
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/80 hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 RSVP
-                <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-gold group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
               <button
                 onClick={handleScrollToDetails}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/70 hover:text-floral-deep transition-all duration-500 ease-in-out py-2"
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-taupe/70 hover:text-floral-deep/80 transition-all duration-500 ease-in-out py-1"
               >
                 View Details
-                <span className="absolute bottom-0 left-0 w-full h-px bg-floral-deep/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out origin-left" />
+                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/30 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
             </motion.div>
           </div>
         </motion.div>
 
-        {/* ─── Right: Photo Side ─── */}
-        <div className="relative w-full lg:w-[45%] xl:w-[42%] h-[50vh] sm:h-[55vh] lg:h-screen overflow-hidden">
-          {/* Photo with parallax */}
-          <motion.div
-            style={{ y: imageParallax }}
-            className="absolute inset-0"
-            aria-hidden="true"
-          >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(/images/couple-hero.png)',
-                backgroundPosition: 'center 30%',
-              }}
-            />
-          </motion.div>
-
-          {/* Gradient overlay to blend text into photo edge */}
-          <div className="absolute inset-0 bg-gradient-to-r from-floral-bg/60 via-transparent to-transparent lg:from-floral-bg/80 lg:via-transparent lg:to-transparent pointer-events-none" />
-
-          {/* Bottom gradient for mobile transition */}
-          <div className="absolute inset-0 bg-gradient-to-t from-floral-bg via-floral-bg/60 to-transparent lg:hidden pointer-events-none" />
+        {/* ─── Right: 3:4 Aspect Ratio Photo Frame ─── */}
+        <div className="relative w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex items-center justify-center lg:items-center overflow-visible">
+          <div className="w-full max-w-[85%] sm:max-w-[70%] lg:max-w-none lg:w-[88%] xl:w-[82%] lg:-ml-[10%]">
+            <div className="aspect-[3/4] w-full relative overflow-hidden rounded-sm shadow-[0_24px_72px_-20px_rgba(90,74,58,0.3)]">
+              <motion.div
+                style={{ y: imageParallax }}
+                className="absolute inset-0"
+              >
+                <div
+                  className="w-full h-full bg-cover bg-center"
+                  style={{
+                    backgroundImage: 'url(/images/couple-hero.png)',
+                    backgroundPosition: 'center 30%',
+                  }}
+                />
+              </motion.div>
+              {/* Subtle frame border */}
+              <div className="absolute inset-0 border border-white/10 pointer-events-none rounded-sm" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -200,7 +194,7 @@ export default function HeroSection({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5 }}
-        className="absolute bottom-8 left-8 lg:left-[55%] xl:left-[58%] flex flex-col items-start pointer-events-none z-20"
+        className="absolute bottom-8 left-8 z-20 flex flex-col items-start pointer-events-none"
       >
         <motion.div
           animate={{ y: [0, -5, 0], opacity: [0.5, 1, 0.5] }}
