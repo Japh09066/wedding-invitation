@@ -37,6 +37,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showConfetti, setShowConfetti] = useState(false);
+  const [lastResponse, setLastResponse] = useState<'yes' | 'no' | null>(null);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -93,12 +94,15 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
         console.log('RSVP submission (Apps Script URL not configured):', payload);
       }
 
+      const wasAccepted = formData.attendance === 'yes';
+      setLastResponse(wasAccepted ? 'yes' : 'no');
       setSubmitStatus('success');
-      setShowConfetti(true);
+      if (wasAccepted) {
+        setShowConfetti(true);
+        // Auto-close confetti
+        setTimeout(() => setShowConfetti(false), 5000);
+      }
       onSuccess?.();
-
-      // Auto-close confetti
-      setTimeout(() => setShowConfetti(false), 5000);
 
       // Reset form after success
       setFormData({
@@ -142,7 +146,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
               transition={{ type: 'spring', damping: 10, stiffness: 200 }}
               className="text-6xl mb-4"
             >
-              {formData.attendance === 'yes' ? '🎉' : '💌'}
+              {lastResponse === 'yes' ? '🎉' : '💌'}
             </motion.div>
             <h3 className="font-serif text-3xl text-floral-deep mb-3">
               Thank You!
@@ -150,7 +154,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
             <p className="font-script text-xl text-floral-gold mb-2">
               Your RSVP has been received
             </p>
-            {formData.attendance === 'yes' ? (
+            {lastResponse === 'yes' ? (
               <p className="font-sans text-floral-taupe text-sm">
                 We can&apos;t wait to celebrate with you!
               </p>
