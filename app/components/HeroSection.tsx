@@ -79,7 +79,7 @@ export default function HeroSection({
               className="flex items-center gap-3 mb-6"
             >
               <span className="block w-8 h-px bg-floral-gold/60" />
-              <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.25em] text-floral-deep font-medium">
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-floral-deep font-medium">
                 Save the Date
               </span>
             </motion.div>
@@ -112,7 +112,7 @@ export default function HeroSection({
 
             {/* Date & Location */}
             <motion.div variants={fadeUp} className="space-y-2 mb-10">
-              <p className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.3em] text-floral-deep font-medium">
+              <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep font-medium">
                 {weddingDate}
               </p>
               {location && (
@@ -131,7 +131,7 @@ export default function HeroSection({
                       <span className="block font-serif text-xl sm:text-2xl text-floral-deep tabular-nums">
                         {String(unit.value).padStart(2, '0')}
                       </span>
-                      <span className="block text-[9px] uppercase tracking-[0.2em] text-floral-deep font-sans font-medium mt-0.5">
+                      <span className="block text-[8px] uppercase tracking-[0.2em] text-floral-deep font-sans font-medium mt-0.5">
                         {unit.label}
                       </span>
                     </div>
