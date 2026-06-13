@@ -114,12 +114,14 @@ export default function HeroSection({
 
             {/* Date & Location */}
             <motion.div variants={fadeUp} className="space-y-2 mb-10">
-              <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep/80 font-light">
+              <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep/90 font-light">
                 {weddingDate}
               </p>
-              <p className="font-serif text-[15px] sm:text-[16px] italic text-floral-taupe/80">
-                {location}
-              </p>
+              {location && (
+                <p className="font-serif text-[15px] sm:text-[16px] italic text-floral-taupe/90">
+                  {location}
+                </p>
+              )}
             </motion.div>
 
             {/* Mini Countdown */}
@@ -150,17 +152,17 @@ export default function HeroSection({
             >
               <button
                 onClick={onRSVPClick}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/80 hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 RSVP
                 <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-gold group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
               <button
                 onClick={handleScrollToDetails}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-taupe/70 hover:text-floral-deep/80 transition-all duration-500 ease-in-out py-1"
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/70 hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 View Details
-                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/30 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
+                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/50 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
             </motion.div>
           </div>

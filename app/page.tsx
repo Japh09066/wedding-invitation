@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import Navigation from '@/app/components/Navigation';
 import HeroSection from '@/app/components/HeroSection';
-import CountdownTimer from '@/app/components/CountdownTimer';
+
 import OurStory from '@/app/components/OurStory';
 import EventDetails from '@/app/components/EventDetails';
 import EntourageSection from '@/app/components/EntourageSection';
@@ -34,12 +34,9 @@ export default function HomePage() {
         <HeroSection
           coupleName="Jay Sam & Laarnie"
           weddingDate="August 18, 2026"
+          location=""
           onRSVPClick={handleFloatingRSVPClick}
         />
-
-        {/* Countdown Timer */}
-        <CountdownTimer />
-        <FloralDivider />
 
         {/* Our Story */}
         <OurStory />
