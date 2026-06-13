@@ -2,164 +2,215 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useCountdown } from '@/app/hooks/useCountdown';
 
 interface HeroSectionProps {
   coupleName?: string;
   weddingDate?: string;
+  location?: string;
   onRSVPClick?: () => void;
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.8 } },
+  show: { opacity: 1, transition: { duration: 1 } },
 };
 
 const stagger = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.25, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
   },
 };
 
 export default function HeroSection({
   coupleName = 'Jay Sam & Laarnie',
   weddingDate = 'August 18, 2026',
+  location = 'Pangasinan, Philippines',
   onRSVPClick,
 }: HeroSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [name1, name2] = coupleName.split('&').map((s) => s.trim());
+  const countdown = useCountdown();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const timeUnits = [
+    { value: countdown.days, label: 'Days' },
+    { value: countdown.hours, label: 'Hrs' },
+    { value: countdown.minutes, label: 'Min' },
+    { value: countdown.seconds, label: 'Sec' },
+  ];
+
+  const handleScrollToDetails = () => {
+    const el = document.getElementById('our-story');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative w-full overflow-hidden select-none h-screen max-sm:h-[85vh]"
+      className="relative w-full min-h-screen overflow-hidden bg-floral-bg"
     >
-      {/* ─── Background Image with parallax ─── */}
-      <motion.div className="absolute inset-0 bg-[#1a1a1a]" style={{ scale }}>
-        <div
-          className="w-full h-full bg-cover"
-          style={{ backgroundImage: 'url(/images/couple-hero.png)', backgroundPosition: 'center' }}
-        />
-      </motion.div>
-
-      {/* ─── Dark overlay ─── */}
-      <div className="absolute inset-0 bg-black/35" />
-
-      {/* ─── Glass Card Content ─── */}
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={stagger}
-        className="relative z-10 flex items-center justify-center h-full w-full px-4"
-      >
-        <div
-          className="text-center w-full max-w-[640px] px-10 sm:px-12 py-12 sm:py-14 max-sm:px-5 max-sm:py-8 max-sm:mx-3"
-          style={{
-            background: 'rgba(255, 255, 255, 0.12)',
-            borderRadius: '20px',
-            backdropFilter: 'blur(6px)',
-            WebkitBackdropFilter: 'blur(6px)',
-            border: '1px solid rgba(255,255,255,0.25)',
-            color: '#fff',
-          }}
+      {/* ─── Split Layout ─── */}
+      <div className="flex flex-col-reverse lg:flex-row h-full min-h-screen">
+        {/* ─── Left: Text Side ─── */}
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={stagger}
+          style={{ opacity: textOpacity as unknown as number }}
+          className="relative z-10 w-full lg:w-[55%] xl:w-[58%] flex items-center justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-20 lg:py-0"
         >
-          {/* Together with their families */}
-          <motion.p
-            variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[13px] tracking-[3px] uppercase opacity-85"
-          >
-            Together with their families
-          </motion.p>
+          <div className="w-full max-w-xl mx-auto lg:mx-0">
+            {/* Save the Date label */}
+            <motion.div
+              variants={fadeIn}
+              className="flex items-center gap-3 mb-6"
+            >
+              <span className="block w-8 h-px bg-floral-gold/60" />
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-floral-taupe/70 font-light">
+                Save the Date
+              </span>
+            </motion.div>
 
-          {/* Divider */}
-          <motion.div variants={fadeIn} className="flex justify-center my-[18px]">
-            <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
+            {/* ─── Names ─── */}
+            <motion.h1
+              variants={fadeUp}
+              className="font-['Playfair_Display',serif] leading-[1.1]"
+            >
+              <span className="block text-[clamp(44px,6vw,80px)] text-floral-deep font-light tracking-tight">
+                {name1}
+              </span>
+              <span className="block text-[clamp(22px,2.5vw,36px)] text-floral-gold font-script font-normal my-1 -ml-1">
+                &amp;
+              </span>
+              <span className="block text-[clamp(44px,6vw,80px)] text-floral-deep font-light tracking-tight">
+                {name2}
+              </span>
+            </motion.h1>
+
+            {/* ─── Decorative Divider ─── */}
+            <motion.div
+              variants={fadeIn}
+              className="flex items-center gap-3 my-8"
+            >
+              <span className="block w-12 h-px bg-floral-gold/40" />
+              <span className="block w-2 h-2 rounded-full bg-floral-gold/30" />
+              <span className="block w-12 h-px bg-floral-gold/40" />
+            </motion.div>
+
+            {/* ─── Date & Location ─── */}
+            <motion.div variants={fadeUp} className="space-y-2 mb-10">
+              <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep/80 font-light">
+                {weddingDate}
+              </p>
+              <p className="font-serif text-[15px] sm:text-[16px] italic text-floral-taupe/80">
+                {location}
+              </p>
+            </motion.div>
+
+            {/* ─── Mini Countdown ─── */}
+            <motion.div
+              variants={fadeIn}
+              className="mb-10"
+            >
+              <div className="inline-flex items-center gap-4 sm:gap-6 py-4 px-5 bg-white/50 backdrop-blur-sm rounded-xl border border-floral-cream/80">
+                {timeUnits.map((unit, i) => (
+                  <div key={unit.label} className="flex items-center gap-4 sm:gap-6">
+                    <div className="text-center">
+                      <span className="block font-serif text-xl sm:text-2xl text-floral-deep tabular-nums">
+                        {String(unit.value).padStart(2, '0')}
+                      </span>
+                      <span className="block text-[8px] uppercase tracking-[0.2em] text-floral-taupe/60 font-sans font-light mt-0.5">
+                        {unit.label}
+                      </span>
+                    </div>
+                    {i < timeUnits.length - 1 && (
+                      <span className="text-floral-taupe/30 font-light text-lg">:</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* ─── CTA Buttons ─── */}
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap items-center gap-5"
+            >
+              <button
+                onClick={onRSVPClick}
+                className="group relative px-9 py-3.5 bg-floral-gold hover:bg-floral-taupe text-white rounded-full font-sans text-xs sm:text-sm uppercase tracking-[0.2em] font-medium transition-all duration-500 ease-in-out shadow-lg shadow-floral-gold/20 hover:shadow-xl hover:shadow-floral-taupe/25 hover:-translate-y-0.5"
+              >
+                RSVP
+                <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
+              <button
+                onClick={handleScrollToDetails}
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/70 hover:text-floral-deep transition-all duration-500 ease-in-out py-2"
+              >
+                View Details
+                <span className="absolute bottom-0 left-0 w-full h-px bg-floral-deep/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out origin-left" />
+              </button>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* ─── Right: Photo Side ─── */}
+        <div className="relative w-full lg:w-[45%] xl:w-[42%] h-[50vh] sm:h-[55vh] lg:h-screen overflow-hidden">
+          {/* Photo with parallax */}
+          <motion.div
+            style={{ y: imageParallax }}
+            className="absolute inset-0"
+            aria-hidden="true"
+          >
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(/images/couple-hero.png)',
+                backgroundPosition: 'center 30%',
+              }}
+            />
           </motion.div>
 
-          {/* Sub-text */}
-          <motion.p
-            variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[16px] italic opacity-90 mt-2.5 max-sm:text-[14px]"
-          >
-            request the honor of your presence at the marriage of
-          </motion.p>
+          {/* Gradient overlay to blend text into photo edge */}
+          <div className="absolute inset-0 bg-gradient-to-r from-floral-bg/60 via-transparent to-transparent lg:from-floral-bg/80 lg:via-transparent lg:to-transparent pointer-events-none" />
 
-          {/* Names */}
-          <motion.h1
-            variants={fadeUp}
-            className="font-['Allura',cursive] leading-tight my-[15px] relative"
-            style={{
-              color: '#ffdce5',
-              textShadow:
-                '0 0 6px rgba(255,200,210,0.6), 0 0 12px rgba(255,170,190,0.6)',
-            }}
-          >
-            <span className="text-[clamp(50px,7vw,70px)] max-sm:text-[40px]">
-              {name1}
-            </span>
-            <span className="block text-[clamp(28px,4vw,40px)] text-[#ffdce5] leading-none my-0.5">
-              &amp;
-            </span>
-            <span className="text-[clamp(50px,7vw,70px)] max-sm:text-[40px]">
-              {name2}
-            </span>
-          </motion.h1>
-
-          {/* Divider */}
-          <motion.div variants={fadeIn} className="flex justify-center my-[18px]">
-            <span className="block w-[70px] h-[2px] bg-[#ffd6a5]" />
-          </motion.div>
-
-          {/* Date */}
-          <motion.p
-            variants={fadeIn}
-            className="font-['Cormorant_Garamond',serif] text-[18px] opacity-90 tracking-[1px]"
-          >
-            {weddingDate}
-          </motion.p>
-
-          {/* RSVP Button */}
-          <motion.button
-            variants={fadeUp}
-            onClick={onRSVPClick}
-            className="inline-block mt-[25px] px-[30px] py-3 rounded-[30px] text-white text-[14px] tracking-[1px] border-none cursor-pointer transition-all duration-300 hover:scale-105"
-            style={{ background: '#ff8fab' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#ff5d8f')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#ff8fab')}
-          >
-            RSVP Now
-          </motion.button>
+          {/* Bottom gradient for mobile transition */}
+          <div className="absolute inset-0 bg-gradient-to-t from-floral-bg via-floral-bg/60 to-transparent lg:hidden pointer-events-none" />
         </div>
-      </motion.div>
+      </div>
 
-      {/* ─── Scroll Down Indicator ─── */}
+      {/* ─── Scroll Indicator ─── */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.85 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-6 left-0 right-0 flex flex-col items-center pointer-events-none"
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5 }}
+        className="absolute bottom-8 left-8 lg:left-[55%] xl:left-[58%] flex flex-col items-start pointer-events-none z-20"
       >
         <motion.div
-          animate={{ y: [0, -6, 0], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="text-white text-[12px] tracking-[2px] font-['Cormorant_Garamond',serif] flex flex-col items-center"
+          animate={{ y: [0, -5, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2.5, repeat: Infinity }}
+          className="flex items-center gap-2"
         >
-          SCROLL DOWN
-          <span className="block text-[20px] mt-1">↓</span>
+          <span className="block w-6 h-px bg-floral-deep/20" />
+          <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-floral-deep/30 font-light">
+            Scroll
+          </span>
         </motion.div>
       </motion.div>
     </section>
