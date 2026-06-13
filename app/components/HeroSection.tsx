@@ -72,19 +72,16 @@ export default function HeroSection({
           variants={stagger}
           className="relative z-20 w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-20 lg:py-0"
         >
-          <div className="w-full max-w-xl mx-auto lg:mx-0">
+          <div className="w-full max-w-xl mx-auto text-center lg:text-left lg:mx-0">
             {/* Save the Date */}
-            <motion.div
+            <motion.p
               variants={fadeIn}
-              className="flex items-center gap-3 mb-6"
+              className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-floral-deep font-medium mb-8"
             >
-              <span className="block w-8 h-px bg-floral-gold/60" />
-              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-floral-deep font-medium">
-                Save the Date
-              </span>
-            </motion.div>
+              Save the Date
+            </motion.p>
 
-            {/* ─── Names — negative-margin overlap into photo zone ─── */}
+            {/* ─── Names ─── */}
             <motion.h1
               variants={fadeUp}
               className="font-['Playfair_Display',serif] leading-[1.05] lg:-mr-[22%] relative z-30"
@@ -100,18 +97,8 @@ export default function HeroSection({
               </span>
             </motion.h1>
 
-            {/* Decorative Divider */}
-            <motion.div
-              variants={fadeIn}
-              className="flex items-center gap-3 my-8"
-            >
-              <span className="block w-12 h-px bg-floral-gold/40" />
-              <span className="block w-2 h-2 rounded-full bg-floral-gold/30" />
-              <span className="block w-12 h-px bg-floral-gold/40" />
-            </motion.div>
-
-            {/* Date & Location */}
-            <motion.div variants={fadeUp} className="space-y-2 mb-10">
+            {/* Date & Location — clean whitespace separation */}
+            <motion.div variants={fadeUp} className="mt-10 space-y-2 mb-10">
               <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep font-medium">
                 {weddingDate}
               </p>
@@ -122,11 +109,11 @@ export default function HeroSection({
               )}
             </motion.div>
 
-            {/* Mini Countdown */}
-            <motion.div variants={fadeIn} className="mb-10">
-              <div className="inline-flex items-center gap-4 sm:gap-6 py-4 px-5 bg-white/80 backdrop-blur-sm rounded-xl border border-floral-cream">
+            {/* Mini Countdown — no container, floating on canvas */}
+            <motion.div variants={fadeIn} className="mb-10 flex justify-center">
+              <div className="flex items-center gap-5 sm:gap-8">
                 {timeUnits.map((unit, i) => (
-                  <div key={unit.label} className="flex items-center gap-4 sm:gap-6">
+                  <div key={unit.label} className="flex items-center gap-5 sm:gap-8">
                     <div className="text-center">
                       <span className="block font-serif text-2xl sm:text-3xl font-light text-floral-deep tabular-nums">
                         {String(unit.value).padStart(2, '0')}
@@ -136,28 +123,28 @@ export default function HeroSection({
                       </span>
                     </div>
                     {i < timeUnits.length - 1 && (
-                      <span className="text-floral-deep/60 font-medium text-lg">:</span>
+                      <span className="text-floral-deep/30 font-serif font-light text-xl sm:text-2xl">:</span>
                     )}
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* ─── CTA: Text links with center-out underline ─── */}
+            {/* ─── CTA: Text links ─── */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-8"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-12"
             >
               <button
                 onClick={onRSVPClick}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
+                className="group relative font-sans text-xs uppercase tracking-[0.15em] text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 RSVP
                 <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-gold group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
               <button
                 onClick={handleScrollToDetails}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep font-medium hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
+                className="group relative font-sans text-xs uppercase tracking-[0.15em] text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 View Details
                 <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/80 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
