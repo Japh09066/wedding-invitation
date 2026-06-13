@@ -154,7 +154,7 @@ export default function WeddingDetails() {
         >
           {/* QR 1 */}
           <div className="flex flex-col items-center">
-            <div className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] bg-white rounded-xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.2)] border border-floral-cream/60 p-3 flex items-center justify-center">
+            <div className="w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] bg-white rounded-xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.2)] border border-floral-cream/60 p-3 flex items-center justify-center">
               <img
                 src="/images/qr-1.png"
                 alt="InstaPay QR Code 1"
@@ -166,7 +166,7 @@ export default function WeddingDetails() {
 
           {/* QR 2 */}
           <div className="flex flex-col items-center">
-            <div className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] bg-white rounded-xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.2)] border border-floral-cream/60 p-3 flex items-center justify-center">
+            <div className="w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] bg-white rounded-xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.2)] border border-floral-cream/60 p-3 flex items-center justify-center">
               <img
                 src="/images/qr-2.png"
                 alt="InstaPay QR Code 2"
