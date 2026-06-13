@@ -157,9 +157,15 @@
     @apply block h-px bg-gradient-to-r from-transparent via-floral-gold/30 to-transparent;
   }
 
-  /* ─── Floating petals container ─── */
+    /* ─── Floating petals container ─── */
   .petals-container {
     @apply fixed inset-0 pointer-events-none overflow-hidden z-0;
+  }
+
+  .petal-particle {
+    will-change: transform, opacity;
+    animation: petalFall var(--duration, 24s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
   }
 }
 
@@ -182,3 +188,30 @@
 
 .animate-float-soft { animation: float-soft 4s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* ─── Floating Petals ─── */
+@keyframes petalFall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(25vh) translateX(calc(var(--drift, 60px) * 0.5)) rotate(45deg);
+  }
+  50% {
+    transform: translateY(50vh) translateX(calc(var(--drift, 60px) * -0.3)) rotate(90deg);
+  }
+  75% {
+    transform: translateY(75vh) translateX(calc(var(--drift, 60px) * 0.4)) rotate(135deg);
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) translateX(calc(var(--drift, 60px) * -0.2)) rotate(180deg);
+    opacity: 0;
+  }
+}
