@@ -45,7 +45,6 @@ export default function HeroSection({
   });
 
   const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const timeUnits = [
     { value: countdown.days, label: 'Days' },
@@ -71,7 +70,6 @@ export default function HeroSection({
           initial="hidden"
           animate="show"
           variants={stagger}
-          style={{ opacity: textOpacity as unknown as number }}
           className="relative z-20 w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-20 lg:py-0"
         >
           <div className="w-full max-w-xl mx-auto lg:mx-0">
