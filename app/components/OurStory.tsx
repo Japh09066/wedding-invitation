@@ -16,7 +16,7 @@ const storyMilestones = [
     date: 'June 3, 2025',
     title: 'Our First Date',
     description:
-      'On June 3, 2026, we shared our first date at a humble 7-Eleven. It wasn\u2019t the place that made it special, but the laughter, conversations, and growing connection that made the moment unforgettable.',
+      'On June 3, 2025, we shared our first date at a humble 7-Eleven. It wasn\u2019t the place that made it special, but the laughter, conversations, and growing connection that made the moment unforgettable.',
     icon: '✨',
     image: '/images/story-date.jpg',
   },
