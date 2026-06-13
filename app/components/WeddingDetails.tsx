@@ -64,8 +64,7 @@ export default function WeddingDetails() {
             <span className="font-medium text-floral-gold">July 01, 2026</span>.
           </p>
           <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-floral-taupe/70 mt-4">
-            Respond through the RSVP form on this page<br className="hidden sm:block" />
-            to be included in the official list.
+            RSVP on this page to confirm your attendance.
           </p>
         </motion.div>
 

@@ -7,20 +7,22 @@ export default function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const startedRef = useRef(false);
 
   useEffect(() => {
-    // Attempt autoplay on mount
     const musicUrl = process.env.NEXT_PUBLIC_MUSIC_URL || '/music/wedding-song.mp3';
     const audio = new Audio(musicUrl);
     audio.loop = true;
     audio.volume = 0.3;
     audioRef.current = audio;
 
+    // Attempt autoplay — may be blocked by browser
     audio.play().then(() => {
       setIsPlaying(true);
+      startedRef.current = true;
       setShowTooltip(false);
     }).catch(() => {
-      // Autoplay blocked — show tooltip, user will tap
+      // Autoplay blocked — show tooltip
       const timer = setTimeout(() => setShowTooltip(false), 4000);
       return () => clearTimeout(timer);
     });
@@ -28,6 +30,27 @@ export default function MusicToggle() {
     return () => {
       audio.pause();
       audio.src = '';
+    };
+  }, []);
+
+  // ─── Force-start on first user interaction anywhere on page ───
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (startedRef.current || !audioRef.current) return;
+      startedRef.current = true;
+
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+        setShowTooltip(false);
+      }).catch(() => {});
+    };
+
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
     };
   }, []);
 
@@ -55,7 +78,7 @@ export default function MusicToggle() {
             exit={{ opacity: 0, y: -10 }}
             className="fixed bottom-24 right-6 z-40 px-4 py-2 bg-floral-deep text-white text-xs rounded-xl shadow-lg font-sans"
           >
-            Tap for music 🎵
+            Tap anywhere for music 🎵
             <div className="absolute -bottom-1 right-6 w-2 h-2 bg-floral-deep rotate-45" />
           </motion.div>
         )}
