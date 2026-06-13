@@ -81,7 +81,7 @@ export default function HeroSection({
               className="flex items-center gap-3 mb-6"
             >
               <span className="block w-8 h-px bg-floral-gold/60" />
-              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-floral-taupe/70 font-light">
+              <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.25em] text-floral-deep font-medium">
                 Save the Date
               </span>
             </motion.div>
@@ -114,7 +114,7 @@ export default function HeroSection({
 
             {/* Date & Location */}
             <motion.div variants={fadeUp} className="space-y-2 mb-10">
-              <p className="font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.3em] text-floral-deep/90 font-light">
+              <p className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.3em] text-floral-deep font-medium">
                 {weddingDate}
               </p>
               {location && (
@@ -126,19 +126,19 @@ export default function HeroSection({
 
             {/* Mini Countdown */}
             <motion.div variants={fadeIn} className="mb-10">
-              <div className="inline-flex items-center gap-4 sm:gap-6 py-4 px-5 bg-white/50 backdrop-blur-sm rounded-xl border border-floral-cream/80">
+              <div className="inline-flex items-center gap-4 sm:gap-6 py-4 px-5 bg-white/80 backdrop-blur-sm rounded-xl border border-floral-cream">
                 {timeUnits.map((unit, i) => (
                   <div key={unit.label} className="flex items-center gap-4 sm:gap-6">
                     <div className="text-center">
                       <span className="block font-serif text-xl sm:text-2xl text-floral-deep tabular-nums">
                         {String(unit.value).padStart(2, '0')}
                       </span>
-                      <span className="block text-[8px] uppercase tracking-[0.2em] text-floral-taupe/60 font-sans font-light mt-0.5">
+                      <span className="block text-[9px] uppercase tracking-[0.2em] text-floral-deep font-sans font-medium mt-0.5">
                         {unit.label}
                       </span>
                     </div>
                     {i < timeUnits.length - 1 && (
-                      <span className="text-floral-taupe/30 font-light text-lg">:</span>
+                      <span className="text-floral-deep/60 font-medium text-lg">:</span>
                     )}
                   </div>
                 ))}
@@ -159,10 +159,10 @@ export default function HeroSection({
               </button>
               <button
                 onClick={handleScrollToDetails}
-                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep/70 hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
+                className="group relative font-sans text-xs sm:text-sm uppercase tracking-[0.2em] text-floral-deep font-medium hover:text-floral-deep transition-all duration-500 ease-in-out py-1"
               >
                 View Details
-                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/50 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
+                <span className="absolute bottom-0 left-1/2 w-0 h-px bg-floral-deep/80 group-hover:w-full transition-all duration-500 ease-in-out -translate-x-1/2" />
               </button>
             </motion.div>
           </div>
