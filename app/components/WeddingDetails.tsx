@@ -77,20 +77,6 @@ export default function WeddingDetails() {
             these colors on our special day.
           </p>
 
-          {/* Attire Illustration */}
-          <div className="flex justify-center mb-8">
-            <img
-              src="/images/attire-illustration.png"
-              alt="Attire color guide illustration"
-              className="w-full max-w-[280px] sm:max-w-[320px] h-auto rounded-xl"
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-          </div>
-
           {/* Color Swatches */}
           <div className="flex items-center justify-center gap-3 sm:gap-5 flex-wrap">
             {attireColors.map((color, i) => (
@@ -111,6 +97,16 @@ export default function WeddingDetails() {
                 </span>
               </motion.div>
             ))}
+          </div>
+
+          {/* Attire Illustration — placed below color swatches */}
+          <div className="flex justify-center mt-10">
+            <img
+              src="/images/attire-illustration.png"
+              alt="Attire color guide illustration"
+              className="w-full max-w-[340px] sm:max-w-[400px] h-auto rounded-xl shadow-[0_8px_30px_-6px_rgba(202,166,135,0.15)]"
+              loading="lazy"
+            />
           </div>
         </motion.div>
 
