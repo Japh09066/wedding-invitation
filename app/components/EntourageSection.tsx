@@ -183,7 +183,7 @@ const flowerGirls = [
   'Zara Athalia Carisse Luston',
 ];
 
-const bannerBearer = 'Spring Fiel / Apple Errua';
+const bannerBearer = 'Spring Fiel';
 
 const singers = [
   'Jhunna May Celeste',
