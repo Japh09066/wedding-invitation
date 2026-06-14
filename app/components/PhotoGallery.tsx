@@ -5,83 +5,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface GalleryImage {
   id: number;
+  src: string;
   alt: string;
-  color1: string;
-  color2: string;
-  pattern: 'circle' | 'rings' | 'wave' | 'diamond' | 'petal' | 'cross';
   aspectRatio: string;
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, alt: 'Bride & Groom', color1: '#f2d5d5', color2: '#d4a373', pattern: 'circle', aspectRatio: '16/9' },
-  { id: 2, alt: 'The Bridal Bouquet', color1: '#a3c4b5', color2: '#c9a88e', pattern: 'petal', aspectRatio: '3/4' },
-  { id: 3, alt: 'Ceremony Setup', color1: '#f5efe6', color2: '#d4a373', pattern: 'cross', aspectRatio: '4/3' },
-  { id: 4, alt: 'Wedding Rings', color1: '#e8d5c4', color2: '#a3c4b5', pattern: 'rings', aspectRatio: '1/1' },
-  { id: 5, alt: 'Reception Décor', color1: '#f2d5d5', color2: '#e8d5c4', pattern: 'wave', aspectRatio: '4/3' },
-  { id: 6, alt: 'First Dance', color1: '#c9a88e', color2: '#f5efe6', pattern: 'diamond', aspectRatio: '3/4' },
-  { id: 7, alt: 'Wedding Cake', color1: '#d4a373', color2: '#f2d5d5', pattern: 'rings', aspectRatio: '4/3' },
-  { id: 8, alt: 'Venue Details', color1: '#a3c4b5', color2: '#f5efe6', pattern: 'circle', aspectRatio: '4/3' },
+  { id: 1, src: '/images/gallery-01.jpg', alt: 'Bride & Groom', aspectRatio: '16/9' },
+  { id: 2, src: '/images/gallery-02.jpg', alt: 'The Bridal Bouquet', aspectRatio: '3/4' },
+  { id: 3, src: '/images/gallery-03.jpg', alt: 'Ceremony Setup', aspectRatio: '4/3' },
+  { id: 4, src: '/images/gallery-04.jpg', alt: 'Wedding Rings', aspectRatio: '1/1' },
+  { id: 5, src: '/images/gallery-05.jpg', alt: 'Reception Décor', aspectRatio: '4/3' },
+  { id: 6, src: '/images/gallery-06.jpg', alt: 'First Dance', aspectRatio: '3/4' },
+  { id: 7, src: '/images/gallery-07.jpg', alt: 'Wedding Cake', aspectRatio: '4/3' },
+  { id: 8, src: '/images/gallery-08.jpg', alt: 'Venue Details', aspectRatio: '4/3' },
+  { id: 9, src: '/images/gallery-09.jpg', alt: 'Family Portrait', aspectRatio: '4/3' },
+  { id: 10, src: '/images/gallery-10.jpg', alt: 'Best Moments', aspectRatio: '4/3' },
 ];
-
-function PatternSVG({ pattern, color1, color2 }: { pattern: string; color1: string; color2: string }) {
-  switch (pattern) {
-    case 'circle':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-30">
-          <circle cx="50" cy="50" r="40" fill="none" stroke={color2} strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="28" fill="none" stroke={color2} strokeWidth="0.4" />
-          <circle cx="50" cy="50" r="16" fill="none" stroke={color2} strokeWidth="0.3" />
-          <circle cx="50" cy="50" r="6" fill={color2} opacity="0.3" />
-        </svg>
-      );
-    case 'rings':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-          <ellipse cx="50" cy="50" rx="35" ry="15" fill="none" stroke={color2} strokeWidth="0.6" />
-          <ellipse cx="50" cy="50" rx="20" ry="8" fill="none" stroke={color2} strokeWidth="0.4" />
-          <circle cx="50" cy="50" r="4" fill={color2} opacity="0.4" />
-        </svg>
-      );
-    case 'wave':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-          <path d="M10 60 Q30 40 50 60 T90 60" fill="none" stroke={color2} strokeWidth="0.5" />
-          <path d="M10 70 Q30 50 50 70 T90 70" fill="none" stroke={color2} strokeWidth="0.4" opacity="0.7" />
-          <path d="M10 80 Q30 60 50 80 T90 80" fill="none" stroke={color2} strokeWidth="0.3" opacity="0.5" />
-        </svg>
-      );
-    case 'diamond':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-          <polygon points="50,15 80,50 50,85 20,50" fill="none" stroke={color2} strokeWidth="0.5" />
-          <polygon points="50,25 68,50 50,75 32,50" fill="none" stroke={color2} strokeWidth="0.3" opacity="0.7" />
-          <polygon points="50,38 58,50 50,62 42,50" fill="none" stroke={color2} strokeWidth="0.2" />
-        </svg>
-      );
-    case 'petal':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-          <ellipse cx="50" cy="30" rx="12" ry="20" fill="none" stroke={color2} strokeWidth="0.5" transform="rotate(0 50 50)" />
-          <ellipse cx="50" cy="30" rx="12" ry="20" fill="none" stroke={color2} strokeWidth="0.4" transform="rotate(72 50 50)" />
-          <ellipse cx="50" cy="30" rx="12" ry="20" fill="none" stroke={color2} strokeWidth="0.4" transform="rotate(144 50 50)" />
-          <ellipse cx="50" cy="30" rx="12" ry="20" fill="none" stroke={color2} strokeWidth="0.4" transform="rotate(216 50 50)" />
-          <ellipse cx="50" cy="30" rx="12" ry="20" fill="none" stroke={color2} strokeWidth="0.4" transform="rotate(288 50 50)" />
-          <circle cx="50" cy="50" r="4" fill={color2} opacity="0.4" />
-        </svg>
-      );
-    case 'cross':
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-          <line x1="50" y1="20" x2="50" y2="80" stroke={color2} strokeWidth="0.5" />
-          <line x1="30" y1="50" x2="70" y2="50" stroke={color2} strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="15" fill="none" stroke={color2} strokeWidth="0.3" />
-        </svg>
-      );
-  }
-}
 
 export default function PhotoGallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   const heroImage = galleryImages[0];
   const gridImages = galleryImages.slice(1);
@@ -91,20 +35,12 @@ export default function PhotoGallery() {
     pairedGrid.push(gridImages.slice(i, i + 2));
   }
 
+  const handleImageLoad = (id: number) => {
+    setLoadedImages((prev) => new Set(prev).add(id));
+  };
+
   return (
     <section id="gallery" className="section-padding bg-floral-bg relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-        <svg className="w-full h-full" preserveAspectRatio="none">
-          <defs>
-            <pattern id="gallery-bg" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
-              <circle cx="80" cy="80" r="40" fill="none" stroke="#5a4a3a" strokeWidth="1" />
-              <circle cx="320" cy="200" r="55" fill="none" stroke="#5a4a3a" strokeWidth="0.8" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#gallery-bg)" />
-        </svg>
-      </div>
-
       <div className="section-container text-center mb-12 relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -136,16 +72,20 @@ export default function PhotoGallery() {
             <button
               onClick={() => setSelectedImage(heroImage.id)}
               className="group relative w-full block overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500"
-              style={{ aspectRatio: '16/9' }}
+              style={{ aspectRatio: heroImage.aspectRatio }}
             >
-              <div
-                className="w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.02]"
-                style={{ background: `linear-gradient(135deg, ${heroImage.color1} 0%, ${heroImage.color2} 100%)` }}
-              >
-                <div className="w-full h-full relative flex items-center justify-center">
-                  <PatternSVG pattern={heroImage.pattern} color1={heroImage.color1} color2={heroImage.color2} />
-                </div>
-              </div>
+              {!loadedImages.has(heroImage.id) && (
+                <div className="absolute inset-0 bg-floral-cream animate-pulse" />
+              )}
+              <img
+                src={heroImage.src}
+                alt={heroImage.alt}
+                onLoad={() => handleImageLoad(heroImage.id)}
+                className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] ${
+                  loadedImages.has(heroImage.id) ? 'opacity-100' : 'opacity-0'
+                }`}
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                 <span className="text-white font-sans text-sm tracking-wider">{heroImage.alt}</span>
               </div>
@@ -170,14 +110,18 @@ export default function PhotoGallery() {
                     className="group relative w-full block overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
                     style={{ aspectRatio: img.aspectRatio }}
                   >
-                    <div
-                      className="w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.02]"
-                      style={{ background: `linear-gradient(135deg, ${img.color1} 0%, ${img.color2} 100%)` }}
-                    >
-                      <div className="w-full h-full relative flex items-center justify-center">
-                        <PatternSVG pattern={img.pattern} color1={img.color1} color2={img.color2} />
-                      </div>
-                    </div>
+                    {!loadedImages.has(img.id) && (
+                      <div className="absolute inset-0 bg-floral-cream animate-pulse" />
+                    )}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      onLoad={() => handleImageLoad(img.id)}
+                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] ${
+                        loadedImages.has(img.id) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      loading="lazy"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
                       <span className="text-white font-sans text-xs tracking-wider">{img.alt}</span>
                     </div>
@@ -213,24 +157,19 @@ export default function PhotoGallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="relative w-full max-w-3xl"
+              className="relative w-full max-w-4xl"
               onClick={(e) => e.stopPropagation()}
             >
               {(() => {
                 const img = galleryImages.find((i) => i.id === selectedImage);
                 if (!img) return null;
                 return (
-                  <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                    <div
-                      className="w-full flex items-center justify-center p-12"
-                      style={{ background: `linear-gradient(135deg, ${img.color1} 0%, ${img.color2} 100%)`, minHeight: '300px' }}
-                    >
-                      <svg viewBox="0 0 200 200" className="w-48 h-48 opacity-40">
-                        <circle cx="100" cy="100" r="80" fill="none" stroke={img.color2} strokeWidth="0.8" />
-                        <circle cx="100" cy="100" r="55" fill="none" stroke={img.color2} strokeWidth="0.6" />
-                        <circle cx="100" cy="100" r="30" fill={img.color2} opacity="0.2" />
-                      </svg>
-                    </div>
+                  <div className="relative rounded-xl overflow-hidden shadow-2xl bg-black/40">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full max-h-[80vh] object-contain"
+                    />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                       <p className="text-white font-serif text-xl">{img.alt}</p>
                       <p className="text-white/60 font-sans text-xs tracking-wider mt-1">Jay Sam &amp; Laarnie</p>
