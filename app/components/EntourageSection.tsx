@@ -61,6 +61,7 @@ const ninongs = [
   'Mr. Ric Grafil',
   'Mr. Neptali Galvan',
   'Engr. Virgilio Cabacang',
+  'Mr. Allan Peter Wales Makiling',
 ];
 
 const ninangs = [
@@ -92,6 +93,7 @@ const ninangs = [
   'Mrs. Rodelyn Grafil',
   'Mrs. Yvette Galvan',
   'Mrs. Arlene Cabacang',
+  'Mrs. Arlie Palarao',
 ];
 
 const bestMan = 'Mr. Hero Guisando';
