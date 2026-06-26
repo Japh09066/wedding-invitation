@@ -423,7 +423,7 @@ export default function EntourageSection() {
 
           {/* ===== SINGERS ===== */}
           <motion.div {...fadeUp(0.32)} className="text-center mb-3">
-            <span className={groupLabel}>Singers</span>
+            <span className={groupLabel}>To Sing us Symphony</span>
             {singers.map((name, i) => (
               <p key={i} className={groupName + " mt-0.5"}>{name}</p>
             ))}
