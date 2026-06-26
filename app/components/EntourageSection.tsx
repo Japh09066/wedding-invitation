@@ -409,7 +409,7 @@ export default function EntourageSection() {
 
           {/* ===== FLOWER GIRLS ===== */}
           <motion.div {...fadeUp(0.28)} className="text-center mb-3">
-            <span className={groupLabel}>Flower Girls</span>
+            <span className={groupLabel}>To Shower our Aisle with Flowers</span>
             {flowerGirls.map((name, i) => (
               <p key={i} className={groupName + " mt-0.5"}>{name}</p>
             ))}
