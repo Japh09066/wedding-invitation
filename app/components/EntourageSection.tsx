@@ -29,10 +29,11 @@ const parentsBride = [
 const officiatingMinisters = [
   'Pastor Joer Barlizo',
   'Pastor Nicanor Buo',
-  'Pastor Mariano Salloman',
 ];
 
 const ninongs = [
+  'Ptr. Mariano R. Salloman Jr.',
+  'Ptr. Benjamin S. Mahinay Jr.',
   'Ptr. Nicolas L. Palarao',
   'Ptr. Bartman M. Barrientos',
   'Ptr. Apolonio A. Pastera',
@@ -40,31 +41,40 @@ const ninongs = [
   'Ptr. Jacob A. Suarez',
   'Ptr. Isaias Guisando',
   'Ptr. Glen Siega',
-  'Ptr. Benjamin Mahinay',
   'Ptr. Nicanor M. Buo',
-  'Ptr. Moses Corro',
+  'Ptr. Moses A. Corro',
   'Ptr. Jonathan Muralla',
   'Ptr. Emmanuel Paul C. Barcenas',
   'Ptr. Ricardo B. De Asis',
-  'Ptr. Vedasto B. Buctot Jr.',
-  'Mr. Elias B. Buctot',
-  'Mr. Rudy B. Dadulo',
-  'Mr. Gilme Laurito',
+  'Mr. Sherwin Abantao',
+  'Mr. Edwin Gil',
+  'Mr. Felix Dumadag',
+  'Atty. Marvin J. Tanada',
+  'Mr. Vedasto Buctot Jr.',
+  'Mr. Elias Buctot',
+  'Mr. Rudy Dadulo',
   'Mr. Ronaldo Buctot',
+  'Mr. Ryan Buenaventura',
+  'Mr. Gilme Laurito',
+  'Engr. Virgilio Cabacang',
+  'Mr. Neptali Galvan',
   'Mr. Diosdado Balingcos',
   'Mr. Amon Buctot',
   'Mr. Joseph Rago',
   'Mr. Harold Tan',
   'Mr. Jay Estela',
   'Mr. Antonio P. Masin',
-  'Mr. Ryan Buenaventura',
   'Mr. Ric Grafil',
-  'Mr. Neptali Galvan',
-  'Engr. Virgilio Cabacang',
-  'Mr. Allan Peter Wales Makiling',
+  'Mr. Allan Peter Makiling',
+  'Doc. Arnel Arcenal',
+  'Doc. Arturo V. Sarrosa Jr.',
+  'Engr. Ted Tanag',
+  'Ptr. Jubilee Tanada',
 ];
 
 const ninangs = [
+  'Mrs. Leah A. Salloman',
+  'Mrs. Edna B. Celeste',
   'Mrs. Charity L. Palarao',
   'Mrs. Rexy Barrientos',
   'Mrs. Gladys Blaine A. Pastera',
@@ -72,28 +82,35 @@ const ninangs = [
   'Mrs. Nellie L. Suarez',
   'Mrs. Visminda Guisando',
   'Mrs. Marivic M. Siega',
-  'Mrs. Edna Celeste',
   'Mrs. Annabelle A. Buo',
   'Mrs. Gercel D. Corro',
   'Mrs. Rizalie Grace Muralla',
   'Mrs. Naresh M. Barcenas',
   'Mrs. Anna Marie R. De Asis',
+  'Mrs. Melody Abantao',
+  'Mrs. Liore Gil',
+  'Mrs. Fejay Dumadag',
+  'Mrs. Judy L. Aragon',
   'Mrs. Chiqui B. Buctot',
   'Mrs. Jennifer B. Buctot',
-  'Mrs. Elsa B. Dadulo',
-  'Mrs. Ester B. Laurito',
+  'Mrs. Elsa Dadulo',
   'Mrs. Lucy Buctot',
+  'Mrs. Joanne Buenaventura',
+  'Mrs. Ester Laurito',
+  'Mrs. Arlene Cabacang',
+  'Mrs. Yvette Galvan',
   'Mrs. Eunice Balingcos',
   'Mrs. Ruth Buctot',
   'Doc. Jenneth Rago',
   'Mrs. Julie Ann Tan',
   'Mrs. Grace Estela',
   'Mrs. Nancy K. Masin',
-  'Mrs. Joanne Buenaventura',
   'Mrs. Rodelyn Grafil',
-  'Mrs. Yvette Galvan',
-  'Mrs. Arlene Cabacang',
   'Mrs. Arlie Palarao',
+  'Mrs. Jacqueline Arcenal',
+  'Mrs. Loreta Mogueis',
+  'Doc. Imm Tae Wong',
+  'Mrs. Noeme Tanada',
 ];
 
 const bestMan = 'Mr. Hero Guisando';
@@ -102,7 +119,6 @@ const maidOfHonor = 'Ms. Micah Pusa';
 const groomsmen = [
   'Mr. Vynz Ramoso',
   'Mr. Gerhardt Celeste',
-  'Mr. Van Shinar Salloman',
   'Mr. Clark Ruzshel Buctot',
   'Mr. Josh Miguel Laurito',
   'Mr. Vence Andrey Buctot',
@@ -116,7 +132,10 @@ const bridesmaids = [
   'Ms. Jellian Jamio',
   'Ms. Jazzel Lincuna',
   'Ms. Yesheen Dawn Poliran',
+  'Ms. Cheyenne L. Aligado',
+  'Ms. Jennycel R. Luston',
   'Ms. Zhen Chloe Buctot',
+  'Ms. Khryss Madissa Luston',
 ];
 
 const juniorNinongs = [
@@ -131,6 +150,8 @@ const juniorNinongs = [
   'Ptr. Dixie Rey P. Minardo',
   'Ptr. Jimmy V. Rivera',
   'Ptr. Aronry V. Wales',
+  'Ptr. Jesriel Lucero',
+  'Ptr. Roland Rodriguez',
   'Mr. Jun Joshua O. Lucop',
   'Mr. Jay Lagan',
   'Mr. Elmer Kristoffer Mogueis',
@@ -139,7 +160,15 @@ const juniorNinongs = [
   'Mr. Kervin Cabrera',
   'Mr. David Vacunawa',
   'Mr. Ephraim Arriesgado',
-  'Mr. Marjem Libato',
+  'Mr. Klint Isle Fuentes',
+  'Mr. Kliff Fuentes',
+  'Mr. Heaven Son Eyas',
+  'Mr. Nepthali Gonzales',
+  'Mr. Ramdy Bon Iniego',
+  'Mr. Ronel Guido',
+  'Doc. Bienjelou Balasa',
+  'Engr. Arian Casquejo',
+  'Mr. Darlbe B. Salvador',
 ];
 
 const juniorNinangs = [
@@ -154,6 +183,8 @@ const juniorNinangs = [
   'Mrs. Honey Louraine B. Minardo',
   'Mrs. Pearlie B. Rivera',
   'Mrs. Dinah P. Wales',
+  'Mrs. Mary Grace Lucero',
+  'Mrs. Mara Rodriguez',
   'Ms. Rima C. Justimbaste',
   'Mrs. Ruth Lagan',
   'Mrs. Joyce Jane Mogueis',
@@ -162,13 +193,22 @@ const juniorNinangs = [
   'Mrs. Priscila Cabrera',
   'Mrs. Nhycy Lyn M. Vacunawa',
   'Mrs. Daryle Glimph Arriesgado',
-  'Ms. Apple Errua',
+  'Ms. April Kay Malundo',
+  'Mrs. Kish Fuentes',
+  'Mrs. Sheena Mae Eyas',
+  'Doc. Marsha Ann Gonzales',
+  'Mrs. Nikki Iniego',
+  'Mrs. Daisy Guido',
+  'Mrs. Regina Balasa',
+  'Engr. Jessa Pelias',
+  'Doc. Kimber Lee B. Salvador',
 ];
 
 const candleLighters = [
-  { male: 'Mr. Renyl B. Dadulo', female: 'Mrs. Marianne Joyce Dadulo' },
-  { male: 'Mr. Jay Mark Fernandez', female: 'Mrs. Elvie Jae Fernandez' },
-  { male: 'Mr. Marjem Libato', female: '' },
+  { male: 'Mr. Renyl Dadulo', female: 'Mrs. Marianne Joyce Dadulo' },
+  { male: 'Mr. JayMark Fernandez', female: 'Mrs. Elvie Jae Fernandez' },
+  { male: 'Mr. Marjem Libato', female: 'Ms. Sheena Mae Garzon' },
+  { male: 'Mr. Ryan Dave Aclon', female: 'Ms. Ailyn Mae Pusa' },
 ];
 
 const penBearer = 'Theo James Buctot';
@@ -180,18 +220,16 @@ const littleBride = 'Raya Ellisse Dadulo';
 const flowerGirls = [
   'Xhandrei Wei Tan',
   'Heather Sky Orge',
-  'Dreanna Dennisse Logrono',
+  'Dreanna Dennisse Logroño',
   'Kirsten Jill Estela',
+  'Joannah Ziah Fernandez',
   'Zara Athalia Carisse Luston',
 ];
 
-const bannerBearer = 'Spring Fiel';
+const bannerBearer = 'Spring Fiel / Apple Errua';
 
 const singers = [
-  'Jhunna May Celeste',
-  'Joyce Jane Mogueis',
-  'Elvie Jae Fernandez',
-  'Jeralyn Dadulo',
+  'The Cousins',
   'Lovely Bayer',
 ];
 
@@ -270,6 +308,11 @@ export default function EntourageSection() {
           </motion.div>
 
           <span className={sectionRule + " my-4 mx-12"} />
+
+          {/* ===== SECONDARY SPONSORS HEADING ===== */}
+          <motion.div {...fadeUp(0.12)} className="text-center mb-4">
+            <h3 className={callig + " text-lg sm:text-xl leading-tight"}>Secondary Sponsors</h3>
+          </motion.div>
 
           {/* ===== BEST MAN | MAID OF HONOR ===== */}
           <motion.div {...fadeUp(0.13)} className="grid grid-cols-2 gap-4 sm:gap-8 max-w-sm mx-auto mb-3">
