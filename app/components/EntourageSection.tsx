@@ -29,6 +29,7 @@ const parentsBride = [
 const officiatingMinisters = [
   'Pastor Joer Barlizo',
   'Pastor Nicanor Buo',
+  'Ptr. Mariano R. Salloman Jr.',
 ];
 
 const ninongs = [
