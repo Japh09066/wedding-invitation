@@ -125,17 +125,17 @@ const groomsmen = [
   'Mr. Vence Andrey Buctot',
   'Mr. Rafael Abantao',
   'Mr. Rogin Castillo',
-  'Mr. Jud Enoir',
+  'Mr. Jud Renoir Edrial',
 ];
 
 const bridesmaids = [
   'Ms. Rica Mae Bulingit',
   'Ms. Jellian Jamio',
-  'Ms. Jazzel Lincuna',
-  'Ms. Yesheen Dawn Poliran',
+  'Ms. Ailyn Mae Pusa',
   'Ms. Cheyenne L. Aligado',
-  'Ms. Jennycel R. Luston',
+  'Ms. Jazzel Lincuna',
   'Ms. Zhen Chloe Buctot',
+  'Ms. Jennycel R. Luston',
   'Ms. Khryss Madissa Luston',
 ];
 
@@ -161,6 +161,7 @@ const juniorNinongs = [
   'Mr. Kervin Cabrera',
   'Mr. David Vacunawa',
   'Mr. Ephraim Arriesgado',
+  'Mr. Rayzand Aclon',
   'Mr. Klint Isle Fuentes',
   'Mr. Kliff Fuentes',
   'Mr. Heaven Son Eyas',
@@ -194,6 +195,7 @@ const juniorNinangs = [
   'Mrs. Priscila Cabrera',
   'Mrs. Nhycy Lyn M. Vacunawa',
   'Mrs. Daryle Glimph Arriesgado',
+  'Ms. Anna L Padang',
   'Ms. April Kay Malundo',
   'Mrs. Kish Fuentes',
   'Mrs. Sheena Mae Eyas',
