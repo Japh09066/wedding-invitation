@@ -211,7 +211,7 @@ const candleLighters = [
   { male: 'Mr. Renyl Dadulo', female: 'Mrs. Marianne Joyce Dadulo' },
   { male: 'Mr. JayMark Fernandez', female: 'Mrs. Elvie Jae Fernandez' },
   { male: 'Mr. Marjem Libato', female: 'Ms. Sheena Mae Garzon' },
-  { male: 'Mr. Ryan Dave Aclon', female: 'Ms. Ailyn Mae Pusa' },
+  { male: 'Mr. Ryan Dave Aclon', female: 'Ms. Nhemelie Grace Buctot' },
 ];
 
 const penBearer = 'Theo James Buctot';
