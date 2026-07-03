@@ -234,6 +234,7 @@ const bannerBearer = 'Spring Fiel / Apple Errua';
 const singers = [
   'The Cousins',
   'Lovely Bayer',
+  'Mark Jayrome Daniel',
 ];
 
 const hosts = ['Joyce Jane Mogueis', 'Jeralyn Dadulo'];
