@@ -164,8 +164,8 @@ export default function HeroSection({
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
-                    backgroundImage: 'url(/images/reception-hero.jpg)',
-                    backgroundPosition: 'center 30%',
+                    backgroundImage: 'url(/images/hero-couple.png)',
+                    backgroundPosition: 'center 40%',
                   }}
                 />
               </motion.div>
