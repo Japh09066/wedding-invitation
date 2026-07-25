@@ -17,7 +17,7 @@ const stagger = {
 
 const attireColors = [
   { hex: '#f5dbda', label: 'Blush' },
-  { hex: '#ebc2c0', label: 'Rose' },
+  { hex: '#ebc2c0', label: 'Dusty Pink' },
   { hex: '#dba8a5', label: 'Dusty Rose' },
   { hex: '#c98d8a', label: 'Mauve' },
   { hex: '#b87875', label: 'Deep Mauve' },
