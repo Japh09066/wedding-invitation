@@ -110,8 +110,6 @@ const ninangs = [
   'Mrs. Arlie Palarao',
   'Mrs. Jacqueline Arcenal',
   'Mrs. Loreta Mogueis',
-  'Doc. Imm Tae Wong',
-  'Mrs. Noeme Tanada',
 ];
 
 const bestMan = 'Mr. Hero Guisando';
@@ -136,7 +134,7 @@ const bridesmaids = [
   'Ms. Jazzel Lincuna',
   'Ms. Zhen Chloe Buctot',
   'Ms. Jennycel R. Luston',
-  'Ms. Khryss Madissa Luston',
+  'Ms. Jaysyl Phincer S. Mahinay',
 ];
 
 const juniorNinongs = [
@@ -154,7 +152,6 @@ const juniorNinongs = [
   'Ptr. Jesriel Lucero',
   'Ptr. Roland Rodriguez',
   'Mr. Jun Joshua O. Lucop',
-  'Mr. Jay Lagan',
   'Mr. Elmer Kristoffer Mogueis',
   'Mr. Al Anthony Caldona',
   'Mr. Redyl Dadulo',
@@ -192,7 +189,6 @@ const juniorNinangs = [
   'Mrs. Joyce Jane Mogueis',
   'Ms. Jhunna May Celeste',
   'Mrs. Jeralyn Dadulo',
-  'Mrs. Priscila Cabrera',
   'Mrs. Nhycy Lyn M. Vacunawa',
   'Mrs. Daryle Glimph Arriesgado',
   'Ms. Anna L Padang',
