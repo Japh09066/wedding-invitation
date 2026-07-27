@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'When is the RSVP deadline?',
     answer:
-      'Please RSVP by <strong>July 01, 2026</strong> so we can have an accurate headcount. 🙂',
+      'Please RSVP by <strong>August 01, 2026</strong> so we can have an accurate headcount. 🙂',
   },
   {
     question: 'Can I bring a date?',

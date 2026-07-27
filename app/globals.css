@@ -621,7 +621,7 @@
 
   /* Show print-only RSVP info */
   #rsvp .card::after {
-    content: 'For RSVP, please visit the online invitation at: wedding-invitation.vercel.app\A\A Kindly respond by July 01, 2026.';
+    content: 'For RSVP, please visit the online invitation at: wedding-invitation.vercel.app\A\A Kindly respond by August 01, 2026.';
     display: block;
     white-space: pre-line;
     font-family: 'Cormorant Garamond', Georgia, serif;
