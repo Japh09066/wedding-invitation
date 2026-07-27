@@ -204,12 +204,12 @@ const juniorNinangs = [
 const candleLighters = [
   { male: 'Mr. Renyl Dadulo', female: 'Mrs. Marianne Joyce Dadulo' },
   { male: 'Mr. JayMark Fernandez', female: 'Mrs. Elvie Jae Fernandez' },
-  { male: 'Mr. Marjem Libato', female: 'Ms. Sheena Mae Garzon' },
+  { male: 'Mr. Marjem Libato', female: 'Ms. Yohann Grafil' },
   { male: 'Mr. Ryan Dave Aclon', female: 'Ms. Nhemelie Grace Buctot' },
 ];
 
 const penBearer = 'Theo James Buctot';
-const bibleBearers = ['Jehoash Ai Errua', 'Yophiel Mattahry Mahinay'];
+const bibleBearers = ['Jehoash Ai Errua'];
 const contractBearer = 'Zamir Adrian Buctot';
 const littleGroom = 'Joaquin Mason Salloman';
 const littleBride = 'Raya Ellisse Dadulo';
