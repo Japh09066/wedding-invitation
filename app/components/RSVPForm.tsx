@@ -67,7 +67,7 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
     setSubmitStatus('idle');
 
     const now = new Date();
-    const phOpts = { timeZone: 'Asia/Manila', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true };
+    const phOpts: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Manila', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true };
     const phTime = now.toLocaleString('en-US', phOpts).replace(/\u202f/g, ' ').replace(' at ', ' ');
     const submittedAt = phTime;
 
