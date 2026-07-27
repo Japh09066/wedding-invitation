@@ -11,16 +11,16 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: '/images/gallery-01.jpg', alt: 'Bride & Groom', aspectRatio: '16/9' },
-  { id: 2, src: '/images/gallery-02.jpg', alt: 'The Bridal Bouquet', aspectRatio: '3/4' },
-  { id: 3, src: '/images/gallery-03.jpg', alt: 'Ceremony Setup', aspectRatio: '4/3' },
-  { id: 4, src: '/images/gallery-04.jpg', alt: 'Wedding Rings', aspectRatio: '1/1' },
-  { id: 5, src: '/images/gallery-05.jpg', alt: 'Reception Décor', aspectRatio: '4/3' },
-  { id: 6, src: '/images/gallery-06.jpg', alt: 'First Dance', aspectRatio: '3/4' },
-  { id: 7, src: '/images/gallery-07.jpg', alt: 'Wedding Cake', aspectRatio: '4/3' },
-  { id: 8, src: '/images/gallery-08.jpg', alt: 'Venue Details', aspectRatio: '4/3' },
-  { id: 9, src: '/images/gallery-09.jpg', alt: 'Family Portrait', aspectRatio: '4/3' },
-  { id: 10, src: '/images/gallery-10.jpg', alt: 'Best Moments', aspectRatio: '4/3' },
+  { id: 1, src: '/images/gallery-01.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 2, src: '/images/gallery-02.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 3, src: '/images/gallery-03.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 4, src: '/images/gallery-04.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 5, src: '/images/gallery-05.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 6, src: '/images/gallery-06.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 7, src: '/images/gallery-07.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
+  { id: 8, src: '/images/gallery-08.jpg', alt: 'Wedding gallery photo', aspectRatio: '3/2' },
+  { id: 9, src: '/images/gallery-09.jpg', alt: 'Wedding gallery photo', aspectRatio: '3/2' },
+  { id: 10, src: '/images/gallery-10.jpg', alt: 'Wedding gallery photo', aspectRatio: '2/3' },
 ];
 
 export default function PhotoGallery() {
@@ -86,9 +86,7 @@ export default function PhotoGallery() {
                 }`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <span className="text-white font-sans text-sm tracking-wider">{heroImage.alt}</span>
-              </div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </button>
           </motion.div>
         )}
@@ -122,9 +120,7 @@ export default function PhotoGallery() {
                       }`}
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                      <span className="text-white font-sans text-xs tracking-wider">{img.alt}</span>
-                    </div>
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500" />
                   </button>
                 </motion.div>
               ))}
@@ -171,8 +167,7 @@ export default function PhotoGallery() {
                       className="w-full max-h-[80vh] object-contain"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                      <p className="text-white font-serif text-xl">{img.alt}</p>
-                      <p className="text-white/60 font-sans text-xs tracking-wider mt-1">Jay Sam &amp; Laarnie</p>
+                      <p className="text-white/60 font-sans text-xs tracking-wider">Jay Sam &amp; Laarnie</p>
                     </div>
                   </div>
                 );
