@@ -69,8 +69,6 @@ const ninongs = [
   'Mr. Allan Peter Makiling',
   'Doc. Arnel Arcenal',
   'Doc. Arturo V. Sarrosa Jr.',
-  'Engr. Ted Tanag',
-  'Ptr. Jubilee Tanada',
 ];
 
 const ninangs = [
