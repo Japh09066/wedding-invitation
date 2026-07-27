@@ -78,7 +78,10 @@ export default function Footer() {
           className="mt-10 pt-8 border-t border-white/10"
         >
           <p className="font-sans text-[11px] text-white/25 tracking-wider uppercase">
-            &copy; {year} Jay Sam &amp; Laarnie
+            &copy; {year} Jay Sam &amp; Laarnie. All rights reserved.
+          </p>
+          <p className="font-sans text-[10px] text-white/15 tracking-wider mt-1.5">
+            Website designed &amp; developed by Japhet Dal.
           </p>
         </motion.div>
       </div>
