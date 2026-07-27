@@ -67,9 +67,8 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
     setSubmitStatus('idle');
 
     const now = new Date();
-    const phOffset = 8 * 60; // PH is UTC+8
-    const phTime = new Date(now.getTime() + (now.getTimezoneOffset() + phOffset) * 60000);
-    const submittedAt = phTime.toISOString().replace('Z', '+08:00');
+    const phTime = now.toLocaleString('en-CA', { timeZone: 'Asia/Manila', hour12: false }).replace(',', '');
+    const submittedAt = phTime;
 
     const payload = {
       id: generateSubmissionId(),
