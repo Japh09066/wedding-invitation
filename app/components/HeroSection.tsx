@@ -164,7 +164,7 @@ export default function HeroSection({
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
-                    backgroundImage: 'url(/images/hero-couple.png)',
+                    backgroundImage: 'url(/images/hero-couple.jpg)',
                     backgroundPosition: 'center 40%',
                   }}
                 />
