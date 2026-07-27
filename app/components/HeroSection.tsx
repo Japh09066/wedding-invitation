@@ -156,7 +156,7 @@ export default function HeroSection({
         {/* ─── Right: 3:4 Aspect Ratio Photo Frame ─── */}
         <div className="relative w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex items-center justify-center lg:items-center overflow-visible">
           <div className="w-full max-w-[85%] sm:max-w-[70%] lg:max-w-none lg:w-[88%] xl:w-[82%] lg:-ml-[10%]">
-            <div className="aspect-[3/4] w-full relative overflow-hidden rounded-sm shadow-[0_24px_72px_-20px_rgba(90,74,58,0.3)]">
+            <div className="aspect-[3/2] w-full relative overflow-hidden rounded-sm shadow-[0_24px_72px_-20px_rgba(90,74,58,0.3)]">
               <motion.div
                 style={{ y: imageParallax }}
                 className="absolute inset-0"
