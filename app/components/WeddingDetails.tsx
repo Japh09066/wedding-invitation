@@ -61,7 +61,7 @@ export default function WeddingDetails() {
               &nbsp;&nbsp;
             </span>{' '}
             seat(s) for you. A favor of your reply is requested on or before{' '}
-            <span className="font-medium text-floral-gold">July 01, 2026</span>.
+            <span className="font-medium text-floral-gold">August 01, 2026</span>.
           </p>
           <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-floral-taupe/70 mt-4">
             RSVP on this page to confirm your attendance.
