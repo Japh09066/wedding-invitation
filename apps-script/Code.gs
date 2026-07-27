@@ -54,15 +54,56 @@ function doPost(e) {
   }
 }
 
-// GET handler — health check
+// GET handler — health check + timestamp conversion
 function doGet(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var count = Math.max(0, sheet.getLastRow() - 1); // minus header
+  
+  // Convert existing UTC timestamps to PH time
+  if (e && e.parameter && e.parameter.action === 'convertTimes') {
+    return convertTimestampsToPH(sheet);
+  }
+  
+  var count = Math.max(0, sheet.getLastRow() - 1);
   
   return createResponse({
     status: 'ok',
     totalRsvps: count,
     timestamp: new Date().toISOString(),
+  });
+}
+
+// Convert all timestamps in column F from UTC to PH time (+08:00)
+function convertTimestampsToPH(sheet) {
+  var lastRow = sheet.getLastRow();
+  if (lastRow <= 1) {
+    return createResponse({ success: true, converted: 0, message: 'No data rows to convert' });
+  }
+  
+  var range = sheet.getRange(2, 6, lastRow - 1, 1); // Column F, skip header
+  var values = range.getValues();
+  var converted = 0;
+  
+  for (var i = 0; i < values.length; i++) {
+    var val = values[i][0];
+    if (typeof val === 'string' && val.indexOf('+08:00') === -1) {
+      // Convert from UTC ISO to PH time
+      var d = new Date(val);
+      if (!isNaN(d.getTime())) {
+        var phOffset = 8 * 60; // UTC+8
+        var phTime = new Date(d.getTime() + (d.getTimezoneOffset() + phOffset) * 60000);
+        var iso = phTime.toISOString().replace('Z', '+08:00');
+        values[i][0] = iso;
+        converted++;
+      }
+    }
+  }
+  
+  range.setValues(values);
+  
+  return createResponse({
+    success: true,
+    converted: converted,
+    message: 'Converted ' + converted + ' timestamp(s) to Philippine Time',
   });
 }
 
