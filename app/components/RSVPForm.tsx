@@ -66,13 +66,18 @@ export default function RSVPForm({ onSuccess, onClose, isModal = false }: RSVPFo
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const now = new Date();
+    const phOffset = 8 * 60; // PH is UTC+8
+    const phTime = new Date(now.getTime() + (now.getTimezoneOffset() + phOffset) * 60000);
+    const submittedAt = phTime.toISOString().replace('Z', '+08:00');
+
     const payload = {
       id: generateSubmissionId(),
       name: formData.name.trim(),
       attendance: formData.attendance === 'yes' ? 'Yes' : 'No',
       guests: formData.attendance === 'yes' ? formData.guests : 0,
       message: formData.message.trim(),
-      submittedAt: new Date().toISOString(),
+      submittedAt,
     };
 
     // Get Apps Script URL from environment variable
