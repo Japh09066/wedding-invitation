@@ -183,7 +183,7 @@ const juniorNinangs = [
   'Mrs. Mary Grace Lucero',
   'Mrs. Mara Rodriguez',
   'Ms. Rima C. Justimbaste',
-  'Mrs. Cherrmma Lyn Diesto',
+  'Mrs. Cherrma Lynn Diesto',
   'Mrs. Joyce Jane Mogueis',
   'Ms. Jhunna May Celeste',
   'Mrs. Jeralyn Dadulo',
