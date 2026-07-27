@@ -81,7 +81,7 @@ export default function Footer() {
             &copy; {year} Jay Sam &amp; Laarnie. All rights reserved.
           </p>
           <p className="font-sans text-[10px] text-white/15 tracking-wider mt-1.5">
-            Website designed &amp; developed by Japhet Dal.
+            Website designed &amp; developed by Japh Dal.
           </p>
         </motion.div>
       </div>
