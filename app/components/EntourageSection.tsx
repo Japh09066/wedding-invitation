@@ -150,7 +150,7 @@ const juniorNinongs = [
   'Ptr. Jesriel Lucero',
   'Ptr. Roland Rodriguez',
   'Mr. Jun Joshua O. Lucop',
-  'Mr. Asher Diesto',
+  'Mr. Asher Bryan Diesto',
   'Mr. Elmer Kristoffer Mogueis',
   'Mr. Al Anthony Caldona',
   'Mr. Redyl Dadulo',
@@ -183,7 +183,7 @@ const juniorNinangs = [
   'Mrs. Mary Grace Lucero',
   'Mrs. Mara Rodriguez',
   'Ms. Rima C. Justimbaste',
-  'Mrs. Chermma Lyn Diesto',
+  'Mrs. Cherrmma Lyn Diesto',
   'Mrs. Joyce Jane Mogueis',
   'Ms. Jhunna May Celeste',
   'Mrs. Jeralyn Dadulo',
@@ -198,7 +198,7 @@ const juniorNinangs = [
   'Mrs. Daisy Guido',
   'Mrs. Regina Balasa',
   'Engr. Jessa Pelias',
-  'Doc. Kimber Lee B. Salvador',
+  'Mrs. Kimberlee B. Salvador',
 ];
 
 const candleLighters = [
