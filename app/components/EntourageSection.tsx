@@ -152,7 +152,7 @@ const juniorNinongs = [
   'Mr. Jun Joshua O. Lucop',
   'Mr. Asher Bryan Diesto',
   'Mr. Elmer Kristoffer Mogueis',
-  'Mr. Al Anthony Caldona',
+  'Mr. Al Anthony Carolino',
   'Mr. Redyl Dadulo',
   'Mr. David Vacunawa',
   'Mr. Ephraim Arriesgado',
