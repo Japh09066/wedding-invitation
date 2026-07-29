@@ -80,9 +80,7 @@ export default function Footer() {
           <p className="font-sans text-[11px] text-white/25 tracking-wider uppercase">
             &copy; {year} Jay Sam &amp; Laarnie. All rights reserved.
           </p>
-          <p className="font-sans text-[10px] text-white/15 tracking-wider mt-1.5">
-            Website designed &amp; developed by Japh Dal.
-          </p>
+        
         </motion.div>
       </div>
     </footer>
