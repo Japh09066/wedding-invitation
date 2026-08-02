@@ -11,7 +11,7 @@ const events = [
     id: 'ceremony',
     title: 'Wedding Ceremony',
     date: 'August 18, 2026',
-    time: '2:30 PM',
+    time: '2:00 PM',
     venue: 'Nava Seventh-Day Adventist Church',
     address: 'Nava, Hinunangan, Leyte, Philippines',
     icon: '⛪',
