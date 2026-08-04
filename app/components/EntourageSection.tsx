@@ -166,6 +166,7 @@ const juniorNinongs = [
   'Doc. Bienjelou Balasa',
   'Engr. Arian Casquejo',
   'Mr. Darlbe B. Salvador',
+  'Mr. Beorth Antero D. Caray',
 ];
 
 const juniorNinangs = [
@@ -199,6 +200,7 @@ const juniorNinangs = [
   'Mrs. Regina Balasa',
   'Engr. Jessa Pelias',
   'Mrs. Kimberlee B. Salvador',
+  'Mrs. Christine Jane C. Caray',
 ];
 
 const candleLighters = [
